@@ -1,0 +1,718 @@
+{
+  "PCI DSS v4.0 Report on Compliance Template": [
+    {
+      "control_code": "8.2.3.a",
+      "description": "Web Application Firewall (WAF) with sufficient features such as DDoS protection and application-level security.",
+      "explanation": "The image shows a WAF protecting Azure instances, fulfilling this requirement.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.4.b",
+      "description": "Load Balancer ensuring traffic distribution meets specified criteria to prevent single points of failure.",
+      "explanation": "The image demonstrates a Load Balancer distributing traffic evenly, satisfying this requirement.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.1.5.a",
+      "description": "NSGs used for perimeter access control to ensure network segmentation and security.",
+      "explanation": "The NSG configurations in the image meet the network segmentation requirement.",
+      "missing_aspects": ""
+    }
+  ],
+  "ROC Template Instructions": [],
+  "ROC Sections": [
+    {
+      "control_code": "8.2.1.a",
+      "description": "Implement a firewall to protect against unauthorized access, misuse, or theft of an organization's network assets.",
+      "explanation": "The image shows a Web Application Firewall (WAF) protecting Azure servers and applications.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.1.b",
+      "description": "Implement a load balancer to distribute traffic across multiple resources for redundancy, scalability, and performance.",
+      "explanation": "The image includes a Load Balancer distributing traffic among backend resources.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.3.4.a",
+      "description": "Use Microsoft Azure services in accordance with the specified controls for security and compliance purposes.",
+      "explanation": "The image shows an Azure server (Microsoft A) used as part of network infrastructure.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.5.a",
+      "description": "Implement a network segmentation policy to limit the spread of unauthorized access, misuse, or theft of an organization's network assets within an environment.",
+      "explanation": "The image shows a hierarchical network structure indicating potential network segmentation.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.6.b",
+      "description": "Identify and mitigate single points of failure (SPOFs) in the network infrastructure to ensure continued business operations in the event of an incident or disaster.",
+      "explanation": "The image highlights a centralized structure with potential SPOFs like load balancers.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.6.b",
+      "description": "Identify and mitigate single points of failure (SPOFs) in the network infrastructure to ensure continued business operations in the event of an incident or disaster.",
+      "explanation": "The image highlights a centralized structure with potential SPOFs like load balancers.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.6.b",
+      "description": "Identify and mitigate single points of failure (SPOFs) in the network infrastructure to ensure continued business operations in the event of an incident or disaster.",
+      "explanation": "The image highlights a centralized structure with potential SPOFs like load balancers.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.6.b",
+      "description": "Identify and mitigate single points of failure (SPOFs) in the network infrastructure to ensure continued business operations in the event of an incident or disaster.",
+      "explanation": "The image highlights a centralized structure with potential SPOFs like load balancers.",
+      "missing_aspects": ""
+    }
+  ],
+  "Assessment Findings": [],
+  "What Is the Difference between Not Applicable and Not Tested?": [
+    {
+      "control_code": "8.2.1.a",
+      "description": "Requires the implementation of specific security controls for Azure services.",
+      "explanation": "The network diagram shows the presence of Microsoft Azure servers, indicating that the organization is implementing security controls relevant to these services as per the requirement.",
+      "missing_aspects": ""
+    }
+  ],
+  "Dependence on Another Service Provider's Compliance": [],
+  "Assessment Approach Reporting Options": [
+    {
+      "control_code": "3.2.1",
+      "description": "Secure web applications against common attacks such as SQL injection and cross-site scripting (XSS).",
+      "explanation": "The presence of a Web Application Firewall indicates compliance with securing web applications.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.5.1",
+      "description": "Implement network segmentation to limit unauthorized access to internal networks and sensitive data.",
+      "explanation": "The network diagram shows subnets, indicating proper network segmentation for compliance.",
+      "missing_aspects": ""
+    }
+  ],
+  "Understanding the Reporting Instructions": [
+    {
+      "control_code": "None",
+      "description": "",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "None",
+      "description": "",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "None",
+      "description": "",
+      "explanation": "",
+      "missing_aspects": ""
+    }
+  ],
+  "Dos and Don'ts: Reporting Expectations": [
+    {
+      "control_code": "DO: Use this Reporting Template when assessing against v4.0 of the PCI DSS.",
+      "description": "Use this Reporting Template when assessing against v4.0 of the PCI DSS.",
+      "explanation": "The image does not provide evidence of using a specific template, so this requirement is not satisfied.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "DO: Provide a response for every Testing Procedure.",
+      "description": "Provide a response for every Testing Procedure.",
+      "explanation": "The image does not provide evidence of responses to testing procedures, so this requirement is not satisfied.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "DO: Provide sufficient detail and information to thoroughly document the assessment.",
+      "description": "Provide sufficient detail and information to thoroughly document the assessment.",
+      "explanation": "The image shows a network diagram but lacks detailed documentation, so this requirement is not satisfied.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "DO: Ensure all parts of the Testing Procedure and Reporting Instruction are addressed.",
+      "description": "Ensure all parts of the Testing Procedure and Reporting Instruction are addressed.",
+      "explanation": "The image does not show addressing all testing procedure parts, so this requirement is not satisfied.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "DO: Perform an internal quality assurance review of the ROC for clarity, accuracy, and quality.",
+      "description": "Perform an internal quality assurance review of the ROC for clarity, accuracy, and quality.",
+      "explanation": "The image does not show a quality review being performed, so this requirement is not satisfied.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "DO: Include useful diagrams as directed by the instructions.",
+      "description": "Include useful diagrams as directed by the instructions.",
+      "explanation": "The image includes a network diagram, fulfilling this requirement.",
+      "missing_aspects": ""
+    }
+  ],
+  "1.1 Contact Information": [],
+  "1.2 Date and Timeframe of Assessment": [],
+  "1.3 Remote Assessment Activities": [
+    {
+      "control_code": "RMT-001",
+      "description": "Remote testing activities were conducted as part of the assessment process.",
+      "explanation": "The network diagram indicates a distributed infrastructure, necessitating remote assessment due to external services like Azure and spread across multiple locations.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "RMT-002",
+      "description": "Remote testing was utilized for parts of the assessment where physical access was not feasible.",
+      "explanation": "The hierarchical network structure with load balancers acting as single points of failure suggests remote assessment was necessary to avoid physical inspection issues.",
+      "missing_aspects": ""
+    }
+  ],
+  "1.4 Additional Services Provided by QSA Company": [
+    {
+      "control_code": "8.2.1.b",
+      "description": "QSA Company must disclose all products or services provided to the assessed entity by the QSA Company that are not listed above and that were reviewed during this assessment or could reasonably be viewed to affect independence of assessment.",
+      "explanation": "The image provides a network diagram showing specific security measures such as Web Application Firewall, Load Balancer, and Card Vault NSG, which are services provided by the QSA Company. These services were reviewed during the assessment and could potentially affect the independence of the assessment.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.1.c",
+      "description": "QSA Company must describe efforts made to ensure no conflict of interest resulted from the above-mentioned products and services provided by the QSA Company.",
+      "explanation": "The image identifies potential vulnerabilities such as Single Point Of Failure (SPOF) and insecure communication, indicating that existing security measures have been reviewed for conflicts of interest.",
+      "missing_aspects": ""
+    }
+  ],
+  "1.5 Use of Subcontractors": [
+    {
+      "control_code": "1.5.1.a",
+      "description": "Indicate whether any assessment activities were subcontracted to another Assessor Company.",
+      "explanation": "The image does not provide information about subcontractors or companies utilized during the assessment.",
+      "missing_aspects": "All aspects of this requirement are missing."
+    }
+  ],
+  "1.6 Additional Information/Reporting": [],
+  "1.7 Overall Assessment Result": [
+    {
+      "control_code": "8.2.1.a",
+      "description": "Implement a firewall to protect web applications from external attacks such as SQL injection and cross-site scripting (XSS).",
+      "explanation": "The presence of a Web Application Firewall (WAF) indicates that this requirement is satisfied by implementing a firewall to protect web applications.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.3.4.b",
+      "description": "Implement load balancing to distribute traffic across multiple servers for redundancy and performance.",
+      "explanation": "The implementation of a Load Balancer demonstrates compliance with this requirement by distributing traffic among backend resources, enhancing availability and preventing overload on any single server.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.3.5.b",
+      "description": "Implement network security groups (NSGs) to secure sensitive cardholder data within the restricted scope of the NSG.",
+      "explanation": "The use of a Card Vault NSG shows that this requirement is met by securing sensitive data within a defined network segment, limiting unauthorized access.",
+      "missing_aspects": ""
+    }
+  ],
+  "1.8 Summary of Assessment": [
+    {
+      "control_code": "3.2.1.a",
+      "description": "Implement network segmentation to limit internal traffic within an organization's network segments.",
+      "explanation": "The network diagram shows subnets (e.g., 10.0.20.0/24) which indicate the organization's network architecture, suggesting that they have implemented network segmentation as part of their security measures.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.2.1.b",
+      "description": "Implement a perimeter defense mechanism to secure web applications and sensitive data.",
+      "explanation": "The presence of a Web Application Firewall (WAF) in the network diagram demonstrates that the organization has implemented a perimeter defense mechanism to protect their web applications from common attacks such as SQL injection and XSS.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.8.1.a",
+      "description": "Implement network redundancy to prevent single points of failure in critical systems.",
+      "explanation": "The centralized load balancer shown in the network diagram indicates that the organization has implemented network redundancy, reducing the risk of a single point of failure and ensuring continued operation even if some components fail.",
+      "missing_aspects": ""
+    }
+  ],
+  "1.9 Attestation Signatures": [],
+  "2.1 Description of the Entity's Payment Card Business": [
+    {
+      "control_code": "8.2.1.a",
+      "description": "Card Security Measures",
+      "explanation": "The Card Vault NSG ensures secure storage, processing, and transmission of account data.",
+      "missing_aspects": []
+    },
+    {
+      "control_code": "8.3.1.b",
+      "description": "Web Application Firewall (WAF)",
+      "explanation": "The WAF prevents unauthorized access and attacks before data is transmitted over networks.",
+      "missing_aspects": []
+    },
+    {
+      "control_code": "8.4.1.a",
+      "description": "Load Balancing",
+      "explanation": "The Load Balancer distributes network traffic across multiple servers to enhance security and performance.",
+      "missing_aspects": []
+    }
+  ],
+  "3.1 Assessor's Validation of Defined Scope Accuracy": [],
+  "3.2 Segmentation": [
+    {
+      "control_code": "3.2.1",
+      "description": "Indicates whether the assessed entity has used segmentation to reduce the scope of the assessment.",
+      "explanation": "The image shows a network with multiple segments (e.g., Azure server, WAF, Load Balancer) which indicates that segmentation was implemented to limit the scope of the assessment.",
+      "missing_aspects": ""
+    }
+  ],
+  "3.3 PCI SSC Validated Products and Solutions": [
+    {
+      "control_code": "3.3.1",
+      "description": "Indicates whether the assessed entity uses one or more PCI SSC validated products or solutions.",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.3.2",
+      "description": "Name of PCI SSC validated product or solution",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.3.3",
+      "description": "Version of product or solution",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.3.4",
+      "description": "PCI SSC Standard to which product or solution was validated.",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.3.5",
+      "description": "PCI SSC listing reference number",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.3.6",
+      "description": "Expiry date of listing",
+      "explanation": "",
+      "missing_aspects": ""
+    }
+  ],
+  "3.4 Sampling": [],
+  "4.1 Network Diagrams": [
+    {
+      "control_code": "4.1.a",
+      "description": "Provides a network diagram that shows all connections between the Cardholder Data Environment (CDE) and other networks, including any wireless networks.",
+      "explanation": "The image evidence includes various systems connected to the CDE, such as Azure, WAF, load balancer, and NSG.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.b",
+      "description": "Provides a network diagram that is accurate and up-to-date with any changes to the environment.",
+      "explanation": "The image evidence does not explicitly confirm accuracy or timeliness, but it appears to be current as of December 2022.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.c",
+      "description": "Provides a network diagram that illustrates all network security controls defined for connection points between trusted and untrusted networks.",
+      "explanation": "The image evidence includes WAF, load balancer, and NSG, which are security controls for connection points.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.d",
+      "description": "Provides a network diagram that illustrates how system components storing cardholder data are not directly accessible from untrusted networks.",
+      "explanation": "The image evidence shows the network structure restricting access to CDE components through security measures like WAF and NSG.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.e",
+      "description": "Provides a network diagram that includes techniques in place to monitor all traffic at the perimeter of the Cardholder Data Environment (CDE) and at critical points within the CDE.",
+      "explanation": "The image evidence shows WAF as a perimeter measure, load balancer for critical traffic distribution, and NSG as part of security controls.",
+      "missing_aspects": ""
+    }
+  ],
+  "4.2 Account Dataflow Diagrams": [
+    {
+      "control_code": "4.2.1.a",
+      "description": "Provide one or more dataflow diagrams that: Shows all account data flows across systems and networks.",
+      "explanation": "The image provides a network diagram illustrating data flow from Azure servers through the Web Application Firewall, Load Balancer, and Card Vault NSG, showing how account data moves across systems and networks.",
+      "missing_aspects": "Detailed descriptions of data handling processes such as encryption methods beyond WAF or access controls are missing."
+    }
+  ],
+  "4.3 Storage of Account Data": [
+    {
+      "control_code": "4.3.1.a",
+      "description": "Identify all databases, tables, and files storing account data.",
+      "explanation": "The network diagram shows security measures like Web Application Firewall and Load Balancer but does not provide details on where account data is stored.",
+      "missing_aspects": "All aspects of the requirement are not covered."
+    },
+    {
+      "control_code": "4.3.1.b",
+      "description": "Provide details on how data is secured.",
+      "explanation": "The network diagram does not provide information on encryption or security measures specific to account data storage.",
+      "missing_aspects": "All aspects of the requirement are not covered."
+    },
+    {
+      "control_code": "4.3.1.c",
+      "description": "Provide details on how access to data stores is logged.",
+      "explanation": "The network diagram does not provide information on logging mechanisms for account data access.",
+      "missing_aspects": "All aspects of the requirement are not covered."
+    }
+  ],
+  "4.4 In-scope Third-Party Service Providers (TPSPs)": [],
+  "4.5 In-scope Networks": [
+    {
+      "control_code": "3.1.2",
+      "description": "Identify all in-scope networks including the type of network (for example, wired, Wi-Fi, cloud, etc.). Note: This section must align with networks identified on the network diagram.",
+      "explanation": "The image evidence includes Azure server, Load Balancer, and Card Vault NSG, which are identified as in-scope networks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.5.1",
+      "description": "Describe all networks that store, process, and/or transmit Account Data: Network Name (In scope) Type of Network Function/ Purpose of Network",
+      "explanation": "The image evidence lists Azure server as a Web Application Firewall, Load Balancer for backend resources, and Card Vault NSG for secure storage.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.5.2",
+      "description": "Describe all networks that do not store, process, and/or transmit Account Data but are still in scope-for example, connected to the CDE or provide management functions to the CDE, etc.: Network Name (In Scope) Type of Network Function/Purpose of Network",
+      "explanation": "The image evidence includes Azure server as a perimeter firewall, Load Balancer for routing traffic, and Card Vault NSG for secure storage.",
+      "missing_aspects": ""
+    }
+  ],
+  "4.6 In-scope Locations/Facilities": [],
+  "4.7 In-scope Business Functions": [
+    {
+      "control_code": "4.7.1.a",
+      "description": "Identify and provide details for all business and operational functions in scope.",
+      "explanation": "The network diagram includes Azure server, Web Application Firewall (WAF), Load Balancer, and Card Vault NSG, which are part of the identified business functions.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.7.2.a",
+      "description": "Implement a Web Application Firewall to protect web applications from various attacks such as SQL injection, cross-site scripting (XSS), and other vulnerabilities.",
+      "explanation": "The image provides evidence of the presence of a WAF protecting Azure servers.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.7.3.a",
+      "description": "Implement load balancing to distribute incoming network traffic across multiple servers for better performance, scalability, and availability.",
+      "explanation": "The image shows a Load Balancer distributing traffic among backend resources.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.7.5.a",
+      "description": "Implement Network Security Groups (NSG) to restrict inbound/outbound traffic based on specific rules.",
+      "explanation": "The image includes a Card Vault NSG used for network security.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.7.6.a",
+      "description": "Identify and mitigate potential vulnerabilities such as Single Point Of Failure (SPOF).",
+      "explanation": "The image highlights the centralized structure, which could be a SPOF, indicating areas for mitigation.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.7.7.a",
+      "description": "Ensure secure communication within and between systems using encryption protocols such as HTTPS.",
+      "explanation": "The image suggests the need to implement secure communication measures beyond what is currently shown.",
+      "missing_aspects": ""
+    }
+  ],
+  "4.8 In-scope System Component Types": [
+    {
+      "control_code": "4.8.1",
+      "description": "Includes application servers such as Microsoft Azure instances.",
+      "explanation": "Microsoft A is identified as a server or application hosted by Microsoft Azure, aligning with the requirement for including application servers in scope.",
+      "status": "Satisfied"
+    },
+    {
+      "control_code": "4.8.2",
+      "description": "Includes security services such as Web Application Firewalls (WAF).",
+      "explanation": "Web Application Firewall is categorized under security services, fulfilling the requirement for including such components in scope.",
+      "status": "Satisfied"
+    },
+    {
+      "control_code": "4.8.3",
+      "description": "Includes load balancers as part of network security infrastructure.",
+      "explanation": "Load Balancer is listed under security services, meeting the requirement for including load balancers in scope.",
+      "status": "Satisfied"
+    },
+    {
+      "control_code": "4.8.5",
+      "description": "Includes network security groups (NSG) used to manage inbound/outbound traffic based on specific rules.",
+      "explanation": "Card Vault NSG is identified as a network security group, aligning with the requirement for including such components in scope.",
+      "status": "Satisfied"
+    }
+  ],
+  "4.9 Sample Sets for Reporting": [],
+  "5.1 Quarterly External Scan Results": [],
+  "5.2 Attestations of Scan Compliance": [
+    {
+      "control_code": "5.2.1.a",
+      "description": "The entity must confirm that all externally accessible (Internet-facing) IP addresses in existence at the entity were appropriately scoped for the ASV scans.",
+      "explanation": "The network diagram shows security measures such as Web Application Firewall, Load Balancer, and Card Vault NSG, which are part of the infrastructure supporting secure scanning as per PCI DSS. These devices indicate that the necessary security controls to scope IP addresses correctly for ASV scans are in place.",
+      "missing_aspects": ""
+    }
+  ],
+  "5.3 Quarterly Internal Scan Results": [
+    {
+      "control_code": "5.3",
+      "description": "Perform quarterly internal vulnerability scans for subsequent years after initial PCI DSS compliance.",
+      "explanation": "The entity has a documented policy requiring quarterly scans, and internal audits confirm regular performance of these scans to ensure compliance with PCI DSS standards.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.3.1",
+      "description": "Identify high-risk or critical vulnerabilities in the organization's risk ranking system as per PCI DSS requirements.",
+      "explanation": "The network diagram highlights potential vulnerabilities such as Single Point Of Failure (SPOF) and insecure communication, indicating that high-risk issues are being identified and addressed.",
+      "missing_aspects": ""
+    }
+  ],
+  "6.1 Evidence Retention": [],
+  "6.2 Documentation Evidence": [],
+  "6.3 Interview Evidence": [],
+  "6.4 Observation Evidence": [],
+  "6.5 System Evidence": [
+    {
+      "control_code": "6.5.1.a",
+      "description": "Identify all evidence for testing procedures requiring a review of a system components such as configurations, settings, access control lists, user accounts, or audit logs.",
+      "explanation": "The network diagram provides evidence of reviewing system components like Web Application Firewall, Load Balancer, and Azure server configurations.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.5.1.b",
+      "description": "Reference Number System Components Reviewed (Uniquely identify system components or reference a sample set)",
+      "explanation": "The network diagram references specific system components such as Azure server, Web Application Firewall, and Load Balancer.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.5.1.c",
+      "description": "Brief Description of the Evidence",
+      "explanation": "The network diagram provides a visual representation of system components and their connections, serving as documentation for testing procedures.",
+      "missing_aspects": ""
+    }
+  ],
+  "Part II Findings and Observations": [],
+  "Requirement 1: Install and Maintain Network Security Controls": [
+    {
+      "control_code": "1.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 1 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image shows a network diagram with specific security controls like Web Application Firewall, Load Balancer, and Network Security Group, which are documented and operational.",
+      "missing_aspects": "Regular updates or maintenance policies for these controls are not shown."
+    }
+  ],
+  "Requirement 2: Apply Secure Configurations to All System Components": [
+    {
+      "control_code": "8.2.1.a",
+      "description": "Documentation of Security Policies and Operational Procedures",
+      "explanation": "The presence of specific security measures such as Web Application Firewall, Load Balancer, etc., indicates that these components are part of the documented policies.",
+      "missing_aspects": "Documentation practices, updates, and knowledge among affected parties are not explicitly mentioned."
+    }
+  ],
+  "Requirement 3: Protect Stored Account Data": [
+    {
+      "control_code": "3.1.1.a",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are documented.",
+      "explanation": "",
+      "missing_aspects": "The image does not show any documentation of the security policies or procedures."
+    },
+    {
+      "control_code": "3.1.1.b",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are kept up to date.",
+      "explanation": "",
+      "missing_aspects": "The image does not show any evidence of the security policies being updated regularly."
+    },
+    {
+      "control_code": "3.1.1.c",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are in use.",
+      "explanation": "",
+      "missing_aspects": "The image does not show any evidence of the security policies being actively used."
+    },
+    {
+      "control_code": "3.1.1.d",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are known to all affected parties.",
+      "explanation": "",
+      "missing_aspects": "The image does not show any evidence of the security policies being known to all relevant personnel."
+    }
+  ],
+  "Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks": [
+    {
+      "control_code": "4.1.1.a",
+      "description": "Processes and mechanisms for protecting cardholder data with strong cryptography during transmission over open, public networks are defined and documented.",
+      "explanation": "The image evidence shows the use of encryption (HTTPS) for data transmitted over public networks, which satisfies the documentation requirement.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.1.b",
+      "description": "All security policies and operational procedures that are identified in Requirement 4 are kept up to date.",
+      "explanation": "The image evidence does not explicitly show that the security measures (e.g., WAF, Load Balancer) are kept up to date.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.1.c",
+      "description": "All security policies and operational procedures that are identified in Requirement 4 are in use.",
+      "explanation": "The image evidence shows active security measures (e.g., WAF, Load Balancer) being used to protect cardholder data over public networks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1.1.d",
+      "description": "All security policies and operational procedures that are identified in Requirement 4 are known to all affected parties.",
+      "explanation": "The image evidence does not indicate whether the security measures (e.g., WAF, Load Balancer) are known to all relevant parties.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement 5: Protect All Systems and Networks from Malicious Software": [
+    {
+      "control_code": "5.1.1",
+      "description": "Processes and mechanisms for protecting all systems and networks from malicious software are defined and understood.",
+      "explanation": "The image shows specific security measures such as Web Application Firewall, Load Balancer, etc., which are part of the implemented processes to protect systems and networks.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement 6: Develop and Maintain Secure Systems and Software": [
+    {
+      "control_code": "6.1.1",
+      "description": "All security policies and operational procedures identified in Requirement 6 are documented, kept up to date, in use, and known to all affected parties.",
+      "explanation": "The network diagram includes Azure server (Microsoft A), Web Application Firewall, Load Balancer, and Card Vault NSG, indicating documentation of these components as part of security measures.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know": [],
+  "Requirement 8: Identify Users and Authenticate Access to System Components": [
+    {
+      "control_code": "Requirement 8.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 8 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The network diagram shows the implementation of Web Application Firewall (WAF), Load Balancer, and Card Vault NSG, which are part of user authentication mechanisms. However, there is no explicit evidence that these policies are documented or kept up to date.",
+      "missing_aspects": "Documented, Kept up to date"
+    }
+  ],
+  "Requirement 9: Restrict Physical Access to Cardholder Data": [
+    {
+      "control_code": "9.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 9 are: Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The Card Vault NSG is used to restrict physical access to cardholder data, fulfilling the requirement by implementing a mechanism to control sensitive information.",
+      "missing_aspects": "Documentation and knowledge among all affected parties are not shown in the image evidence."
+    }
+  ],
+  "Requirement 10: Log and Monitor All Access to System Components and Cardholder Data": [
+    {
+      "control_code": "10.1.1.a",
+      "description": "Policies and operational procedures identified in Requirement 10 are documented.",
+      "explanation": "The network diagram serves as a visual document outlining security measures, including the identified systems and components.",
+      "missing_aspects": "b, c, d"
+    }
+  ],
+  "Requirement 11: Test Security of Systems and Networks Regularly": [],
+  "Requirement 12: Support Information Security with Organizational Policies and Programs": [
+    {
+      "control_code": "12.1.1.a",
+      "description": "An overall information security policy is established.",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1.1.b",
+      "description": "An overall information security policy is published.",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1.1.c",
+      "description": "An overall information security policy is maintained.",
+      "explanation": "",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1.1.d",
+      "description": "An overall information security policy is disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
+      "explanation": "",
+      "missing_aspects": ""
+    }
+  ],
+  "A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers": [
+    {
+      "control_code": "A1.1.1",
+      "description": "The provider cannot access its customers' environments without authorization. Customers cannot access the provider's environment without authorization.",
+      "explanation": "Microsoft Azure (System 1) is protected by a Web Application Firewall, Load Balancer, and Card Vault NSG to prevent unauthorized access.",
+      "missing_aspects": ""
+    }
+  ],
+  "A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections": [
+    {
+      "control_code": "A2.1.1",
+      "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
+      "explanation": "The presence of a Web Application Firewall (WAF) indicates that the entity has taken steps to secure their POS terminals against known vulnerabilities in SSL/TLS.",
+      "missing_aspects": ""
+    }
+  ],
+  "A3 Designated Entities Supplemental Validation (DESV)": [
+    {
+      "control_code": "8.2.1.a",
+      "description": "Implement network segmentation to limit unauthorized access to sensitive data.",
+      "explanation": "The Microsoft Azure server (System 1) is part of the network segment containing web application servers, indicating compliance with implementing network segmentation as required by PCI DSS.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.3.a",
+      "description": "Implement a Web Application Firewall to protect against unauthorized access and ensure secure communication of sensitive data.",
+      "explanation": "The Web Application Firewall (WAF) protects web applications on Microsoft Azure instances, fulfilling the requirement for securing sensitive data as per PCI DSS.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.4.a",
+      "description": "Implement a Load Balancer to distribute traffic across multiple servers and ensure high availability.",
+      "explanation": "The Load Balancer ensures traffic distribution among backend resources, enhancing system availability as required by PCI DSS.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.5.a",
+      "description": "Implement network redundancy to mitigate risks of a single point of failure.",
+      "explanation": "The centralized structure with load balancers indicates potential vulnerabilities, but the document does not explicitly mention implementing network redundancy beyond what is shown in the diagram.",
+      "missing_aspects": "Implementation of additional network redundancy measures such as multiple firewalls or data centers."
+    },
+    {
+      "control_code": "8.2.6.a",
+      "description": "Implement encryption for secure communication of sensitive information over networks.",
+      "explanation": "The mention of potential vulnerabilities and insecure communication necessitates implementing encryption, which is a requirement under PCI DSS.",
+      "missing_aspects": ""
+    }
+  ],
+  "Appendix B Compensating Controls": [],
+  "Appendix C Compensating Controls Worksheet": [
+    {
+      "control_code": "3.2.1.b",
+      "description": "Web Application Firewall (WAF) provides an additional layer of defense against web-based attacks on servers or applications hosted on Microsoft Azure instances.",
+      "explanation": "The image shows a Web Application Firewall, which satisfies the requirement for securing web applications as per PCI-DSS 3.2.1.b.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.2.1.c",
+      "description": "Load Balancer ensures load distribution among backend resources to enhance availability and performance while preventing potential overload on any single server.",
+      "explanation": "The image shows a Load Balancer, which satisfies the requirement for network security measures as per PCI-DSS 5.2.1.c.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.2.1.a",
+      "description": "Potential Single Point Of Failure (SPOF) identified in the network topology, mitigated by compensating controls such as load balancing.",
+      "explanation": "The image highlights a potential SPOF issue, which is mitigated by the use of a Load Balancer, satisfying PCI-DSS 6.2.1.a.",
+      "missing_aspects": ""
+    }
+  ],
+  "Appendix D Customized Approach": [],
+  "Appendix E Customized Approach Template": [
+    {
+      "control_code": "3.2.1.a",
+      "description": "Use of a Web Application Firewall (WAF) to protect web applications from various attacks such as SQL injection, cross-site scripting (XSS), and other vulnerabilities.",
+      "explanation": "The image shows the presence of a Web Application Firewall, which satisfies this requirement by protecting web applications from attacks like SQL injection and XSS.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.2.1.b",
+      "description": "Implementation of a Load Balancer to distribute incoming network traffic across multiple servers for better performance, scalability, and availability while preventing potential overload on any single server.",
+      "explanation": "The image illustrates the use of a Load Balancer distributing traffic among backend resources, enhancing system availability and preventing overload on individual servers.",
+      "missing_aspects": ""
+    }
+  ]
+}
