@@ -17,7 +17,7 @@ CHUNK_CACHE = "pci_chunks.pkl"
 MAX_CHUNK_SIZE = 25000  # Optimal for GPT-4o's 128k context
 MAX_CONCURRENT_REQUESTS = 5  # Stay within rate limits
 # client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="")
 
 def get_pdf_chunks() -> List[Dict]:
     """Extract and cache PDF chunks with Unstructured"""
