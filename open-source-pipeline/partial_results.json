@@ -1,0 +1,69 @@
+[
+  {
+    "section_num": "3.1",
+    "section_title": "Assessor’s Validation of Defined Scope Accuracy ...................................................................................................................................... 12",
+    "requirements": [
+      "3.1.2"
+    ],
+    "explanation": {
+      "analysis": "The provided image shows a network diagram with various components, including firewalls and load balancers. The presence of multiple firewall types suggests an attempt to secure different parts of the IT infrastructure according to their function in processing payments.",
+      "firewall_configurations": {
+        "WAF": {
+          "IP address range": "10.0.20.0/24",
+          "compliance": "Review firewall rules for proper access control and monitoring."
+        },
+        "AFW": {
+          "IP address range": "10.0030.0/24"
+        },
+        "NSG (Card Vault)": {
+          "IP address range": "10.0.40.0/24"
+        }
+      },
+      "load_balancers": {
+        "Nal Load Balancer": {
+          "IP address range": "10.0.50.0/2"
+        },
+        "Internal Load Balancer": {}
+      },
+      "nonCDEsInScope": [
+        "Non-Cardholder Data Environment (CDE) devices"
+      ],
+      "cde_in_scope": [],
+      "confidence": "Medium"
+    },
+    "confidence": "Medium",
+    "content_excerpt": "PCI DSS v4.0 ROC Template r1 \nDecember 2022 \n© 2006 - 2022 PCI Security Standards Council, LLC. All rights reserved. \nPage iv\n"
+  },
+  {
+    "section_num": "1.1",
+    "section_title": "Contact Information",
+    "requirements": [],
+    "explanation": "",
+    "confidence": "Medium",
+    "content_excerpt": "Assessed Entity \nCompany name: \n<Enter Response Here> \nDBA (doing business as): \n<Enter Response Here> \nMailing address: \n<Enter Response Here> \nCompany main website: \n<Enter Response Here> \nContact name: \n<Enter Response Here> \nContact title: \n<Enter Response Here> \nContact phone number: \n<Enter Response Here> \nContact e-mail address: \n<Enter Response Here> \nAssessed Entity Internal Security Assessors \nIdentify all Internal Security Assessors (ISAs) involved in the assessment. If there were non"
+  },
+  {
+    "section_num": "1.2",
+    "section_title": "Date and Timeframe of Assessment",
+    "requirements": [],
+    "explanation": "",
+    "confidence": "Low",
+    "content_excerpt": "Date of Report: \nNote: The “Date of Report” indicates the completion \ndate of the ROC, and therefore must be no earlier \nthan the date on which the QSA Company and \nassessed entity agree on the final version of the \nROC. \n<Enter Response Here> \nDate assessment began:  \nNote: This is the first date that evidence was \ngathered, or observations were made. \n<Enter Response Here> \nDate assessment ended: \nNote: This is the last date that evidence was \ngathered, or observations were made. \n<Enter Respo"
+  },
+  {
+    "section_num": "1.3",
+    "section_title": "Remote Assessment Activities",
+    "requirements": [],
+    "explanation": "",
+    "confidence": "Medium",
+    "content_excerpt": "Overview of Remote Testing Activity \nTo what extent were remote testing methods used for this \nassessment? \n☐ All testing was performed onsite \n☐ A combination of onsite and remote testing methods was used \n☐ All testing was performed remotely \nIf remote testing was used for any part of the assessment, \nbriefly describe why onsite testing was not feasible or practical. \n<Enter Response Here> \n\n \nPCI DSS v4.0 ROC Template r1 \n \nDecember 2022 \n© 2006 - 2022 PCI Security Standards Council, LLC. All"
+  },
+  {
+    "section_num": "4.8",
+    "section_title": "In-scope System Component Types",
+    "requirements": [],
+    "explanation": "",
+    "confidence": "Medium",
+    "content_excerpt": "Identify all types of system components in scope.  \n“System components” include network devices, servers, computing devices, virtual components, cloud components, and software. Examples \nof system components include, but are not limited to: \n \nSystems that store, process, or transmit account data (for example, payment terminals, authorization systems, clearing systems, \npayment middleware systems, payment back-office systems, shopping cart and store front systems, payment gateway/switch systems"
+  }
+]

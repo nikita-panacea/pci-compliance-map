@@ -1,0 +1,82 @@
+ROC Template Instructions ............................................................................... 6
+    ROC Sections ........................................................................................ 6
+    Assessment Findings ................................................................................. 8
+    What Is the Difference between Not Applicable and Not Tested?........................................ 11
+    Dependence on Another Service Provider’s Compliance ................................................. 12
+    Assessment Approach Reporting Options ............................................................... 13
+    Understanding the Reporting Instructions ............................................................ 15
+    Dos and Don’ts: Reporting Expectations .............................................................. 16
+    PCI DSS v4.0 Report on Compliance Template .......................................................... 16
+Part I Assessment Overview .............................................................................. 2
+1  Contact Information and Summary of Results ........................................................... 2
+1.1 Contact Information.................................................................................. 2
+1.2 Date and Timeframe of Assessment .................................................................... 4
+1.3 Remote Assessment Activities ........................................................................ 4
+1.3.1 Overview of Remote Testing Activity.................................................................4
+1.3.2 Summary of Testing Performed Remotely...............................................................5
+1.3.3 Assessor Assurance in Assesment Result..............................................................5
+1.3.4 Requirements That Could Not be Fully Verified.......................................................6 
+1.4 Additional Services Provided by QSA Company ......................................................... 6
+1.5 Use of Subcontractors ............................................................................... 7
+1.6 Additional Information/Reporting .................................................................... 7
+1.7 Overall Assessment Result ........................................................................... 7
+1.8 Summary of Assessment ............................................................................... 8
+1.8.1 Summary of Assessment Findings and Methods..........................................................9
+1.8.2 Optional: Additional Assessor Comments..............................................................9
+1.9 Attestation Signatures .............................................................................. 10
+2 Business Overview ..................................................................................... 11
+2.1 Description of the Entity’s Payment Card Business ................................................... 11
+3 Description of Scope of Work and Approach Taken ....................................................... 12
+3.1 Assessor’s Validation of Defined Scope Accuracy ..................................................... 12
+3.2 Segmentation ........................................................................................ 13
+3.3 PCI SSC Validated Products and Solutions ............................................................ 14
+3.4 Sampling ............................................................................................ 15
+4 Details About Reviewed Environments ................................................................... 16
+4.1 Network Diagrams .................................................................................... 16
+4.2 Account Dataflow Diagrams ........................................................................... 17
+4.2.1 Description of Account Data Flows...................................................................17
+4.3 Storage of Account Data ............................................................................. 18
+4.3.1 Storage of SAD......................................................................................18
+4.4 In-scope Third-Party Service Providers (TPSPs) ...................................................... 19
+4.5 In-scope Networks ................................................................................... 21
+4.6 In-scope Locations/Facilities ....................................................................... 21
+4.7 In-scope Business Functions ......................................................................... 22
+4.8 In-scope System Component Types...................................................................... 22
+4.9 Sample Sets for Reporting ........................................................................... 25
+5 Quarterly Scan Results ................................................................................ 26
+5.1 Quarterly External Scan Results ..................................................................... 26
+5.2 Attestations of Scan Compliance ..................................................................... 26
+5.3 Quarterly Internal Scan Results ..................................................................... 27
+6 Evidence (Assessment Workpapers) ...................................................................... 28
+6.1 Evidence Retention .................................................................................. 28
+6.2 Documentation Evidence .............................................................................. 28
+6.3 Interview Evidence .................................................................................. 28
+6.4 Observation Evidence ................................................................................ 29
+6.5 System Evidence ..................................................................................... 30
+Part II Findings and Observations ....................................................................... 31
+Build and Maintain a Secure Network and Systems ......................................................... 31
+Requirement 1: Install and Maintain Network Security Controls ........................................... 31
+Requirement 2: Apply Secure Configurations to All System Components ..................................... 62
+Protect Account Data .................................................................................... 82
+Requirement 3: Protect Stored Account Data .............................................................. 82
+Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks ................................. 129
+Maintain a Vulnerability Management Program ............................................................. 138
+Requirement 5: Protect All Systems and Networks from Malicious Software ................................. 138
+Requirement 6: Develop and Maintain Secure Systems and Software ......................................... 161
+Implement Strong Access Control Measures ................................................................ 196
+Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know................................................. 196
+Requirement 8: Identify Users and Authenticate Access to System Components .............................. 216
+Requirement 9: Restrict Physical Access to Cardholder Data .............................................. 265
+Regularly Monitor and Test Networks ..................................................................... 310
+Requirement 10: Log and Monitor All Access to System Components and Cardholder Data ............................................................. 310
+Requirement 11: Test Security of Systems and Networks Regularly ......................................... 354
+Maintain an Information Security Policy ................................................................. 392
+Requirement 12: Support Information Security with Organizational Policies and Programs .......................................................... 392
+Appendix A Additional PCI DSS Requirements .............................................................. 449
+A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers ................................... 449
+A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections ............................... 459
+A3 Designated Entities Supplemental Validation (DESV) ................................................... 463
+Appendix B Compensating Controls ........................................................................ 464
+Appendix C Compensating Controls Worksheet .............................................................. 466
+Appendix D Customized Approach .......................................................................... 467
+Appendix E Customized Approach Template ................................................................. 469
