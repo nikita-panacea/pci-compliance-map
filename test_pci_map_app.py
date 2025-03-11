@@ -236,12 +236,14 @@ def map_chunk_to_control(section_title, section_text, image_path, image_ocr):
     """
     system_message = f"""
     You are an expert in PCI-DSS compliance and network security. 
-    Analyze the following section from a PCI-DSS ROC compliance document and the provided detailed image analysis report.
-    The document section (including its heading) contains requirement controls, guidelines, and auditor instructions."""
+    Analyze the following section from a PCI-DSS ROC compliance document and the analyze the given image evidence.
+    The document section (including its heading) contains requirement controls, guidelines, and auditor instructions. The image evidence
+    has been provided by the audited organization as part of PCI DSS audit to prove that they fulfil a particular control
+    of PCI DSS framework. Our task is to find out corresponding to which control this evidence was provided"""
     prompt = f"""
     Your task:
     1. Read and understand the given section carefully.
-    2. Determine all specific requirement/control(s) from the section that are satisfied by the image evidence.
+    2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
     3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
     4. Provide a short excerpt from the section that describes that requirement.
     5. Explain briefly why the image evidence satisfies this requirement.
