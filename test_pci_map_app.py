@@ -380,7 +380,6 @@ def map_chunk_to_control_janus(section_title, section_text, image_path): #, imag
 
     Your task:
     1. Read and understand the given section carefully.
-<<<<<<< HEAD
     2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
     3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
     4. Provide a short excerpt from the section that describes that requirement.
@@ -392,21 +391,6 @@ def map_chunk_to_control_janus(section_title, section_text, image_path): #, imag
     "explanation": string,
     "missing_aspects": string
     Output only the JSON array with no extra text.
-=======
-    2. Determine all the specific requirement/control(s) from the section that are image evidence corresponds to. 
-    3. Only return the control code(s) for the section if the image evidence provided satisfies the requirement/control.
-    3. For each one, provide the exact control/requirement code from the document section.
-    4. Provide a short excerpt from the document section that describes that requirement.
-    5. Explain briefly why the image evidence satisfies this requirement.
-    6. Note if any aspects of the requirement are not fully satisfied by the image evidence.
-    3. Always return your answer as a JSON array of objects with exactly these keys:
-        "control_code": requirement code from the document (string),
-        "description": requirement description from document (string),
-        "explanation": Explaning why the evidence satisfies the requirement (string),
-        "missing_aspects": Explain why evidence does not satisfy certain aspects of the requirement (string)
-        Output only the JSON array with no extra text.
-     
->>>>>>> d463175 (fixed Janus and added Phi4 model)
     """
     
     try:
