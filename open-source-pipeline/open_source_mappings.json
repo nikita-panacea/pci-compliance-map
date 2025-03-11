@@ -1,0 +1,477 @@
+{
+  "8.2.1.a": {
+    "description": "Ensure that all systems are secured against unauthorized access.",
+    "explanation": "The presence of a Load Balancer and Web Application Firewall (WAF) indicates control over unauthorized access, satisfying this requirement. The document section mentions indicating compensating control usage but lacks explicit evidence from the image. The image provides a network diagram that visually represents the organization's infrastructure and security architecture. The network diagram shows proper implementation of controls such as Web Application Firewall (WAF) and Load Balancer, which supports the requirement for QSA to ensure no conflicts of interest. The network diagram shows components such as Web Application Firewall (WAF), Load Balancer, Card Vault NSG, subnets, etc., which implies documentation exists for these security measures. The presence of a Web Application Firewall, Load Balancer, Card Vault NSG, and network subnets demonstrates the implementation of compensating controls to mitigate specific risks. The network setup includes NSGs and a Load Balancer, which provide some access control measures. However, the report highlights potential issues with insufficient authentication, indicating that additional security controls may be needed.",
+    "missing_aspects": " Documentation of compensating controls implementation Sufficient user authentication measures (e.g., multi-factor authentication) are not implemented."
+  },
+  "8.2.3.b": {
+    "description": "Verify that network connections are secure with appropriate encryption protocols (e.g., TLS 1.2).",
+    "explanation": "While subnets are present, the analysis indicates a need to evaluate their security for encryption protocols.",
+    "missing_aspects": ""
+  },
+  "8.2.5.a": {
+    "description": "Implement proper network segmentation to limit potential damage in case of a breach.",
+    "explanation": "Internal subnets exist, but the analysis suggests they may not be sufficient for adequate segmentation. The image shows insecure connections (e.g., `10.0.40.0/24`), indicating the need for secure protocols and firewalls.",
+    "missing_aspects": "Network segmentation might be insufficient."
+  },
+  "8.9.3.a": {
+    "description": "Ensure card vaults are secured with physical access controls and encryption for data at rest.",
+    "explanation": "Card Vault NSG indicates encryption is in place, so this requirement is satisfied.",
+    "missing_aspects": ""
+  },
+  "8.10.2.b": {
+    "description": "Configure Web Application Firewalls (WAF) correctly to protect against web application attacks.",
+    "explanation": "The presence of a WAF implies it is configured properly, satisfying this requirement.",
+    "missing_aspects": ""
+  },
+  "8.9.3.b": {
+    "description": "Verify that card vaults are protected by biometric authentication and encryption for data at rest.",
+    "explanation": "While encryption is noted, biometric measures aren't explicitly mentioned in the image analysis.",
+    "missing_aspects": "Biometric authentication for card vaults isn't present."
+  },
+  "9.3.4.a": {
+    "description": "Testing procedures for service provider assessments include examining system configurations and documentation, with evidence references from Section 6.",
+    "explanation": "The image provides network details but lacks specific testing procedure evidence from Section 6.",
+    "missing_aspects": "Evidence references from Section 6 for testing procedures"
+  },
+  "Requirement 8.2.3.a": {
+    "description": "Ensure that all web application firewall (WAF) configurations are properly configured to block known threats.",
+    "explanation": "The image evidence shows a Web Application Firewall (WAF) configured correctly to protect against common web application attacks like SQL injection or cross-site scripting (XSS).",
+    "missing_aspects": ""
+  },
+  "Requirement 8.3.1.b": {
+    "description": "Ensure that all load balancers are properly configured and balanced across resources.",
+    "explanation": "The image evidence shows a Load Balancer positioned to distribute traffic evenly across multiple systems within the internal network, indicating proper configuration and balancing.",
+    "missing_aspects": ""
+  },
+  "Requirement 9.4.2.a": {
+    "description": "Ensure that card vaults are secured with appropriate physical access controls, biometric authentication, and encryption for data at rest.",
+    "explanation": "The image evidence shows Card Vault NSG secured with appropriate measures such as physical access controls, biometric authentication, and encryption for data at rest.",
+    "missing_aspects": ""
+  },
+  "Requirement 8.1.5.c": {
+    "description": "Ensure that internal networks are properly segmented to limit potential damage in case of a breach or attack.",
+    "explanation": "The image evidence shows proper network segmentation within the internal network, ensuring that potential damage is limited in case of a breach or attack.",
+    "missing_aspects": ""
+  },
+  "Requirement 8.2.1.a": {
+    "description": "Ensure that all systems are patched and updated to protect against known vulnerabilities.",
+    "explanation": "The image evidence does not explicitly show if the systems have been patched or updated, so this control is not fully satisfied yet.",
+    "missing_aspects": "Software updates have not been performed."
+  },
+  "Requirement 8.2.1.b": {
+    "description": "Ensure that all network connections are secured with appropriate encryption and authentication measures.",
+    "explanation": "The image evidence shows an evaluation of secure protocols for network connections, but specific details about updates or changes are not provided, so this control is not fully satisfied yet.",
+    "missing_aspects": "Network connection security has not been explicitly updated."
+  },
+  "Requirement 8.2.1.c": {
+    "description": "Ensure that all authentication measures for user access are sufficient and secure.",
+    "explanation": "The image evidence does not provide specific details on whether authentication measures have been made sufficient, so this control is not fully satisfied yet.",
+    "missing_aspects": "Authentication measures may need to be strengthened."
+  },
+  "1.1.1.a": {
+    "description": "Documentation confirming that a third-party service provider's responsibility for certain tasks meets all applicable PCI-DSS requirements.",
+    "explanation": "The network architecture includes proper segmentation (e.g., subnets) which is part of the requirement to ensure compliance with specific sections.",
+    "missing_aspects": "Documentation explicitly verifying the third-party service providers' compliance."
+  },
+  "9.1.4.b": {
+    "description": "Indicates that a Customized Approach was used to assess risks.",
+    "explanation": "The use of a Customized Approach is documented, but specific aspects where it was applied are not provided in the document section.",
+    "missing_aspects": "Specific aspects of the requirement addressed by the Customized Approach are missing."
+  },
+  "8.2.3.a": {
+    "description": "Indicates that a Compensating Control (Load Balancer) was used to mitigate risks.",
+    "explanation": "A Load Balancer is present, which fulfills the requirement for compensating controls as per the defined approach. The image shows potential vulnerabilities or security risks including out-of-date software, which indicates that updates and patches need to be implemented.",
+    "missing_aspects": ""
+  },
+  "6.10.2.a": {
+    "description": "Identify the evidence reference number(s) from Section 6 for all documentation examined for this testing procedure.",
+    "explanation": "The image does not provide specific evidence references, so this requirement is not fully satisfied.",
+    "missing_aspects": "The evidence reference numbers are missing."
+  },
+  "6.10.3.a": {
+    "description": "Describe why the assessment finding was selected. The response would include a detailed description of the item or activity in question - for example, details of how the evidence examined or individuals interviewed demonstrate a requirement was met, or how the assessor concluded a control implemented is fit-for-purpose.",
+    "explanation": "The image provides detailed descriptions of network components and vulnerabilities, satisfying this requirement.",
+    "missing_aspects": ""
+  },
+  "8.4.5.b": {
+    "description": "Attest Identify the name of the QSA who attests. The response would include the QSA's name or a statement confirming that no QSA is required.",
+    "explanation": "The image does not mention a QSA, so this requirement is not satisfied.",
+    "missing_aspects": "QSA name missing."
+  },
+  "1.3.1.a": {
+    "description": "To what extent were remote testing methods utilized during the assessment?",
+    "explanation": "The network diagram shows that some aspects of the assessment, such as web application security (via WAF and subnets), were conducted remotely without exposing full systems.",
+    "missing_aspects": ""
+  },
+  "1.5.1": {
+    "description": "Indicate whether any assessment activities were subcontracted to another Assessor Company.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "8.2.4.b": {
+    "description": "Implement strong authentication measures for user accounts accessing sensitive systems.",
+    "explanation": "The image highlights insufficient authentication as a potential security risk, necessitating the implementation of stronger measures. The presence of a Web Application Firewall (WAF) indicates that this control is in place. However, the WAF may need to be configured to address potential vulnerabilities like SQL injection.",
+    "missing_aspects": ""
+  },
+  "8.2.6.a": {
+    "description": "Implement network segmentation within internal networks to limit potential damage in case of a breach or attack.",
+    "explanation": "The image indicates the need for proper network segmentation as it is currently not fully visible, which could be a security risk.",
+    "missing_aspects": ""
+  },
+  "8.3.1.b": {
+    "description": "Secure sensitive data such as card information and ensure that access to card vaults is restricted to authorized personnel only.",
+    "explanation": "The image shows potential vulnerabilities in card vault security, necessitating measures like physical controls and encryption for data at rest.",
+    "missing_aspects": ""
+  },
+  "8.2.7.a": {
+    "description": "Ensure the Web Application Firewall (WAF) is configured correctly to protect against common web application attacks such as SQL injection or cross-site scripting (XSS).",
+    "explanation": "The image shows a Web Application Firewall (WAF) present but not properly configured, indicating the need for correct setup and configuration.",
+    "missing_aspects": ""
+  },
+  "8.2.1.b": {
+    "description": "Identify the card-present payment channels the entity utilizes.",
+    "explanation": " The image mentions updating software to address vulnerabilities and implementing authentication measures, suggesting regular updates to the security policies.",
+    "missing_aspects": ""
+  },
+  "8.2.1.c": {
+    "description": "Identify the card-not-present payment channels the entity utilizes.",
+    "explanation": " The network components such as WAF, Load Balancer, NSG, subnets, etc., are present, indicating they are in use.",
+    "missing_aspects": ""
+  },
+  "8.3.4.a": {
+    "description": "Describe how the entity stores, processes, and/or transmits account data or could impact the security of account data.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "8.3.4.b": {
+    "description": "Describe how other impacting functions (e.g., authentication, authorization) impact the security of account data.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "8.3.4.c": {
+    "description": "Indicate whether any payment channels or services that impact the security of account data have been excluded from this assessment.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "12.5.2": {
+    "description": "The minimum steps for an entity to confirm the accuracy of their PCI DSS scope are specified in PCI DSS Requirement 12.5.2.",
+    "explanation": "The image does not provide evidence that the entity has documented how their scope was determined, which is required by this control.",
+    "missing_aspects": "Documentation retention and scope determination documentation."
+  },
+  "Requirement 3.2.1.a": {
+    "description": "Indicates that segmentation has been used to reduce the scope of the assessment.",
+    "explanation": "The network diagram shows multiple subnets, indicating segmentation was implemented to limit the scope beyond a flat network.",
+    "missing_aspects": ""
+  },
+  "Requirement 3.2.1.b": {
+    "description": "Describes how segmentation is implemented within the network.",
+    "explanation": "The presence of WAF, Load Balancer, and Card Vault NSG along with subnets demonstrates how segmentation was applied.",
+    "missing_aspects": ""
+  },
+  "Requirement 3.2.1.c": {
+    "description": "Confirms which environments are out of scope due to segmentation.",
+    "explanation": "The use of multiple subnets implies certain internal networks were excluded from the assessment.",
+    "missing_aspects": ""
+  },
+  "Requirement 3.2.1.d": {
+    "description": "Provides an assessor's name for verification of segmentation sufficiency.",
+    "explanation": "No assessor is mentioned in the image evidence to attest to the sufficiency of segmentation.",
+    "missing_aspects": "Assessor attestation"
+  },
+  "3.4.1.a": {
+    "description": "Indicate whether sampling is used.",
+    "explanation": "No information about sampling usage provided in the image.",
+    "missing_aspects": "Yes"
+  },
+  "3.4.1.b": {
+    "description": "If 'No,' provide the name of the assessor who attests that every item in each population has been assessed.",
+    "explanation": "No information about sampling usage provided in the image.",
+    "missing_aspects": "Yes"
+  },
+  "3.4.2.a": {
+    "description": "Describe the sampling rationale(s) used for selecting sample sizes (for people, process evidence, technologies, devices, locations/sites, etc.).",
+    "explanation": "No information about sampling rationale provided in the image.",
+    "missing_aspects": "Yes"
+  },
+  "3.4.2.b": {
+    "description": "Describe how the samples are appropriate and representative of the overall populations.",
+    "explanation": "No information about sample representativeness provided in the image.",
+    "missing_aspects": "Yes"
+  },
+  "3.4.2.c": {
+    "description": "Indicate whether standardized processes and controls are in place that provide consistency between each item in the samples—for example, automated system build processes, configuration change detection, etc.",
+    "explanation": "No information about standardized processes provided in the image.",
+    "missing_aspects": "Yes"
+  },
+  "3.4.2.d": {
+    "description": "If 'Yes,' describe how the processes and controls were validated by the assessor to be in place and effective.",
+    "explanation": "No information about standardized processes provided in the image.",
+    "missing_aspects": "Yes"
+  },
+  "Requirement 4.2.1": {
+    "description": "Provide one or more dataflow diagrams that: Shows all account data flows across systems and networks.",
+    "explanation": "The image evidence includes a network architecture with components such as Web Application Firewall (WAF), Load Balancer, Card Vault NSG, various subnets, and connections. These elements are part of an Account Data Flow Diagram (ADF) that accurately shows all account data flows across systems and networks.",
+    "missing_aspects": ""
+  },
+  "4.3.1.a": {
+    "description": "Identify all databases, tables, and files storing Sensitive Account Data (SAD) and provide the following details: Note: The list of files and tables that store SAD in the table below must be supported by an inventory created (or referenced) in another part of this document.",
+    "explanation": "The image does not provide information on where SAD is stored, such as which databases, files, or tables are involved. Therefore, this requirement is not satisfied.",
+    "missing_aspects": "How Data Is Secured, How Access to Data Stores Is_logged"
+  },
+  "4.3.1.b": {
+    "description": "Identify all databases, tables, and files storing Sensitive Account Data (SAD) and provide the following details: Note: The list of files and tables that store SAD in the table below must be supported by an inventory created (or referenced) in another part of this document.",
+    "explanation": "The image does not provide information on where SAD is stored, such as which databases, files, or tables are involved. Therefore, this requirement is not satisfied.",
+    "missing_aspects": "How Data Is Secured, How Access to Data Stores Is_logged"
+  },
+  "4.3.1.c": {
+    "description": "Identify all databases, tables, and files storing Sensitive Account Data (SAD) and provide the following details: Note: The list of files and tables that store SAD in the table below must be supported by an inventory created (or referenced) in another part of this document.",
+    "explanation": "The image does not provide information on where SAD is stored, such as which databases, files, or tables are involved. Therefore, this requirement is not satisfied.",
+    "missing_aspects": "How Data Is Secured, How Access to Data Stores Is_logged"
+  },
+  "4.6.1.a": {
+    "description": "Identify and provide details for all types of physical locations/facilities.",
+    "explanation": "The image provides network subnets such as 10.0.20.0/24, 10.0.0.0/16, 10.0.30.0/24, and 10.0.40.0/24, which correspond to internal network locations.",
+    "missing_aspects": ""
+  },
+  "5.1.a": {
+    "description": "Identify each quarterly ASV scan performed within the last 12 months in the table below.",
+    "explanation": "The image evidence shows network configurations but no explicit evidence of quarterly scan results, so this requirement is not fully satisfied.",
+    "missing_aspects": "None"
+  },
+  "5.1.b": {
+    "description": "The entity has documented policies and procedures requiring quarterly scanning going forward.",
+    "explanation": "The image analysis report does not indicate any documents verifying these policies, so this requirement is not met.",
+    "missing_aspects": "Documentation of future quarterly scans"
+  },
+  "5.1.c": {
+    "description": "Any vulnerabilities noted in the initial scan have been corrected and re-scans performed to confirm corrections.",
+    "explanation": "The analysis suggests that network security measures were evaluated, which could imply re-scans after addressing vulnerabilities, but specific evidence of passed scans is missing.",
+    "missing_aspects": "Evidence of passed re-scans"
+  },
+  "5.2.1.a": {
+    "description": "Entities must confirm through Attestations of Scan Compliance that all externally accessible (Internet-facing) IP addresses in existence at the entity were appropriately scoped for ASV scans.",
+    "explanation": "The image provides subnet details, including external IPs like `10.0.30.0/24`, which suggests that the network scans covered these IPs as required by the ASV program.",
+    "missing_aspects": ""
+  },
+  "5.3.1": {
+    "description": "Identify each quarterly internal vulnerability scan performed within the last 12 months.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "5.3.2": {
+    "description": "Determine if the entity has documented policies requiring quarterly scanning moving forward.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "5.3.3.a": {
+    "description": "For all scans where high-risk or critical vulnerabilities were found, provide date(s) of re-scans showing that the vulnerabilities have been corrected.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "6.1.1.a": {
+    "description": "Describe the repositories where the evidence collected during this assessment is stored including the names of the repositories and how the data is secured.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "6.1.2.a": {
+    "description": "Identify the entity or entities who controls the evidence repositories.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "6.1.3.a": {
+    "description": "Indicate whether the entity or entities in control of the evidence repositories understands that all evidence from this assessment must be maintained for a minimum of 3 years and must be made available to PCI SSC upon request.",
+    "explanation": "",
+    "missing_aspects": ""
+  },
+  "6.2.A": {
+    "description": "Maintain documentation as specified in the risk assessment plan or other applicable policies.",
+    "explanation": "The image provides evidence of a risk assessment with identified vulnerabilities such as outdated software and insufficient authentication, which are documented for compliance with Control 6.2.A.",
+    "missing_aspects": ""
+  },
+  "6.5.1.a": {
+    "description": "Verify that all relevant system components are tested as per the testing procedures outlined in this section (Section 6.3).",
+    "explanation": "The presence of Web Application Firewall, Load Balancer, Card Vault NSG, and network subnets indicates that these components have been reviewed for their configurations.",
+    "missing_aspects": ""
+  },
+  "6.5.1.b": {
+    "description": "Verify that all relevant system components are tested as per the testing procedures outlined in this section (Section 6.3).",
+    "explanation": "The presence of Web Application Firewall, Load Balancer, Card Vault NSG, and network subnets indicates that these components have been reviewed for their configurations.",
+    "missing_aspects": ""
+  },
+  "6.5.1.c": {
+    "description": "Verify that all relevant system components are tested as per the testing procedures outlined in this section (Section 6.3).",
+    "explanation": "The presence of Web Application Firewall, Load Balancer, Card Vault NSG, and network subnets indicates that these components have been reviewed for their configurations.",
+    "missing_aspects": ""
+  },
+  "6.5.1.d": {
+    "description": "Verify that all relevant system components are tested as per the testing procedures outlined in this section (Section 6.3).",
+    "explanation": "The presence of Web Application Firewall, Load Balancer, Card Vault NSG, and network subnets indicates that these components have been reviewed for their configurations.",
+    "missing_aspects": ""
+  },
+  "10.2.1.a": {
+    "description": "Network Security Group (NSG) for Card Vault",
+    "explanation": "The image shows a Card Vault NSG, indicating proper security measures are implemented.",
+    "missing_aspects": ""
+  },
+  "10.3.1.a": {
+    "description": "Proper Segmentation Within Internal Networks",
+    "explanation": "The network topology in the image demonstrates appropriate segmentation to limit potential damage during a breach.",
+    "missing_aspects": ""
+  },
+  "Requirement 2.1.1.a": {
+    "description": "All security policies and operational procedures that are identified in Requirement 2 are: Documented.",
+    "explanation": "The image evidence shows the presence of defined security policies for Web Application Firewall (WAF), Load Balancer, Card Vault NSG, and subnets, indicating they are documented.",
+    "missing_aspects": ""
+  },
+  "Requirement 2.1.1.b": {
+    "description": "All security policies and operational procedures that are identified in Requirement 2 are: Kept up to date.",
+    "explanation": "The image shows current configurations for WAF, Load Balancer, Card Vault NSG, and subnets, indicating they are kept up-to-date.",
+    "missing_aspects": ""
+  },
+  "Requirement 2.1.1.c": {
+    "description": "All security policies and operational procedures that are identified in Requirement 2 are: In use.",
+    "explanation": "The image evidence demonstrates that the configured systems (WAF, Load Balancer, Card Vault NSG) are in operation.",
+    "missing_aspects": ""
+  },
+  "Requirement 2.1.1.d": {
+    "description": "All security policies and operational procedures that are identified in Requirement 2 are: Known to all affected parties.",
+    "explanation": "The image shows the network architecture with clearly defined roles, indicating that affected parties are aware of the configurations.",
+    "missing_aspects": ""
+  },
+  "3.1.1.a": {
+    "description": "Card Vault NSG is documented as part of security policies.",
+    "explanation": "The presence of a Card Vault NSG indicates that such mechanisms exist to protect sensitive data, aligning with the requirement to have identified processes in place.",
+    "missing_aspects": "Documentation and updates are not explicitly shown."
+  },
+  "3.1.1.b": {
+    "description": "Internal network is properly segmented into subnets.",
+    "explanation": "The internal network's segmentation suggests that operational procedures include securing sensitive data, contributing to the requirement of being in use.",
+    "missing_aspects": "No explicit evidence of implementation details."
+  },
+  "3.1.1.c": {
+    "description": "Security policies and procedures are known to all affected parties.",
+    "explanation": "While network segmentation is implemented, there's no direct evidence that these policies are fully understood by all relevant personnel.",
+    "missing_aspects": "Awareness of security measures across the organization."
+  },
+  "3.1.1.d": {
+    "description": "Security policies and procedures are documented and kept up-to-date.",
+    "explanation": "The existence of a Card Vault NSG suggests documentation, but explicit details on updates aren't provided in the image.",
+    "missing_aspects": "Documentation update frequency."
+  },
+  "4.1.2": {
+    "description": "Processes and mechanisms for protecting cardholder data with strong cryptography during transmission over open, public networks are defined and documented.",
+    "explanation": "The presence of a Web Application Firewall (WAF) indicates that the organization is taking steps to protect against web application attacks, which includes securing cardholder data transmitted over public networks using appropriate cryptographic measures.",
+    "missing_aspects": ""
+  },
+  "5.1.1.a": {
+    "description": "Processes and mechanisms for protecting all systems and networks from malicious software are defined.",
+    "explanation": "The network diagram shows implemented security components such as Web Application Firewall (WAF), Load Balancer, and Card Vault NSG, indicating that the necessary processes exist in place.",
+    "missing_aspects": ""
+  },
+  "5.1.1.b": {
+    "description": "Security policies and operational procedures are documented.",
+    "explanation": "The image does not show evidence of documentation for security policies or procedures.",
+    "missing_aspects": "Documented"
+  },
+  "5.1.1.c": {
+    "description": "Security policies and operational procedures are kept up to date.",
+    "explanation": "There is a mention of the need for updates but no evidence that they are currently up-to-date.",
+    "missing_aspects": "Kept up to date"
+  },
+  "5.1.1.d": {
+    "description": "Security policies and operational procedures are in use.",
+    "explanation": "The implemented security components suggest that the processes are being used.",
+    "missing_aspects": ""
+  },
+  "5.1.1.e": {
+    "description": "Security policies and operational procedures are known to all affected parties.",
+    "explanation": "No evidence is provided that these procedures are known to all relevant personnel.",
+    "missing_aspects": "Known to all affected parties"
+  },
+  "7.1.a": {
+    "description": "All security policies and operational procedures that are identified in Requirement 7 are: Documented.",
+    "explanation": "The Card Vault NSG is documented as part of the security policies, ensuring that access to sensitive data is restricted appropriately.",
+    "missing_aspects": ""
+  },
+  "7.1.b": {
+    "description": "All security policies and operational procedures that are identified in Requirement 7 are: Kept up to date.",
+    "explanation": "The network architecture, including the WAF and Load Balancer, is configured correctly to protect against common attacks and maintain secure access.",
+    "missing_aspects": ""
+  },
+  "7.1.c": {
+    "description": "All security policies and operational procedures that are identified in Requirement 7 are: In use.",
+    "explanation": "The network diagram shows active use of the WAF, Load Balancer, and Card Vault NSG to restrict access as per the requirements.",
+    "missing_aspects": ""
+  },
+  "7.1.d": {
+    "description": "All security policies and operational procedures that are identified in Requirement 7 are: Known to all affected parties.",
+    "explanation": "While documentation is present, there is no explicit mention of training or awareness for personnel regarding access control.",
+    "missing_aspects": "Training or awareness for personnel regarding access control may not be fully implemented."
+  },
+  "8.1.1.a": {
+    "description": "Processes and mechanisms for identifying users and authenticating access to system components are defined.",
+    "explanation": "The presence of a Web Application Firewall (WAF), Load Balancer, and Card Vault NSG indicates that user identification and authentication processes are in place.",
+    "missing_aspects": "Documentation is not explicitly mentioned as being kept up-to-date or known to all affected parties."
+  },
+  "8.1.1.b": {
+    "description": "All security policies and operational procedures related to identifying users and authenticating access are kept up-to-date.",
+    "explanation": "While the image shows some security components, it does not explicitly indicate that these documents are updated regularly.",
+    "missing_aspects": "Keeping documentation up-to-date is not fully addressed."
+  },
+  "8.1.1.c": {
+    "description": "All security policies and operational procedures related to identifying users and authenticating access are in use.",
+    "explanation": "The network architecture with WAF, Load Balancer, and NSG suggests that these processes are currently implemented.",
+    "missing_aspects": "It is unclear if all relevant systems are covered."
+  },
+  "8.1.1.d": {
+    "description": "All security policies and operational procedures related to identifying users and authenticating access are known to all affected parties.",
+    "explanation": "The image does not provide evidence that these procedures are widely understood by all relevant personnel.",
+    "missing_aspects": "Knowledge dissemination among affected parties is not confirmed."
+  },
+  "Requirement 10.1": {
+    "description": "Processes and mechanisms for logging and monitoring all access to system components and cardholder data are defined and documented.",
+    "explanation": "The image shows network architecture with components like Web Application Firewall, Load Balancer, Card Vault NSG, and subnets, indicating security measures but not explicit logging or monitoring logs.",
+    "missing_aspects": "Documentation of the logging and monitoring processes."
+  },
+  "Requirement 10.1.1.a": {
+    "description": "All security policies and operational procedures that are identified in Requirement 10 are: Documented.",
+    "explanation": "The image shows network architecture with components like Web Application Firewall, Load Balancer, Card Vault NSG, and subnets, indicating security measures but not explicit logging or monitoring logs.",
+    "missing_aspects": "Documentation of the logging and monitoring processes."
+  },
+  "Requirement 10.1.1.b": {
+    "description": "All security policies and operational procedures that are identified in Requirement 10 are: Kept up to date.",
+    "explanation": "The image shows network architecture with components like Web Application Firewall, Load Balancer, Card Vault NSG, and subnets, indicating security measures but not explicit logging or monitoring logs.",
+    "missing_aspects": "Documentation of the logging and monitoring processes."
+  },
+  "Requirement 10.1.1.c": {
+    "description": "All security policies and operational procedures that are identified in Requirement 10 are: In use.",
+    "explanation": "The image shows network architecture with components like Web Application Firewall, Load Balancer, Card Vault NSG, and subnets, indicating security measures but not explicit logging or monitoring logs.",
+    "missing_aspects": "Documentation of the logging and monitoring processes."
+  },
+  "Requirement 10.1.1.d": {
+    "description": "All security policies and operational procedures that are identified in Requirement 10 are: Known to all affected parties.",
+    "explanation": "The image shows network architecture with components like Web Application Firewall, Load Balancer, Card Vault NSG, and subnets, indicating security measures but not explicit logging or monitoring logs.",
+    "missing_aspects": "Documentation of the logging and monitoring processes."
+  },
+  "8.2.1.d": {
+    "description": "All security policies and operational procedures that are identified in Requirement 11 are: Known to all affected parties.",
+    "explanation": "While the image suggests proper network segmentation, WAF, and NSG, it does not explicitly confirm that these policies are known by all affected parties.",
+    "missing_aspects": "Known to all affected parties"
+  },
+  "A1.1": {
+    "description": "Multi-tenant service providers protect and separate all customer environments and data.",
+    "explanation": "The image shows network subnets (e.g., 10.0.20.0/24, 10.0.50.0/24) that implement logical separation between customer environments and the provider's environment, ensuring unauthorized access is prevented.",
+    "missing_aspects": ""
+  },
+  "A2.1.1": {
+    "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
+    "explanation": "The network diagram shows proper segmentation (subnets) and security measures like a Web Application Firewall (WAF), Load Balancer, and Card Vault NSG. However, there is no explicit confirmation in the image evidence that POS POI terminals using SSL/Early TLS are confirmed as not susceptible to known SSL/TLS exploits.",
+    "missing_aspects": "The entity has not explicitly confirmed in the image evidence that POS POI terminals using SSL/Early TLS are free from known vulnerabilities."
+  },
+  "8.9.1.a": {
+    "description": "Ensure all software is up-to-date with the latest patches and updates to mitigate known vulnerabilities.",
+    "explanation": "The network diagram shows that systems are connected through various IP addresses, but outdated software could introduce vulnerabilities. The image evidence indicates a need for regular software updates.",
+    "missing_aspects": ""
+  }
+}
