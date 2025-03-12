@@ -45,9 +45,9 @@ class OCRProcessor:
             json.dump({"text": "\n".join(result)}, f)
         return ocr_file
 
-#-------------------------
-# Open Source Pipeline
-#-------------------------
+#------------------------------------------------
+# Open Source Pipeline (MiniCPM-V + DeepSeek-R1)
+#-------------------------------------------------
 
 # Image Analysis
 class VisualAnalyzer:
@@ -381,7 +381,7 @@ def map_chunk_to_control_janus(section_title, section_text, image_path): #, imag
     Your task:
     1. Read and understand the given section carefully.
     2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
-    3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
+    3. For each one, provide the exact control/requirement code from the document section.
     4. Provide a short excerpt from the section that describes that requirement.
     5. Explain briefly why the image evidence satisfies this requirement.
     6. Note if any aspects of the requirement are not fully satisfied.
@@ -452,6 +452,7 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
     except Exception as e:
         yield f"Error: {str(e)}"
     #return "Janus Results"
+
 #-----------------------------
 # Phi 4 Multimodal Pipeline
 #-----------------------------

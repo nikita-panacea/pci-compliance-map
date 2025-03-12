@@ -1,102 +1,87 @@
 {
-  "8.2.10": {
-    "description": "The entity completed the Controls Matrix including all information specified in the Controls Matrix Template in Appendix E1 of Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures and the results of the Controls Matrix support the customized approach for this requirement.",
-    "explanation": "The image evidence supports the use of a Customized Approach by detailing network segmentation, load balancing, and a dedicated Card Vault NSG within the entity's controls matrix. These measures ensure compliance with PCI DSS 8.2.10 requirements.",
-    "missing_aspects": "None"
-  },
-  "1.1.1": {
-    "description": "Processes and mechanisms for installing and maintaining network security controls are defined and understood.",
-    "explanation": "The image demonstrates the implementation of network security controls such as Web Application Firewall, Load Balancers, Card Vault NSG, and Security Groups, which align with the requirement to document, update, maintain, and know these controls.",
+  "3.2.10": {
+    "description": "Proper management and storage of encryption keys used in payment card processing.",
+    "explanation": "The image demonstrates the use of Azure Key Vault for storing encryption keys (DEKs) and a Hardware Security Module (HSM), ensuring secure key management as per PCI-DSS requirements. The image illustrates the use of Azure Key Vault, which is an approved KMS by PCI DSS, to securely manage and store encryption keys used for card decryption. This ensures that sensitive information remains protected during transit.",
     "missing_aspects": ""
   },
-  "Requirement 2.1.1": {
+  "2.1.1": {
     "description": "All security policies and operational procedures that are identified in Requirement 2 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
-    "explanation": "The image evidence shows network segmentation, load balancers, a card vault NSG, and various security groups, which align with the requirement of documenting, applying, updating, and knowing about secure configurations across system components.",
+    "explanation": "The image demonstrates proper key management practices, including the use of Azure Key Vault for storing encryption keys (DEKs) and the HSM, which aligns with keeping these configurations secure and in use as required by PCI-DSS.",
     "missing_aspects": ""
   },
   "3.1.1": {
-    "description": "Processes and mechanisms for protecting stored account data are defined and understood.",
-    "explanation": "The image evidence shows the implementation of security groups, including a Card Vault NSG, which is used to protect sensitive card vault data. This aligns with the requirement to have documented, up-to-date, in-use policies known by all affected parties.",
+    "description": "Processes and mechanisms for protecting stored account data are defined, understood, documented, kept up to date, in use, and known to all affected parties.",
+    "explanation": "The image demonstrates the implementation of encryption/decryption processes using Azure Key Vault, which aligns with the documentation and knowledge requirements under 3.1.1.",
     "missing_aspects": ""
   },
-  "4.1.5": {
-    "description": "Processes and mechanisms for protecting cardholder data with strong cryptography during transmission over open, public networks are defined and documented.",
-    "explanation": "The image evidence shows the use of a Card Vault NSG to protect sensitive cardholder data, satisfying the requirement for appropriate use of Network Security Groups as per PCI DSS 4.1.5.",
+  "4.1.2": {
+    "description": "All security policies and operational procedures that are identified in Requirement 4 are: Documented, Kept up to date, In use, and Known to all affected parties.",
+    "explanation": "The image demonstrates the implementation of proper key management and storage using Azure Key Vault (HSM), which aligns with the requirement for secure key handling during transmission over public networks.",
     "missing_aspects": ""
   },
-  "5.1.1": {
-    "description": "Processes and mechanisms for protecting all systems and networks from malicious software are defined and understood.",
-    "explanation": "The image demonstrates the use of a Web Application Firewall, network segmentation with IP ranges, internal Load Balancers, Card Vault NSG, and security groups, which aligns with the requirement to protect against malicious software by implementing these measures.",
+  "SMPC-KM-012": {
+    "description": "Proper management and storage of encryption keys to ensure secure handling of sensitive information.",
+    "explanation": "The image demonstrates the use of Azure Key Vault for managing encryption keys, which is a key aspect of securing sensitive cardholder data. This includes encrypting keys on the client side (Card Vault Application) and storing them securely in Azure HSMs.",
     "missing_aspects": ""
   },
   "6.1.1": {
     "description": "All security policies and operational procedures that are identified in Requirement 6 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
-    "explanation": "The image evidence shows a network architecture with Web Application Firewall, Load Balancers, Card Vault NSG, and various security groups, which aligns with the documentation, maintenance, usage, and knowledge of these policies among affected parties.",
-    "missing_aspects": ""
+    "explanation": "The image provides a visual representation of the Azure Key Vault flow, which demonstrates secure key management practices such as encryption, decryption, and storage within an HSM. This aligns with the requirement for proper documentation, update maintenance, operational use, and knowledge among affected parties.",
+    "missing_aspects": "Documentation processes are not explicitly shown in the image."
   },
-  "7.1": {
+  "7.1.1": {
     "description": "Processes and mechanisms for restricting access to system components and cardholder data by business need to know are defined and understood.",
-    "explanation": "The image evidence demonstrates the use of network segmentation, load balancers, and a Card Vault NSG, which are all part of implementing access control measures as per PCI DSS Requirement 7.1.",
+    "explanation": "The image demonstrates secure key management practices, including encryption and decryption using Azure Key Vault and HSM, which aligns with the requirement's control 7.1.1.",
     "missing_aspects": ""
   },
-  "Requirement 8.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 8 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
-    "explanation": "The image provides evidence of documented network segmentation, security groups, WAF, Load Balancers, and Card Vault NSG, which supports the requirement for proper documentation and implementation of policies.",
+  "8.1.1": {
+    "description": "All security policies and operational procedures identified in Requirement 8 are documented.",
+    "explanation": "The image demonstrates proper key management by showing encryption/decryption processes, which supports documentation of these procedures.",
     "missing_aspects": ""
   },
-  "9.1.2": {
-    "description": "Processes and mechanisms for restricting physical access to cardholder data are defined and understood.",
-    "explanation": "The image evidence shows the implementation of a Card Vault NSG, which is a documented control under PCI DSS Requirement 9.1.2 to restrict physical access to sensitive cardholder data.",
+  "10.2": {
+    "description": "Processes for proper management of encryption keys (DEKs) are documented, kept up to date, in use, and known to all relevant parties.",
+    "explanation": "The image demonstrates the use of Azure Key Vault for managing encryption keys securely, ensuring compliance with key management controls by providing a visual flow of card decryption processes.",
     "missing_aspects": ""
   },
-  "10.1.1": {
-    "description": "Processes and mechanisms for logging and monitoring all access to system components and cardholder data are defined and documented.",
-    "explanation": "The image evidence shows the implementation of network segmentation, load balancers, a Card Vault NSG, and security groups, which support logging and monitoring processes as per PCI DSS 10.1.1 requirements.",
+  "10.3": {
+    "description": "Processes and mechanisms for secure key management are documented, kept up to date, in use, and known to all affected parties.",
+    "explanation": "The image demonstrates the use of Azure Key Vault and HSMs for storing encryption keys (DEKs), ensuring they are securely managed and accessible only when needed.",
     "missing_aspects": ""
   },
-  "11.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 11 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
-    "explanation": "The image evidence shows proper network segmentation with specific IP ranges, an internal Load Balancer for traffic distribution, a Card Vault NSG for sensitive data protection, and various Security Groups with rules. These components indicate that security policies are documented (as evidenced by the presence of these controls), kept up to date, in use, and known to all affected parties.",
-    "missing_aspects": "The image does not explicitly show overlapping IP ranges or any potential vulnerabilities related to them."
-  },
-  "2.1.3": {
-    "description": "Implement network segmentation to limit unauthorized access.",
-    "explanation": "The image shows various IP ranges used for network segmentation, supporting the requirement to implement controls that limit unauthorized access.",
+  "3.4.2": {
+    "description": "Encryption keys are stored off-site in a manner consistent with the organization’s risk profile.",
+    "explanation": "The image demonstrates proper key management by storing encryption keys (DEKs) in Azure Key Vault, an external service, ensuring compliance with Control 3.4.2.",
     "missing_aspects": ""
   },
-  "A1.1": {
+  "A1.1.1": {
     "description": "Multi-tenant service providers protect and separate all customer environments and data.",
-    "explanation": "The image shows network segmentation with IP ranges, a Load Balancer distributing traffic internally, and a Card Vault NSG ensuring restricted access to sensitive data.",
+    "explanation": "The image demonstrates encryption/decryption with DEKs, ensuring sensitive information is securely handled in Azure Key Vault using HSM, thus supporting logical separation of environments without unauthorized access.",
     "missing_aspects": ""
   },
-  "A2.1.1": {
-    "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
-    "explanation": "The image evidence shows network segmentation with various IP ranges, a Card Vault NSG, and security groups. These components indicate that the entity has implemented measures to confirm their POS POI terminals using SSL/Early TLS are not susceptible to known SSL/TLS exploits.",
+  "A2.1": {
+    "description": "Entities using SSL and/or early TLS for card-present POS terminal connections confirm these devices are not susceptible to known SSL/TLS exploits.",
+    "explanation": "The image shows a secure flow with Azure Key Vault, ensuring encryption (DEK) and key storage in HSM, which addresses the requirement of confirming susceptibility to known SSL/TLS vulnerabilities.",
     "missing_aspects": ""
   },
-  "3.2.1.5": {
-    "description": "Implement network segmentation using security groups and network segmentation lists.",
-    "explanation": "The image evidence demonstrates the use of security groups, including a Card Vault NSG, which is critical for implementing network segmentation as required by Control 3.2.1.5 under PCI DSS v4.0.",
+  "A3.DESCV1": {
+    "description": "Key Management Control: Ensures encryption keys (DEKs) are securely stored and managed in accordance with PCI DSS requirements.",
+    "explanation": "The image demonstrates compliance by showing proper handling of encryption keys in Azure Key Vault, highlighting secure key storage and management.",
     "missing_aspects": ""
   },
-  "C.1": {
-    "description": "Implement compensating controls to meet specific PCI DSS requirements.",
-    "explanation": "The image supports the implementation of network segmentation as a compensating control, which helps in managing traffic effectively and securely across different network areas.",
+  "CC.CC.01": {
+    "description": "Use of a compensating control for key management.",
+    "explanation": "The use of Azure Key Vault as a third-party service demonstrates compliance with PCI DSS by implementing a compensating control to manage encryption keys securely.",
     "missing_aspects": ""
   },
-  "3.5.6": {
-    "description": "Implement network segmentation controls to limit unauthorized access to specific areas of the network.",
-    "explanation": "The image shows various IP ranges used for network segmentation, ensuring traffic is isolated within specific subnets.",
+  "3.2.14": {
+    "description": "Protection of encryption keys using hardware security modules (HSMs).",
+    "explanation": "The image shows the use of a Hardware Security Module (HSM) to store and manage encryption keys, ensuring physical protection against unauthorized access.",
     "missing_aspects": ""
   },
-  "4.1.7": {
-    "description": "Use load balancing controls to distribute incoming requests across multiple servers within the internal network.",
-    "explanation": "The presence of an internal Load Balancer is evident, distributing traffic across multiple servers for better performance and redundancy.",
-    "missing_aspects": ""
-  },
-  "5.2.6": {
-    "description": "Implement a Card Vault control using a specific Network Security Group (NSG) to restrict access to sensitive card vault data.",
-    "explanation": "A dedicated Card Vault NSG is present, ensuring restricted access and enhanced protection for sensitive data.",
+  "3.2.15": {
+    "description": "Proper access controls for sensitive cardholder information.",
+    "explanation": "The image demonstrates controlled access to the decryption process, ensuring that only authorized personnel with a legitimate business need can decrypt and use the sensitive cardholder data.",
     "missing_aspects": ""
   }
 }
