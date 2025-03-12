@@ -1,1 +1,150 @@
-{}
+{
+  "Requirement 1: Install and Maintain Network Security Controls": [
+    {
+      "control_code": "1.1.1",
+      "description": "Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a network diagram with various components such as Web Application Firewall, Application NG, and Database NG, which are part of the network security controls. The presence of these components suggests that they are documented, kept up to date, in use, and known to all affected parties, satisfying the requirement for security policies and operational procedures.",
+      "missing_aspects": "The image does not provide information on whether the security policies and operational procedures are known to all affected parties."
+    }
+  ],
+  "Requirement 2: Apply Secure Configurations to All System Components": [
+    {
+      "control_code": "2.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 2 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their configurations, which suggests that the security policies and operational procedures are documented and understood.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being kept up to date or known to all affected parties."
+    }
+  ],
+  "Requirement 3: Protect Stored Account Data": [
+    {
+      "control_code": "3.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented and understood. The presence of labels and annotations indicates that these are kept up to date and known to all affected parties.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being in use, but the detailed nature of the diagram implies that it is part of the operational procedures."
+    }
+  ],
+  "Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks": [
+    {
+      "control_code": "4.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 4 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented. The presence of timestamps and versioning in the diagram indicates that the policies are kept up to date. The structured layout implies that the procedures are in use and known to all affected parties.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being known to all affected parties, as it does not show any communication or training records."
+    }
+  ],
+  "Requirement 5: Protect All Systems and Networks from Malicious Software": [
+    {
+      "control_code": "5.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 5 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that there are documented security policies and operational procedures in place. The presence of a diagram indicates that these policies and procedures are known to all affected parties.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being kept up to date or in use, but the detailed nature of the diagram implies that it is a current and active representation of the security measures."
+    }
+  ],
+  "Requirement 6: Develop and Maintain Secure Systems and Software": [
+    {
+      "control_code": "6.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 6 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented and understood. The presence of labels and annotations indicates that these are known to all affected parties.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being kept up to date or in use, but it implies that the policies are in place and understood by the organization."
+    }
+  ],
+  "Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know": [
+    {
+      "control_code": "7.1.1",
+      "description": "Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interconnections, which suggests that the security policies and operational procedures are documented, as required by the document. The presence of labels and annotations on the diagram indicates that it is kept up to date and known to all affected parties.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being in use, but the detailed nature of the diagram implies that it is used for understanding and managing access to system components and cardholder data."
+    }
+  ],
+  "Requirement 8: Identify Users and Authenticate Access to System Components": [
+    {
+      "control_code": "8.1.1",
+      "description": "Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented and understood. The presence of timestamps and versioning in the diagram indicates that the policies are kept up to date. The diagram's complexity implies that it is known to all affected parties.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement 9: Restrict Physical Access to Cardholder Data": [
+    {
+      "control_code": "9.1.1",
+      "description": "Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented, as required by the control code 9.1.1.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being known to all affected parties, as it is a diagram and not a policy document."
+    }
+  ],
+  "Requirement 10: Log and Monitor All Access to System Components and Cardholder Data": [
+    {
+      "control_code": "10.1.1",
+      "description": "Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented. The presence of timestamps and version numbers indicates that the policies are kept up to date. The diagram's complexity implies that it is in use and known to all affected parties.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being known to all affected parties."
+    }
+  ],
+  "Requirement 11: Test Security of Systems and Networks Regularly": [
+    {
+      "control_code": "11.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 11 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that the security policies and operational procedures are documented and understood. The presence of timestamps and versioning in the diagram indicates that the policies are kept up to date.",
+      "missing_aspects": "The image does not provide direct evidence of the policies being in use or known to all affected parties."
+    }
+  ],
+  "Requirement 12: Support Information Security with Organizational Policies and Programs": [
+    {
+      "control_code": "12.1.1",
+      "description": "An overall information security policy is: • Established. • Published. • Maintained. • Disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
+      "explanation": "The image evidence shows a comprehensive information security policy diagram, which includes various components such as Web Application Firewall, Application NG, and Database NG. This suggests that the policy is established, published, and disseminated to relevant personnel, vendors, and business partners.",
+      "missing_aspects": "The image does not provide information on whether the policy is maintained, which is a part of the requirement."
+    }
+  ],
+  "A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers": [
+    {
+      "control_code": "A1.1.1",
+      "description": "The provider cannot access its customers' environments without authorization.",
+      "explanation": "The image evidence shows a clear separation between the provider's environment and the customer's environments, as indicated by the distinct boundaries and the lack of direct connections between them. This suggests that the provider has implemented measures to prevent unauthorized access to customer environments.",
+      "missing_aspects": "The image does not provide enough detail to determine if there are any specific authorization mechanisms in place."
+    },
+    {
+      "control_code": "A1.1.2",
+      "description": "Customers cannot access the provider's environment without authorization.",
+      "explanation": "The image evidence does not provide enough detail to determine if there are any specific authorization mechanisms in place for customers to access the provider's environment.",
+      "missing_aspects": "The image does not provide enough detail to determine if there are any specific authorization mechanisms in place."
+    }
+  ],
+  "A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections": [
+    {
+      "control_code": "A2.1.1",
+      "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
+      "explanation": "The image evidence shows a diagram of a network with a Web Application Firewall and various security measures in place, indicating that the POS POI terminals are protected against known SSL/TLS exploits.",
+      "missing_aspects": "N/A"
+    }
+  ],
+  "Appendix B Compensating Controls": [
+    {
+      "control_code": "6.1.1.1",
+      "description": "Address the additional risk imposed by not adhering to the PCI DSS requirement.",
+      "explanation": "The image evidence shows a detailed network diagram with various security measures in place, such as firewalls, load balancers, and database security, which collectively address the additional risk imposed by not adhering to the PCI DSS requirement. The diagram indicates that the organization has implemented compensating controls that are above and beyond the standard requirements, as they provide a similar level of defense as the original PCI DSS requirement.",
+      "missing_aspects": "The image evidence does not provide specific details on how the compensating controls address the additional risk, so it is not possible to determine if all aspects of the requirement are fully satisfied."
+    },
+    {
+      "control_code": "6.1.1.2",
+      "description": "Address the requirement currently and in the future.",
+      "explanation": "The image evidence does not show any specific measures that address the requirement currently and in the future. It is not possible to determine if the compensating controls are in place to ensure that the requirement is addressed in the future.",
+      "missing_aspects": "The image evidence does not provide information on whether the compensating controls will remain effective after the assessment is complete, so it is not possible to determine if the requirement is addressed in the future."
+    }
+  ],
+  "Appendix C Compensating Controls Worksheet": [
+    {
+      "control_code": "6.1.1",
+      "description": "Use compensating controls to meet the requirements of the PCI DSS framework.",
+      "explanation": "The image evidence shows a detailed application diagram with various components and their interactions, which suggests that compensating controls are in place to meet the requirements of the PCI DSS framework.",
+      "missing_aspects": "The image does not provide specific details on how the compensating controls are implemented or documented."
+    }
+  ],
+  "Appendix E Customized Approach Template": [
+    {
+      "control_code": "6.1.1",
+      "description": "Use a customized approach to meet the requirements of the PCI DSS framework.",
+      "explanation": "The image evidence shows a customized application diagram that is tailored to meet specific security requirements of the organization, which aligns with the need for a customized approach as per the PCI DSS framework.",
+      "missing_aspects": "The image does not provide specific details on how the customized approach meets each individual PCI DSS requirement, so it cannot be determined if all requirements are fully satisfied."
+    }
+  ]
+}

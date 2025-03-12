@@ -64,7 +64,7 @@ class VisualAnalyzer:
         The image evidence has been provided by the audited organization as part of PCI DSS audit to prove 
         that they fulfil a particular control of PCI DSS framework.
         Provide a detailed report on the given image for compliance analysis:
-        - List all components present in the image.
+        - List and name all components present in the image.
         - Describe the information presented in the image in detail.
         - Explain the information on security measures from the image.
         - Identify any potential vulnerabilities or security risks.
@@ -129,7 +129,7 @@ def map_section_to_requirement(section_title, section_text, image_analysis):
     Your task:
     1. Read and understand the given section carefully.
     2. Determine all specific requirement/control(s) from the section that the image evidence corresponds to.
-    3. For each one, provide the exact control/requirement code (example format "Requirement 8.x.x.x").
+    3. For each one, provide the exact control/requirement code from the document section.
     4. Provide a short excerpt from the section that describes that requirement.
     5. Explain briefly why the image evidence satisfies this requirement.
     6. Note if any aspects of the requirement are not fully satisfied by the image evidence.
@@ -359,7 +359,7 @@ class Janus7BProcessor:
 
 
 # Initialize Janus processor
-janus_processor = Janus7BProcessor()
+# janus_processor = Janus7BProcessor()
 
 def map_chunk_to_control_janus(section_title, section_text, image_path): #, image_ocr
     """
@@ -452,7 +452,6 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
     except Exception as e:
         yield f"Error: {str(e)}"
     #return "Janus Results"
-
 #-----------------------------
 # Phi 4 Multimodal Pipeline
 #-----------------------------
@@ -460,8 +459,8 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
 import requests
 import torch
 from PIL import Image
-import soundfile
-from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig,pipeline,AutoTokenizer
+import soundfile as sf
+from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
 
 class Phi4Processor:
     def __init__(self):
@@ -469,70 +468,49 @@ class Phi4Processor:
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         
         # Initialize model components
-        self.processor = AutoProcessor.from_pretrained(
-            self.model_path, 
-            trust_remote_code=True
-        )
+        self.processor = AutoProcessor.from_pretrained(self.model_path, trust_remote_code=True)
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.model_path,
-            device_map="auto",
-            torch_dtype=torch.float16,
-            trust_remote_code=True
-        ).eval()
+            self.model_path, 
+            device_map="cuda", 
+            torch_dtype="auto", 
+            trust_remote_code=True, 
+            attn_implementation='flash_attention_2',
+        ).cuda()
         
         # Configure generation parameters
         self.generation_config = GenerationConfig.from_pretrained(self.model_path)
-        self.generation_config.max_new_tokens = 1024
-        self.generation_config.temperature = 0.7
-        self.generation_config.top_p = 0.9
+        # self.generation_config.max_new_tokens = 1024
+        # self.generation_config.temperature = 0.7
+        # self.generation_config.top_p = 0.9
 
     def generate_response(self, prompt_text, image_path):
         """Process image and generate response with Phi-4"""
         try:
             # Load and convert image with explicit size validation
-            image = Image.open(image_path).convert("RGB")
-            if min(image.size) < 224:  # Minimum size for most vision models
-                image = image.resize((224, 224))
+            if not os.path.exists(image_path):
+                raise FileNotFoundError(f"Image file not found: {image_path}")
+                
+            image = Image.open(image_path)
             
-            # Build optimized prompt template
-            full_prompt = (
-                "<|user|>"
-                "<|image_1|>\n"  # Image placeholder must be first in line
-                f"{prompt_text}"
-                "<|end|>"
-                "<|assistant|>"
-            )
+            user_prompt = '<|user|>'
+            assistant_prompt = '<|assistant|>'
+            prompt_suffix = '<|end|>'
             
+            prompt = f'{user_prompt}<|image_1|>{prompt_text}{prompt_suffix}{assistant_prompt}'
             # Process inputs with enhanced validation
-            inputs = self.processor(
-                text=full_prompt,
-                images=image,  # Single image processing
-                return_tensors="pt",
-                padding=True,
-                truncation=True,
-                max_length=2048  # Prevent sequence overflow
-            ).to(self.device)
-
-            # Validate all required input components
-            required_keys = {'input_ids', 'attention_mask', 'pixel_values'}
-            if not required_keys.issubset(inputs.keys()):
-                missing = required_keys - inputs.keys()
-                raise ValueError(f"Missing input tensors: {missing}")
+            inputs = self.processor(text=prompt, images=image, return_tensors='pt').to('cuda:0')
 
             # Generate with explicit tensor passing
             generate_ids = self.model.generate(
-                input_ids=inputs.input_ids,
-                attention_mask=inputs.attention_mask,
-                pixel_values=inputs.pixel_values,
+                **inputs,
+                max_new_tokens=1000,
                 generation_config=self.generation_config,
-                pad_token_id=self.processor.tokenizer.eos_token_id
             )
+            generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
 
             # Decode and clean response
             response = self.processor.batch_decode(
-                generate_ids[:, inputs.input_ids.shape[1]:],
-                skip_special_tokens=True,
-                clean_up_tokenization_spaces=False
+                generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False
             )[0]
             
             return response
@@ -540,9 +518,9 @@ class Phi4Processor:
         except Exception as e:
             print(f"Phi-4 generation error: {e}")
             return ""
-        
+
 # Initialize Phi-4 processor
-# phi4_processor = Phi4Processor()
+phi4_processor = Phi4Processor()
 
 def map_chunk_to_control_phi4(section_title, section_text, image_path, image_ocr):
     """
@@ -583,17 +561,18 @@ def map_chunk_to_control_phi4(section_title, section_text, image_path, image_ocr
     try:
         # Generate and validate response
         raw_response = phi4_processor.generate_response(task_prompt, image_path)
+        
+        # Handle empty responses
         if not raw_response.strip():
             return []
-        
-        # Improved JSON parsing with error recovery
+            
+        # Robust JSON extraction with error recovery
         json_str = re.search(r"\[\s*({.*?}\s*,?\s*)+]", raw_response, re.DOTALL)
         if json_str:
             try:
-                mappings = json.loads(json_str.group())
                 return [
                     sanitize_mapping(m) 
-                    for m in mappings 
+                    for m in json.loads(json_str.group()) 
                     if isinstance(m, dict) and m.get('control_code')
                 ]
             except json.JSONDecodeError:
@@ -684,7 +663,7 @@ def map_chunk_to_control(section_title, section_text, image_path, image_ocr):
     Your task:
     1. Read and understand the given section carefully.
     2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
-    3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
+    3. For each one, provide the exact control/requirement code from the document section.
     4. Provide a short excerpt from the section that describes that requirement.
     5. Explain briefly why the image evidence satisfies this requirement.
     6. Note if any aspects of the requirement are not fully satisfied.
@@ -796,7 +775,7 @@ with gr.Blocks(title="PCI-DSS Compliance Analyzer") as app:
     # Pipeline Tabs
     with gr.Tabs() as tabs:
         # Open-Source Pipeline Tab
-        with gr.Tab("MiniCPM + Deepseek R1)"):
+        with gr.Tab("MiniCPM-V + DeepSeek-R1"):
             with gr.Row():
                 oss_btn = gr.Button("Run Open-Source Pipeline", variant="primary")
             with gr.Row():

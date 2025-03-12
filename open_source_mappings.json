@@ -1,117 +1,102 @@
 {
-  "8.x.x.x": {
+  "8.2.10": {
     "description": "The entity completed the Controls Matrix including all information specified in the Controls Matrix Template in Appendix E1 of Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures and the results of the Controls Matrix support the customized approach for this requirement.",
-    "explanation": "The image evidence shows that the entity reviewed and completed the Controls Matrix as per PCI DSS v4.0, which supports the use of a customized approach for this requirement. The image provides documentation for customized controls as per the requirement, including the controls matrix. The image provides testing evidence for customized controls as per the requirement. The image includes monitoring and documentation of effectiveness for customized controls as per the requirement. The image provides all necessary documentation (controls matrix, risk analysis, testing evidence) to the assessor as per the requirement.",
-    "missing_aspects": ""
+    "explanation": "The image evidence supports the use of a Customized Approach by detailing network segmentation, load balancing, and a dedicated Card Vault NSG within the entity's controls matrix. These measures ensure compliance with PCI DSS 8.2.10 requirements.",
+    "missing_aspects": "None"
   },
-  "3.0.2.4": {
-    "description": "All security policies and operational procedures that are identified in Requirement 1 are documented, kept up to date, in use, and known to all affected parties.",
-    "explanation": "The image evidence demonstrates that network security controls are properly documented, maintained, implemented, and known to all relevant personnel, satisfying the requirement.",
+  "1.1.1": {
+    "description": "Processes and mechanisms for installing and maintaining network security controls are defined and understood.",
+    "explanation": "The image demonstrates the implementation of network security controls such as Web Application Firewall, Load Balancers, Card Vault NSG, and Security Groups, which align with the requirement to document, update, maintain, and know these controls.",
     "missing_aspects": ""
   },
   "Requirement 2.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 2 are: Documented, Kept up to date, In use, and Known to all affected parties.",
-    "explanation": "The image evidence shows secure configurations applied to specific system components, demonstrating documentation (evidence of current setup), in-use status, and knowledge among personnel.",
+    "description": "All security policies and operational procedures that are identified in Requirement 2 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+    "explanation": "The image evidence shows network segmentation, load balancers, a card vault NSG, and various security groups, which align with the requirement of documenting, applying, updating, and knowing about secure configurations across system components.",
     "missing_aspects": ""
   },
-  "3.1.2.a": {
-    "description": "Data encryption for stored account data to protect against unauthorized access and data breaches.",
-    "explanation": "The image evidence shows that data is encrypted, ensuring it remains protected during transmission and storage.",
+  "3.1.1": {
+    "description": "Processes and mechanisms for protecting stored account data are defined and understood.",
+    "explanation": "The image evidence shows the implementation of security groups, including a Card Vault NSG, which is used to protect sensitive card vault data. This aligns with the requirement to have documented, up-to-date, in-use policies known by all affected parties.",
     "missing_aspects": ""
   },
-  "3.1.2.b": {
-    "description": "Access control logs to monitor and track access to stored account data.",
-    "explanation": "The image evidence includes access control logs, which help in monitoring unauthorized access.",
-    "missing_aspects": ""
-  },
-  "3.1.2.c": {
-    "description": "Audit trails for stored account data to ensure accountability and traceability of access actions.",
-    "explanation": "The image evidence provides audit trails, which are necessary for compliance by showing the history of access actions.",
-    "missing_aspects": ""
-  },
-  "3.1.2.d": {
-    "description": "Regular security testing to identify and mitigate vulnerabilities in stored account data management.",
-    "explanation": "The image evidence demonstrates regular security testing, which helps in identifying and addressing potential vulnerabilities.",
-    "missing_aspects": ""
-  },
-  "4.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 4 are: Documented. Kept up to date. In use. Known to all affected parties.",
-    "explanation": "The image evidence shows encryption settings, indicating that cardholder data is protected with strong cryptography during transmission over public networks.",
+  "4.1.5": {
+    "description": "Processes and mechanisms for protecting cardholder data with strong cryptography during transmission over open, public networks are defined and documented.",
+    "explanation": "The image evidence shows the use of a Card Vault NSG to protect sensitive cardholder data, satisfying the requirement for appropriate use of Network Security Groups as per PCI DSS 4.1.5.",
     "missing_aspects": ""
   },
   "5.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 5 are documented, kept up to date, in use, and known to all affected parties.",
-    "explanation": "The image evidence shows a risk assessment report with vulnerabilities identified by the organization's IT team, supporting documentation of security measures. Regular updates and usage of these findings align with keeping policies current. The IT team being aware of these vulnerabilities confirms they are informed.",
+    "description": "Processes and mechanisms for protecting all systems and networks from malicious software are defined and understood.",
+    "explanation": "The image demonstrates the use of a Web Application Firewall, network segmentation with IP ranges, internal Load Balancers, Card Vault NSG, and security groups, which aligns with the requirement to protect against malicious software by implementing these measures.",
     "missing_aspects": ""
   },
-  "6.1.2": {
-    "description": "Implement and Maintain Regular Security Updates for Systems and Software (Requirement 6.1.2)",
-    "explanation": "The image evidence shows a process where regular security updates are being implemented, demonstrating compliance with the requirement to maintain secure systems and software.",
+  "6.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 6 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+    "explanation": "The image evidence shows a network architecture with Web Application Firewall, Load Balancers, Card Vault NSG, and various security groups, which aligns with the documentation, maintenance, usage, and knowledge of these policies among affected parties.",
     "missing_aspects": ""
   },
-  "Requirement 7.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 7 are: Documented. Kept up to date. In use. Known to all affected parties.",
-    "explanation": "The image evidence shows a document titled 'PCI DSS Access Control Policy' which outlines access control measures for different business units (BUs). The policy includes procedures like least-privilege access, multi-factor authentication, and regular audits, indicating that the policies are documented, kept up to date, in use, and known by all stakeholders.",
+  "7.1": {
+    "description": "Processes and mechanisms for restricting access to system components and cardholder data by business need to know are defined and understood.",
+    "explanation": "The image evidence demonstrates the use of network segmentation, load balancers, and a Card Vault NSG, which are all part of implementing access control measures as per PCI DSS Requirement 7.1.",
     "missing_aspects": ""
   },
-  "8.1.1": {
-    "description": "All security policies and operational procedures that are identified in Requirement 8 are: • Documented.",
-    "explanation": "The image evidence shows 'User Identification and Authentication Processes,' which implies documentation of these processes, satisfying the requirement for documentation (8.1.1).",
+  "Requirement 8.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 8 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+    "explanation": "The image provides evidence of documented network segmentation, security groups, WAF, Load Balancers, and Card Vault NSG, which supports the requirement for proper documentation and implementation of policies.",
     "missing_aspects": ""
   },
   "9.1.2": {
     "description": "Processes and mechanisms for restricting physical access to cardholder data are defined and understood.",
-    "explanation": "The image shows a physical lock on an external drive, which restricts physical access to the data.",
+    "explanation": "The image evidence shows the implementation of a Card Vault NSG, which is a documented control under PCI DSS Requirement 9.1.2 to restrict physical access to sensitive cardholder data.",
     "missing_aspects": ""
   },
-  "Requirement 10.2": {
+  "10.1.1": {
     "description": "Processes and mechanisms for logging and monitoring all access to system components and cardholder data are defined and documented.",
-    "explanation": "The image evidence demonstrates that the organization has implemented documentation for their security policies and operational procedures related to access control, which is a requirement under PCI DSS. This includes keeping these documents up-to-date, ensuring they are in use, and making them accessible to all relevant personnel.",
+    "explanation": "The image evidence shows the implementation of network segmentation, load balancers, a Card Vault NSG, and security groups, which support logging and monitoring processes as per PCI DSS 10.1.1 requirements.",
     "missing_aspects": ""
   },
-  "3.2.4": {
-    "description": "Regularly test network access controls to ensure they are effective and up-to-date.",
-    "explanation": "The image evidence demonstrates that the organization has implemented a process for regularly testing their network access controls, fulfilling the requirement outlined in 3.2.4 of PCI-DSS.",
+  "11.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 11 are: • Documented. • Kept up to date. • In use. • Known to all affected parties.",
+    "explanation": "The image evidence shows proper network segmentation with specific IP ranges, an internal Load Balancer for traffic distribution, a Card Vault NSG for sensitive data protection, and various Security Groups with rules. These components indicate that security policies are documented (as evidenced by the presence of these controls), kept up to date, in use, and known to all affected parties.",
+    "missing_aspects": "The image does not explicitly show overlapping IP ranges or any potential vulnerabilities related to them."
+  },
+  "2.1.3": {
+    "description": "Implement network segmentation to limit unauthorized access.",
+    "explanation": "The image shows various IP ranges used for network segmentation, supporting the requirement to implement controls that limit unauthorized access.",
     "missing_aspects": ""
   },
-  "12.1.1": {
-    "description": "An overall information security policy is: • Established. • Published. • Maintained. • Disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
-    "explanation": "The image evidence shows that the organization has established, published, maintained, and disseminated an information security policy to all relevant personnel, including vendors and business partners.",
-    "missing_aspects": ""
-  },
-  "A1.1.1": {
-    "description": "Multi-tenant service providers must protect and separate customer environments by ensuring unauthorized access is prevented.",
-    "explanation": "The image provides evidence of implementing logical separation through access controls, such as firewalls or RBAC configurations, which prevent unauthorized access to each other's environments.",
+  "A1.1": {
+    "description": "Multi-tenant service providers protect and separate all customer environments and data.",
+    "explanation": "The image shows network segmentation with IP ranges, a Load Balancer distributing traffic internally, and a Card Vault NSG ensuring restricted access to sensitive data.",
     "missing_aspects": ""
   },
   "A2.1.1": {
     "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
-    "explanation": "The image evidence shows that the terminal configurations are regularly updated by the service provider, indicating compliance with the requirement of confirming susceptibility to known SSL/TLS exploits.",
+    "explanation": "The image evidence shows network segmentation with various IP ranges, a Card Vault NSG, and security groups. These components indicate that the entity has implemented measures to confirm their POS POI terminals using SSL/Early TLS are not susceptible to known SSL/TLS exploits.",
     "missing_aspects": ""
   },
-  "3.2.1.0": {
-    "description": "Designated Entity Reporting and Compliance",
-    "explanation": "The image provides documentation from the Supplemental Report on Compliance Template, which is required for Designated Entities under PCI DSS v4.0.",
+  "3.2.1.5": {
+    "description": "Implement network segmentation using security groups and network segmentation lists.",
+    "explanation": "The image evidence demonstrates the use of security groups, including a Card Vault NSG, which is critical for implementing network segmentation as required by Control 3.2.1.5 under PCI DSS v4.0.",
     "missing_aspects": ""
   },
-  "Compensating Control - Missing Area": {
-    "description": "The organization has implemented compensating controls to address a missing requirement related to network segmentation.",
-    "explanation": "The image evidence demonstrates that the organization has addressed a missing requirement by implementing internal network segmentation as part of their compensating control strategy, which provides sufficient defense against potential risks.",
+  "C.1": {
+    "description": "Implement compensating controls to meet specific PCI DSS requirements.",
+    "explanation": "The image supports the implementation of network segmentation as a compensating control, which helps in managing traffic effectively and securely across different network areas.",
     "missing_aspects": ""
   },
-  "3.0.1.25": {
-    "description": "Compensating controls must be documented at the corresponding PCI DSS requirement level.",
-    "explanation": "The image evidence shows a worksheet used to document compensating controls, which aligns with Control 3.0.1.25 that requires documentation of these controls at the appropriate requirement level.",
+  "3.5.6": {
+    "description": "Implement network segmentation controls to limit unauthorized access to specific areas of the network.",
+    "explanation": "The image shows various IP ranges used for network segmentation, ensuring traffic is isolated within specific subnets.",
     "missing_aspects": ""
   },
-  "12.3.2": {
-    "description": "Perform and document a targeted risk analysis (PCI DSS Requirement 12.3.2) for each customized control, including all information specified in the Targeted Risk Analysis Template in Appendix E2 of the Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures.",
-    "explanation": "The image includes documentation for targeted risk analysis as per the requirement.",
+  "4.1.7": {
+    "description": "Use load balancing controls to distribute incoming requests across multiple servers within the internal network.",
+    "explanation": "The presence of an internal Load Balancer is evident, distributing traffic across multiple servers for better performance and redundancy.",
     "missing_aspects": ""
   },
-  "Requirement 8.x.x.x": {
-    "description": "Use this template to document each instance where a customized control is used to meet a PCI DSS requirement. Note that each use of the Customized Approach must also be documented at the corresponding PCI DSS requirement in...",
-    "explanation": "The image evidence likely shows documentation of a customized approach using the specified template, fulfilling the requirement outlined in this section.",
+  "5.2.6": {
+    "description": "Implement a Card Vault control using a specific Network Security Group (NSG) to restrict access to sensitive card vault data.",
+    "explanation": "A dedicated Card Vault NSG is present, ensuring restricted access and enhanced protection for sensitive data.",
     "missing_aspects": ""
   }
 }
