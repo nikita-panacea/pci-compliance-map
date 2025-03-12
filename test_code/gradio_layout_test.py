@@ -10,7 +10,7 @@ def run_janus_pipeline(image_path):
     return "Janus Results"
 
 def run_phi4_pipeline(image_path):
-    return "PHI Results"
+    return "Phi4 Results"
 
 with gr.Blocks(title="PCI-DSS Compliance Analyzer") as app:
     gr.Markdown("# PCI-DSS Compliance Mapping Analyzer")
