@@ -452,6 +452,7 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
     except Exception as e:
         yield f"Error: {str(e)}"
     #return "Janus Results"
+
 #-----------------------------
 # Phi 4 Multimodal Pipeline
 #-----------------------------
@@ -476,8 +477,7 @@ class Phi4Processor:
             self.model_path,
             device_map="auto",
             torch_dtype=torch.float16,
-            trust_remote_code=True,
-            _attn_implementation='flash_attention_2'
+            trust_remote_code=True
         ).eval()
         
         # Configure generation parameters
@@ -489,31 +489,43 @@ class Phi4Processor:
     def generate_response(self, prompt_text, image_path):
         """Process image and generate response with Phi-4"""
         try:
-            # Load and convert image to RGB
+            # Load and convert image with explicit size validation
             image = Image.open(image_path).convert("RGB")
+            if min(image.size) < 224:  # Minimum size for most vision models
+                image = image.resize((224, 224))
             
-            # Build Phi-4 prompt template
-            full_prompt = f"<|user|><|image_1|>{prompt_text}<|end|><|assistant|>"
+            # Build optimized prompt template
+            full_prompt = (
+                "<|user|>"
+                "<|image_1|>\n"  # Image placeholder must be first in line
+                f"{prompt_text}"
+                "<|end|>"
+                "<|assistant|>"
+            )
             
-            # Process inputs with validation
+            # Process inputs with enhanced validation
             inputs = self.processor(
                 text=full_prompt,
-                images=[image],
+                images=image,  # Single image processing
                 return_tensors="pt",
                 padding=True,
-                truncation=True
+                truncation=True,
+                max_length=2048  # Prevent sequence overflow
             ).to(self.device)
 
-            # Validate input tensors
-            if not all(key in inputs for key in ['input_ids', 'attention_mask', 'pixel_values']):
-                raise ValueError("Invalid input tensors for Phi-4 model")
+            # Validate all required input components
+            required_keys = {'input_ids', 'attention_mask', 'pixel_values'}
+            if not required_keys.issubset(inputs.keys()):
+                missing = required_keys - inputs.keys()
+                raise ValueError(f"Missing input tensors: {missing}")
 
-            # Generate response with proper tensor handling
+            # Generate with explicit tensor passing
             generate_ids = self.model.generate(
                 input_ids=inputs.input_ids,
                 attention_mask=inputs.attention_mask,
                 pixel_values=inputs.pixel_values,
-                generation_config=self.generation_config
+                generation_config=self.generation_config,
+                pad_token_id=self.processor.tokenizer.eos_token_id
             )
 
             # Decode and clean response
@@ -528,7 +540,7 @@ class Phi4Processor:
         except Exception as e:
             print(f"Phi-4 generation error: {e}")
             return ""
-
+        
 # Initialize Phi-4 processor
 # phi4_processor = Phi4Processor()
 
@@ -569,24 +581,25 @@ def map_chunk_to_control_phi4(section_title, section_text, image_path, image_ocr
     """
     
     try:
+        # Generate and validate response
         raw_response = phi4_processor.generate_response(task_prompt, image_path)
-        
-        # Handle empty responses
         if not raw_response.strip():
             return []
-            
-        # Robust JSON extraction
-        json_match = re.search(r"\[\s*{.*?}\s*\]", raw_response, re.DOTALL)
-        if not json_match:
-            return []
-            
-        try:
-            mappings = json.loads(json_match.group())
-            return [sanitize_mapping(m) for m in mappings if m.get('control_code')]
-        except json.JSONDecodeError as e:
-            print(f"JSON decode error: {e}")
-            return []
-            
+        
+        # Improved JSON parsing with error recovery
+        json_str = re.search(r"\[\s*({.*?}\s*,?\s*)+]", raw_response, re.DOTALL)
+        if json_str:
+            try:
+                mappings = json.loads(json_str.group())
+                return [
+                    sanitize_mapping(m) 
+                    for m in mappings 
+                    if isinstance(m, dict) and m.get('control_code')
+                ]
+            except json.JSONDecodeError:
+                return []
+        return []
+        
     except Exception as e:
         print(f"[{section_title}] Phi-4 error: {e}")
         return []
