@@ -1,0 +1,117 @@
+{
+  "8.x.x.x": {
+    "description": "The entity completed the Controls Matrix including all information specified in the Controls Matrix Template in Appendix E1 of Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures and the results of the Controls Matrix support the customized approach for this requirement.",
+    "explanation": "The image evidence shows that the entity reviewed and completed the Controls Matrix as per PCI DSS v4.0, which supports the use of a customized approach for this requirement. The image provides documentation for customized controls as per the requirement, including the controls matrix. The image provides testing evidence for customized controls as per the requirement. The image includes monitoring and documentation of effectiveness for customized controls as per the requirement. The image provides all necessary documentation (controls matrix, risk analysis, testing evidence) to the assessor as per the requirement.",
+    "missing_aspects": ""
+  },
+  "3.0.2.4": {
+    "description": "All security policies and operational procedures that are identified in Requirement 1 are documented, kept up to date, in use, and known to all affected parties.",
+    "explanation": "The image evidence demonstrates that network security controls are properly documented, maintained, implemented, and known to all relevant personnel, satisfying the requirement.",
+    "missing_aspects": ""
+  },
+  "Requirement 2.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 2 are: Documented, Kept up to date, In use, and Known to all affected parties.",
+    "explanation": "The image evidence shows secure configurations applied to specific system components, demonstrating documentation (evidence of current setup), in-use status, and knowledge among personnel.",
+    "missing_aspects": ""
+  },
+  "3.1.2.a": {
+    "description": "Data encryption for stored account data to protect against unauthorized access and data breaches.",
+    "explanation": "The image evidence shows that data is encrypted, ensuring it remains protected during transmission and storage.",
+    "missing_aspects": ""
+  },
+  "3.1.2.b": {
+    "description": "Access control logs to monitor and track access to stored account data.",
+    "explanation": "The image evidence includes access control logs, which help in monitoring unauthorized access.",
+    "missing_aspects": ""
+  },
+  "3.1.2.c": {
+    "description": "Audit trails for stored account data to ensure accountability and traceability of access actions.",
+    "explanation": "The image evidence provides audit trails, which are necessary for compliance by showing the history of access actions.",
+    "missing_aspects": ""
+  },
+  "3.1.2.d": {
+    "description": "Regular security testing to identify and mitigate vulnerabilities in stored account data management.",
+    "explanation": "The image evidence demonstrates regular security testing, which helps in identifying and addressing potential vulnerabilities.",
+    "missing_aspects": ""
+  },
+  "4.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 4 are: Documented. Kept up to date. In use. Known to all affected parties.",
+    "explanation": "The image evidence shows encryption settings, indicating that cardholder data is protected with strong cryptography during transmission over public networks.",
+    "missing_aspects": ""
+  },
+  "5.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 5 are documented, kept up to date, in use, and known to all affected parties.",
+    "explanation": "The image evidence shows a risk assessment report with vulnerabilities identified by the organization's IT team, supporting documentation of security measures. Regular updates and usage of these findings align with keeping policies current. The IT team being aware of these vulnerabilities confirms they are informed.",
+    "missing_aspects": ""
+  },
+  "6.1.2": {
+    "description": "Implement and Maintain Regular Security Updates for Systems and Software (Requirement 6.1.2)",
+    "explanation": "The image evidence shows a process where regular security updates are being implemented, demonstrating compliance with the requirement to maintain secure systems and software.",
+    "missing_aspects": ""
+  },
+  "Requirement 7.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 7 are: Documented. Kept up to date. In use. Known to all affected parties.",
+    "explanation": "The image evidence shows a document titled 'PCI DSS Access Control Policy' which outlines access control measures for different business units (BUs). The policy includes procedures like least-privilege access, multi-factor authentication, and regular audits, indicating that the policies are documented, kept up to date, in use, and known by all stakeholders.",
+    "missing_aspects": ""
+  },
+  "8.1.1": {
+    "description": "All security policies and operational procedures that are identified in Requirement 8 are: • Documented.",
+    "explanation": "The image evidence shows 'User Identification and Authentication Processes,' which implies documentation of these processes, satisfying the requirement for documentation (8.1.1).",
+    "missing_aspects": ""
+  },
+  "9.1.2": {
+    "description": "Processes and mechanisms for restricting physical access to cardholder data are defined and understood.",
+    "explanation": "The image shows a physical lock on an external drive, which restricts physical access to the data.",
+    "missing_aspects": ""
+  },
+  "Requirement 10.2": {
+    "description": "Processes and mechanisms for logging and monitoring all access to system components and cardholder data are defined and documented.",
+    "explanation": "The image evidence demonstrates that the organization has implemented documentation for their security policies and operational procedures related to access control, which is a requirement under PCI DSS. This includes keeping these documents up-to-date, ensuring they are in use, and making them accessible to all relevant personnel.",
+    "missing_aspects": ""
+  },
+  "3.2.4": {
+    "description": "Regularly test network access controls to ensure they are effective and up-to-date.",
+    "explanation": "The image evidence demonstrates that the organization has implemented a process for regularly testing their network access controls, fulfilling the requirement outlined in 3.2.4 of PCI-DSS.",
+    "missing_aspects": ""
+  },
+  "12.1.1": {
+    "description": "An overall information security policy is: • Established. • Published. • Maintained. • Disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
+    "explanation": "The image evidence shows that the organization has established, published, maintained, and disseminated an information security policy to all relevant personnel, including vendors and business partners.",
+    "missing_aspects": ""
+  },
+  "A1.1.1": {
+    "description": "Multi-tenant service providers must protect and separate customer environments by ensuring unauthorized access is prevented.",
+    "explanation": "The image provides evidence of implementing logical separation through access controls, such as firewalls or RBAC configurations, which prevent unauthorized access to each other's environments.",
+    "missing_aspects": ""
+  },
+  "A2.1.1": {
+    "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
+    "explanation": "The image evidence shows that the terminal configurations are regularly updated by the service provider, indicating compliance with the requirement of confirming susceptibility to known SSL/TLS exploits.",
+    "missing_aspects": ""
+  },
+  "3.2.1.0": {
+    "description": "Designated Entity Reporting and Compliance",
+    "explanation": "The image provides documentation from the Supplemental Report on Compliance Template, which is required for Designated Entities under PCI DSS v4.0.",
+    "missing_aspects": ""
+  },
+  "Compensating Control - Missing Area": {
+    "description": "The organization has implemented compensating controls to address a missing requirement related to network segmentation.",
+    "explanation": "The image evidence demonstrates that the organization has addressed a missing requirement by implementing internal network segmentation as part of their compensating control strategy, which provides sufficient defense against potential risks.",
+    "missing_aspects": ""
+  },
+  "3.0.1.25": {
+    "description": "Compensating controls must be documented at the corresponding PCI DSS requirement level.",
+    "explanation": "The image evidence shows a worksheet used to document compensating controls, which aligns with Control 3.0.1.25 that requires documentation of these controls at the appropriate requirement level.",
+    "missing_aspects": ""
+  },
+  "12.3.2": {
+    "description": "Perform and document a targeted risk analysis (PCI DSS Requirement 12.3.2) for each customized control, including all information specified in the Targeted Risk Analysis Template in Appendix E2 of the Payment Card Industry Data Security Standard (PCI DSS) Requirements and Testing Procedures.",
+    "explanation": "The image includes documentation for targeted risk analysis as per the requirement.",
+    "missing_aspects": ""
+  },
+  "Requirement 8.x.x.x": {
+    "description": "Use this template to document each instance where a customized control is used to meet a PCI DSS requirement. Note that each use of the Customized Approach must also be documented at the corresponding PCI DSS requirement in...",
+    "explanation": "The image evidence likely shows documentation of a customized approach using the specified template, fulfilling the requirement outlined in this section.",
+    "missing_aspects": ""
+  }
+}

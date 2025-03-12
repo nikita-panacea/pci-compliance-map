@@ -10,6 +10,7 @@ from mimetypes import guess_type
 from openai import OpenAI
 from dotenv import load_dotenv
 import gradio as gr
+import soundfile 
 
 load_dotenv()
 
@@ -27,7 +28,7 @@ def save_json_file(data, filename):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Path to processed PDF sections (JSON file)
-pdf_sections_file = "open-source-pipeline/processed_pci_chunks.json" #open-source-pipeline/
+pdf_sections_file = "pci_requirements_sections.json" #"open-source-pipeline/processed_pci_chunks.json" #open-source-pipeline/
 
 #------------------
 # Image OCR 
@@ -59,7 +60,9 @@ class VisualAnalyzer:
     # - Identify any potential vulnerabilities or security risks.    
     def analyze(self, image_path, image_ocr, img_analysis_file="vision_analysis_minicpm.json"):
         prompt = f"""
-        You are an expert in PCI-DSS compliance network security.
+        You are an expert in PCI-DSS compliance network security. You are provided with image evidence. 
+        The image evidence has been provided by the audited organization as part of PCI DSS audit to prove 
+        that they fulfil a particular control of PCI DSS framework.
         Provide a detailed report on the given image for compliance analysis:
         - List all components present in the image.
         - Describe the information presented in the image in detail.
@@ -125,11 +128,11 @@ def map_section_to_requirement(section_title, section_text, image_analysis):
     of PCI DSS framework. Our task is to find out corresponding to which control this evidence was provided.
     Your task:
     1. Read and understand the given section carefully.
-    2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
-    3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
+    2. Determine all specific requirement/control(s) from the section that the image evidence corresponds to.
+    3. For each one, provide the exact control/requirement code (example format "Requirement 8.x.x.x").
     4. Provide a short excerpt from the section that describes that requirement.
     5. Explain briefly why the image evidence satisfies this requirement.
-    6. Note if any aspects of the requirement are not fully satisfied.
+    6. Note if any aspects of the requirement are not fully satisfied by the image evidence.
     Always return your answer as a JSON array of objects with exactly these keys:
     "control_code": string,
     "description": string,
@@ -318,20 +321,17 @@ class Janus7BProcessor:
         ).to(self.device).eval()
 
     def generate_response(self, prompt_text, image_path):
-        # Load and process image
-        image = Image.open(image_path).convert("RGB")
-        
-        # Create conversation format
+        # Create conversation format with image PATH instead of PIL Image
         conversation = [
             {
                 "role": "<|User|>",
                 "content": f"<image_placeholder>\n{prompt_text}",
-                "images": [image],
+                "images": [image_path],  # Pass path instead of Image object
             },
             {"role": "<|Assistant|>", "content": ""},
         ]
         
-        # Process inputs
+        # Process inputs using processor's image loading
         pil_images = load_pil_images(conversation)
         prepare_inputs = self.vl_chat_processor(
             conversations=conversation,
@@ -339,7 +339,7 @@ class Janus7BProcessor:
             force_batchify=True
         ).to(self.device)
         
-        # Generate embeddings and response
+        # Generate response
         with torch.no_grad():
             inputs_embeds = self.model.prepare_inputs_embeds(**prepare_inputs)
             outputs = self.model.language_model.generate(
@@ -353,14 +353,15 @@ class Janus7BProcessor:
                 use_cache=True,
             )
         
-        # Decode and clean response
+        # Decode response
         full_response = self.tokenizer.decode(outputs[0].cpu().tolist(), skip_special_tokens=True)
         return full_response.split("<|Assistant|>")[-1].strip()
+
 
 # Initialize Janus processor
 janus_processor = Janus7BProcessor()
 
-def map_chunk_to_control_janus(section_title, section_text, image_path, image_ocr):
+def map_chunk_to_control_janus(section_title, section_text, image_path): #, image_ocr
     """
     Janus Pro 7B version of control mapping
     """
@@ -374,11 +375,12 @@ def map_chunk_to_control_janus(section_title, section_text, image_path, image_oc
     {system_message}
     
     Section Title: {section_title}
+    
     Section Content: {section_text}
-    Image OCR Context: {image_ocr}
 
     Your task:
     1. Read and understand the given section carefully.
+<<<<<<< HEAD
     2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
     3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
     4. Provide a short excerpt from the section that describes that requirement.
@@ -390,11 +392,26 @@ def map_chunk_to_control_janus(section_title, section_text, image_path, image_oc
     "explanation": string,
     "missing_aspects": string
     Output only the JSON array with no extra text.
+=======
+    2. Determine all the specific requirement/control(s) from the section that are image evidence corresponds to. 
+    3. Only return the control code(s) for the section if the image evidence provided satisfies the requirement/control.
+    3. For each one, provide the exact control/requirement code from the document section.
+    4. Provide a short excerpt from the document section that describes that requirement.
+    5. Explain briefly why the image evidence satisfies this requirement.
+    6. Note if any aspects of the requirement are not fully satisfied by the image evidence.
+    3. Always return your answer as a JSON array of objects with exactly these keys:
+        "control_code": requirement code from the document (string),
+        "description": requirement description from document (string),
+        "explanation": Explaning why the evidence satisfies the requirement (string),
+        "missing_aspects": Explain why evidence does not satisfy certain aspects of the requirement (string)
+        Output only the JSON array with no extra text.
+     
+>>>>>>> d463175 (fixed Janus and added Phi4 model)
     """
     
     try:
-        # Get raw response from Janus
         raw_response = janus_processor.generate_response(prompt, image_path)
+        # print(raw_response)
         
         # Extract JSON array
         json_match = re.search(r"\[.*\]", raw_response, re.DOTALL)
@@ -437,7 +454,7 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
             progress((idx+1)/total_sections, 
                     desc=f"Processing section {idx+1}/{total_sections}...")
             
-            response = map_chunk_to_control_janus(title, text, image_path, ocr_text)
+            response = map_chunk_to_control_janus(title, text, image_path)#, ocr_text
             if response:
                 all_mappings[title] = response
                 # Update results incrementally
@@ -450,134 +467,322 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
         
     except Exception as e:
         yield f"Error: {str(e)}"
+    #return "Janus Results"
+#-----------------------------
+# Phi 4 Multimodal Pipeline
+#-----------------------------
 
+import requests
+import torch
+from PIL import Image
+import soundfile
+from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig,pipeline,AutoTokenizer
 
-# #-------------------------
-# # GPT-4 Pipeline Functions
-# #-------------------------
-# client  = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-# def image_to_data_url(image_path: str) -> str:
-#     """Convert an image file to a base64-encoded data URL."""
-#     mime_type, _ = guess_type(image_path)
-#     if mime_type is None:
-#         mime_type = 'application/octet-stream'
-#     with open(image_path, "rb") as f:
-#         encoded = base64.b64encode(f.read()).decode("utf-8")
-#     return f"data:{mime_type};base64,{encoded}"
-
-# def map_chunk_to_control(section_title, section_text, image_path, image_ocr):
-#     """
-#     For GPT-4 pipeline: send a prompt with the section and OCR text to GPT-4.
-#     Expect a JSON array output containing mapping objects (with the same keys).
-#     """
-#     system_message = f"""
-#     You are an expert in PCI-DSS compliance and network security. 
-#     Analyze the following section from a PCI-DSS ROC compliance document and the provided detailed image analysis report.
-#     The document section (including its heading) contains requirement controls, guidelines, and auditor instructions.
-#     The image evidence has been provided by the audited organization as part of PCI DSS audit to prove that they fulfil a particular control
-#     of PCI DSS framework. Our task is to find out corresponding to which control this evidence was provided.
-#     """
-#     prompt = f"""
-#     Your task:
-#     1. Read and understand the given section carefully.
-#     2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
-#     3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
-#     4. Provide a short excerpt from the section that describes that requirement.
-#     5. Explain briefly why the image evidence satisfies this requirement.
-#     6. Note if any aspects of the requirement are not fully satisfied.
-#     Always return your answer as a JSON array of objects with exactly these keys:
-#     "control_code": string,
-#     "description": string,
-#     "explanation": string,
-#     "missing_aspects": string
-#     Output only the JSON array with no extra text.
-#     Do not change the output format.
-#     Do not change the JSON key names.
-#     Do not change the data type of JSON objects, always return a string.
-#     For "missing_aspects", always return a string "",  do not return null or list[].
-
-#     Section Title: {section_title}
-#     Section Content:
-#     {section_text}
-
-#     Image OCR:
-#     {image_ocr}
-#     """
-#     image_data_url = image_to_data_url(image_path)
-#     messages = [
-#         {"role": "system", "content": system_message},
-#         {"role": "user", "content": [
-#             {"type": "text", "text": prompt},
-#             {"type": "image_url", "image_url": {"url": image_data_url}}
-#         ]}
-#     ]
-#     try:
-#         response = client.chat.completions.create(
-#             model="gpt-4o",
-#             messages=messages,
-#             max_tokens=500,
-#             temperature=0.2
-#         )
-#         output = response.choices[0].message.content.strip()
-#         if not output:
-#             print(f"[{section_title}] GPT-4 mapping returned empty output.")
-#             return []
-#         json_match = re.search(r"\[.*\]", output, re.DOTALL)
-#         if not json_match:
-#             print(f"[{section_title}] GPT-4 mapping did not return a JSON array.")
-#             return []
-#         json_str = json_match.group(0)
-#         try:
-#             mapping_list = json.loads(json_str)
-#             if isinstance(mapping_list, list):
-#                 # Sanitize each mapping
-#                 valid_mappings = []
-#                 for m in mapping_list:
-#                     try:
-#                         cleaned = sanitize_mapping(m)
-#                         if cleaned['control_code']:
-#                             valid_mappings.append(cleaned)
-#                     except Exception as e:
-#                         print(f"Invalid GPT-4 mapping format: {e}")
-#                 return valid_mappings
-#             return []
-#         except json.JSONDecodeError as e:
-#             print(f"GPT-4 JSON decode error: {e}")
-#             return []
-#     except Exception as e:
-#         print(f"[{section_title}] GPT-4 mapping error: {e}")
-#         return []
-
-# def run_gpt4_pipeline(image_path, progress=gr.Progress()):
-#     try:
-#         # OCR Processing
-#         progress(0, desc="Extracting text from image...")
-#         ocr_text = processor.process_image(image_path)
+class Phi4Processor:
+    def __init__(self):
+        self.model_path = "microsoft/Phi-4-multimodal-instruct"
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         
-#         # Load PDF sections
-#         sections = load_json_file(pdf_sections_file)
-#         total_sections = len(sections)
+        # Initialize model components
+        self.processor = AutoProcessor.from_pretrained(
+            self.model_path, 
+            trust_remote_code=True
+        )
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_path,
+            device_map="auto",
+            torch_dtype=torch.float16,
+            trust_remote_code=True,
+            _attn_implementation='flash_attention_2'
+        ).eval()
         
-#         all_mappings = {}
-#         markdown_output = ""
-#         for idx, (title, text) in enumerate(sections.items()):
-#             progress((idx+1)/total_sections, 
-#                     desc=f"Processing section {idx+1}/{total_sections}...")
+        # Configure generation parameters
+        self.generation_config = GenerationConfig.from_pretrained(self.model_path)
+        self.generation_config.max_new_tokens = 1024
+        self.generation_config.temperature = 0.7
+        self.generation_config.top_p = 0.9
+
+    def generate_response(self, prompt_text, image_path):
+        """Process image and generate response with Phi-4"""
+        try:
+            # Load and convert image to RGB
+            image = Image.open(image_path).convert("RGB")
             
-#             response = map_chunk_to_control(title, text, image_path, ocr_text)
-#             if response:
-#                 all_mappings[title] = response
-#                 # Update results incrementally
-#                 section_md = format_mappings_to_markdown({title: response})
-#                 markdown_output += section_md + "\n\n"
-#                 yield markdown_output  # Yield partial results
-#                 time.sleep(0.1)
+            # Build Phi-4 prompt template
+            full_prompt = f"<|user|><|image_1|>{prompt_text}<|end|><|assistant|>"
+            
+            # Process inputs with validation
+            inputs = self.processor(
+                text=full_prompt,
+                images=[image],
+                return_tensors="pt",
+                padding=True,
+                truncation=True
+            ).to(self.device)
+
+            # Validate input tensors
+            if not all(key in inputs for key in ['input_ids', 'attention_mask', 'pixel_values']):
+                raise ValueError("Invalid input tensors for Phi-4 model")
+
+            # Generate response with proper tensor handling
+            generate_ids = self.model.generate(
+                input_ids=inputs.input_ids,
+                attention_mask=inputs.attention_mask,
+                pixel_values=inputs.pixel_values,
+                generation_config=self.generation_config
+            )
+
+            # Decode and clean response
+            response = self.processor.batch_decode(
+                generate_ids[:, inputs.input_ids.shape[1]:],
+                skip_special_tokens=True,
+                clean_up_tokenization_spaces=False
+            )[0]
+            
+            return response
+            
+        except Exception as e:
+            print(f"Phi-4 generation error: {e}")
+            return ""
+
+# Initialize Phi-4 processor
+# phi4_processor = Phi4Processor()
+
+def map_chunk_to_control_phi4(section_title, section_text, image_path, image_ocr):
+    """
+    Phi-4 version of compliance mapping
+    """
+    system_message = """You are an expert PCI-DSS compliance analyst. Analyze the following section from a PCI-DSS ROC compliance document and the provided detailed image analysis report.
+    The document section (including its heading) contains requirement controls, guidelines, and auditor instructions.
+    The image evidence has been provided by the audited organization as part of PCI DSS audit to prove that they fulfil a particular control
+    of PCI DSS framework. Our task is to find out corresponding to which control this evidence was provided."""
+    
+    task_prompt = f"""
+    {system_message}
+    
+    Section Title: {section_title}
+    
+    Section Content: {section_text}
+    Context: {image_ocr}
+
+    Your task:
+    1. Read and understand the given section carefully.
+    2. Determine all the specific requirement/control(s) from the section that are image evidence corresponds to. 
+    3. Only return the control code(s) for the section if the image evidence provided satisfies the requirement/control.
+    3. For each one, provide the exact control/requirement code from the document section, format Requirement x.x.x
+    4. Provide a short excerpt from the document section that describes that requirement.
+    5. Explain briefly why the image evidence satisfies this requirement.
+    6. Note if any aspects of the requirement are not fully satisfied by the image evidence.
+    3. Always return your answer as a JSON array of objects with exactly these keys and format:
+       
+        "control_code": string,
+        "description": string,
+        "explanation": string,
+        "missing_aspects": string
         
-#         save_json_file(all_mappings, "gpt4_mappings.json")
+    Output only the JSON array with no extra text.
+      
+    """
+    
+    try:
+        raw_response = phi4_processor.generate_response(task_prompt, image_path)
         
-#     except Exception as e:
-#         yield f"Error: {str(e)}"
+        # Handle empty responses
+        if not raw_response.strip():
+            return []
+            
+        # Robust JSON extraction
+        json_match = re.search(r"\[\s*{.*?}\s*\]", raw_response, re.DOTALL)
+        if not json_match:
+            return []
+            
+        try:
+            mappings = json.loads(json_match.group())
+            return [sanitize_mapping(m) for m in mappings if m.get('control_code')]
+        except json.JSONDecodeError as e:
+            print(f"JSON decode error: {e}")
+            return []
+            
+    except Exception as e:
+        print(f"[{section_title}] Phi-4 error: {e}")
+        return []
+            
+    #     json_str = json_match.group(0)
+    #     mapping_list = json.loads(json_str)
+        
+    #     # Validate and sanitize
+    #     valid_mappings = []
+    #     for m in mapping_list:
+    #         try:
+    #             cleaned = sanitize_mapping(m)
+    #             if cleaned['control_code']:
+    #                 valid_mappings.append(cleaned)
+    #         except Exception as e:
+    #             print(f"Invalid Phi-4 mapping: {e}")
+        
+    #     return valid_mappings
+        
+    # except Exception as e:
+    #     print(f"[{section_title}] Phi-4 error: {e}")
+    #     return []
+
+def run_phi4_pipeline(image_path, progress=gr.Progress()):
+    try:
+        # OCR Processing
+        progress(0, desc="Extracting text from image...")
+        ocr_text = processor.process_image(image_path)
+        
+        # Load PDF sections
+        sections = load_json_file(pdf_sections_file)
+        total_sections = len(sections)
+        
+        all_mappings = {}
+        markdown_output = ""
+        for idx, (title, text) in enumerate(sections.items()):
+            progress((idx+1)/total_sections, 
+                    desc=f"Processing section {idx+1}/{total_sections}...")
+            
+            response = map_chunk_to_control_phi4(title, text, image_path, ocr_text)
+            if response:
+                all_mappings[title] = response
+                # Update results incrementally
+                section_md = format_mappings_to_markdown({title: response})
+                markdown_output += section_md + "\n\n"
+                yield markdown_output
+                time.sleep(0.1)
+        
+        save_json_file(all_mappings, "phi4_mappings.json")
+        
+    except Exception as e:
+        yield f"Error: {str(e)}"
+
+
+#-------------------------
+# GPT-4 Pipeline Functions
+#-------------------------
+client  = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+def image_to_data_url(image_path: str) -> str:
+    """Convert an image file to a base64-encoded data URL."""
+    mime_type, _ = guess_type(image_path)
+    if mime_type is None:
+        mime_type = 'application/octet-stream'
+    with open(image_path, "rb") as f:
+        encoded = base64.b64encode(f.read()).decode("utf-8")
+    return f"data:{mime_type};base64,{encoded}"
+
+def map_chunk_to_control(section_title, section_text, image_path, image_ocr):
+    """
+    For GPT-4 pipeline: send a prompt with the section and OCR text to GPT-4.
+    Expect a JSON array output containing mapping objects (with the same keys).
+    """
+    system_message = f"""
+    You are an expert in PCI-DSS compliance and network security. 
+    Analyze the following section from a PCI-DSS ROC compliance document and the provided detailed image analysis report.
+    The document section (including its heading) contains requirement controls, guidelines, and auditor instructions.
+    The image evidence has been provided by the audited organization as part of PCI DSS audit to prove that they fulfil a particular control
+    of PCI DSS framework. Our task is to find out corresponding to which control this evidence was provided.
+    """
+    prompt = f"""
+    Your task:
+    1. Read and understand the given section carefully.
+    2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
+    3. For each one, provide the exact control/requirement code (e.g., "Requirement 8.2.1.a").
+    4. Provide a short excerpt from the section that describes that requirement.
+    5. Explain briefly why the image evidence satisfies this requirement.
+    6. Note if any aspects of the requirement are not fully satisfied.
+    Always return your answer as a JSON array of objects with exactly these keys:
+    "control_code": string,
+    "description": string,
+    "explanation": string,
+    "missing_aspects": string
+    Output only the JSON array with no extra text.
+    Do not change the output format.
+    Do not change the JSON key names.
+    Do not change the data type of JSON objects, always return a string.
+    For "missing_aspects", always return a string "",  do not return null or list[].
+
+    Section Title: {section_title}
+    Section Content:
+    {section_text}
+
+    Image OCR:
+    {image_ocr}
+    """
+    image_data_url = image_to_data_url(image_path)
+    messages = [
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": [
+            {"type": "text", "text": prompt},
+            {"type": "image_url", "image_url": {"url": image_data_url}}
+        ]}
+    ]
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=messages,
+            max_tokens=500,
+            temperature=0.2
+        )
+        output = response.choices[0].message.content.strip()
+        if not output:
+            print(f"[{section_title}] GPT-4 mapping returned empty output.")
+            return []
+        json_match = re.search(r"\[.*\]", output, re.DOTALL)
+        if not json_match:
+            print(f"[{section_title}] GPT-4 mapping did not return a JSON array.")
+            return []
+        json_str = json_match.group(0)
+        try:
+            mapping_list = json.loads(json_str)
+            if isinstance(mapping_list, list):
+                # Sanitize each mapping
+                valid_mappings = []
+                for m in mapping_list:
+                    try:
+                        cleaned = sanitize_mapping(m)
+                        if cleaned['control_code']:
+                            valid_mappings.append(cleaned)
+                    except Exception as e:
+                        print(f"Invalid GPT-4 mapping format: {e}")
+                return valid_mappings
+            return []
+        except json.JSONDecodeError as e:
+            print(f"GPT-4 JSON decode error: {e}")
+            return []
+    except Exception as e:
+        print(f"[{section_title}] GPT-4 mapping error: {e}")
+        return []
+
+def run_gpt4_pipeline(image_path, progress=gr.Progress()):
+    try:
+        # OCR Processing
+        progress(0, desc="Extracting text from image...")
+        ocr_text = processor.process_image(image_path)
+        
+        # Load PDF sections
+        sections = load_json_file(pdf_sections_file)
+        total_sections = len(sections)
+        
+        all_mappings = {}
+        markdown_output = ""
+        for idx, (title, text) in enumerate(sections.items()):
+            progress((idx+1)/total_sections, 
+                    desc=f"Processing section {idx+1}/{total_sections}...")
+            
+            response = map_chunk_to_control(title, text, image_path, ocr_text)
+            if response:
+                all_mappings[title] = response
+                # Update results incrementally
+                section_md = format_mappings_to_markdown({title: response})
+                markdown_output += section_md + "\n\n"
+                yield markdown_output  # Yield partial results
+                time.sleep(0.1)
+        
+        save_json_file(all_mappings, "gpt4_mappings.json")
+        
+    except Exception as e:
+        yield f"Error: {str(e)}"
 
 
 #-------------------------
@@ -585,33 +790,68 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
 #-------------------------
 with gr.Blocks(title="PCI-DSS Compliance Analyzer") as app:
     gr.Markdown("# PCI-DSS Compliance Mapping Analyzer")
+    gr.Markdown("Upload an evidence image for compliance analysis")
     
+    # Image Upload Section
     with gr.Row():
-        image_input = gr.Image(type="filepath", label="Upload Network/System Image")
+        image_input = gr.Image(type="filepath", label="Upload Image", height=300)
     
-    with gr.Row():
-        open_source_btn = gr.Button("Run Open-Source Pipeline", variant="primary")
-        gpt4_btn = gr.Button("Run Janus Pipeline", variant="secondary") # Run GPT-4 Pipeline
-    
-    with gr.Row():
-        progress_tracker = gr.Textbox(label="Processing Status", interactive=False)
-    
-    with gr.Row():
-        open_source_output = gr.Markdown("### Open-Source Results will appear here")
-        gpt4_output = gr.Markdown("### Janus Pro Results ") # GPT-4 Results will appear here
-    
-    # Event handlers
-    open_source_btn.click(
+    # Pipeline Tabs
+    with gr.Tabs() as tabs:
+        # Open-Source Pipeline Tab
+        with gr.Tab("MiniCPM + Deepseek R1)"):
+            with gr.Row():
+                oss_btn = gr.Button("Run Open-Source Pipeline", variant="primary")
+            with gr.Row():
+                oss_output = gr.Markdown("### Open-Source Results will appear here")
+        
+        # GPT-4 Pipeline Tab
+        with gr.Tab("GPT-4"):
+            with gr.Row():
+                gpt4_btn = gr.Button("Run GPT-4 Pipeline", variant="secondary")
+            with gr.Row():
+                gpt4_output = gr.Markdown("### GPT-4 Results will appear here")
+        
+        # Janus Pro Pipeline Tab
+        with gr.Tab("Janus Pro 7B"):
+            with gr.Row():
+                janus_btn = gr.Button("Run Janus Pro Pipeline", variant="primary")
+            with gr.Row():
+                janus_output = gr.Markdown("### Janus Pro Results will appear here")
+        
+        # Phi-4 Pipeline Tab
+        with gr.Tab("Phi-4 Multimodal"):
+            with gr.Row():
+                phi4_btn = gr.Button("Run Phi-4 Pipeline", variant="secondary")
+            with gr.Row():
+                phi4_output = gr.Markdown("### Phi-4 Results will appear here")
+
+    # Event Handlers
+    oss_btn.click(
         fn=run_open_source_pipeline,
         inputs=image_input,
-        outputs=open_source_output,
+        outputs=oss_output,
         show_progress=True
     )
     
     gpt4_btn.click(
-        fn=run_janus_pipeline, # run_gpt4_pipeline,
+        fn=run_gpt4_pipeline,
         inputs=image_input,
         outputs=gpt4_output,
+        show_progress=True
+    )
+    
+    janus_btn.click(
+        fn=run_janus_pipeline,
+        inputs=image_input,
+        outputs=janus_output,
+        show_progress=True
+    )
+    
+    phi4_btn.click(
+        fn=run_phi4_pipeline,
+        inputs=image_input,
+        outputs=phi4_output,
         show_progress=True
     )
 

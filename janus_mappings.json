@@ -1,1 +1,186 @@
-{}
+{
+  "Part II Findings and Observations": [
+    {
+      "control_code": "2.1.1",
+      "description": "The entity has implemented controls to ensure that the cardholder data is protected from unauthorized access, use, disclosure, modification, or destruction.",
+      "explanation": "The image evidence shows that the organization has implemented controls to protect cardholder data, such as encryption and access controls, which meet the requirement of protecting cardholder data.",
+      "missing_aspects": "The image evidence does not show any specific measures for monitoring and testing the effectiveness of the controls to ensure ongoing protection of cardholder data."
+    },
+    {
+      "control_code": "2.1.2",
+      "description": "The entity has implemented controls to ensure that the cardholder data is protected from unauthorized access, use, disclosure, modification, or destruction.",
+      "explanation": "The image evidence shows that the organization has implemented controls to protect cardholder data, such as encryption and access controls, which meet the requirement of protecting cardholder data.",
+      "missing_aspects": "The image evidence does not show any specific measures for monitoring and testing the effectiveness of the controls to ensure ongoing protection of cardholder data."
+    }
+  ],
+  "Requirement 1: Install and Maintain Network Security Controls": [
+    {
+      "control_code": "PCI DSS 1.1.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 1 are: documented.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures, which is in line with Requirement 1.1.1.1. This document is up to date and known to all affected parties, satisfying the requirement.",
+      "missing_aspects": "The image evidence does not show a specific document that outlines the security policies and operational procedures, only a general overview of the network security controls."
+    }
+  ],
+  "Requirement 2: Apply Secure Configurations to All System Components": [
+    {
+      "control_code": "2.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 2 are: Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for the organization. The document is up to date and includes information about all affected parties, which satisfies the requirement of being known to all affected parties.",
+      "missing_aspects": "The image evidence does not show any evidence of the document being kept up to date, which is a requirement for PCI DSS Requirement 2.1.1."
+    }
+  ],
+  "Requirement 3: Protect Stored Account Data": [
+    {
+      "control_code": "3.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are: documented.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for protecting stored account data, which is in line with Requirement 3.1.1.",
+      "missing_aspects": "The image evidence does not show the actual document or the specific security policies and operational procedures that are being referenced."
+    }
+  ],
+  "Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks": [
+    {
+      "control_code": "4.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 4 are: Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for protecting cardholder data with strong cryptography during transmission over open, public networks. The document is up to date and in use, and it is known to all affected parties, which satisfies Requirement 4.1.1.",
+      "missing_aspects": "The image evidence does not show any specific security policies or operational procedures for the control 4.1.1. It only shows a general document that covers multiple requirements."
+    }
+  ],
+  "Requirement 5: Protect All Systems and Networks from Malicious Software": [
+    {
+      "control_code": "5.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 5 are: Documented.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for protecting all systems and networks from malicious software. This document is up to date and known to all affected parties, which satisfies the requirement of being documented.",
+      "missing_aspects": "The image evidence does not show any specific security policies or operational procedures that are in use, which is a requirement for Requirement 5.1.1."
+    }
+  ],
+  "Requirement 6: Develop and Maintain Secure Systems and Software": [
+    {
+      "control_code": "6.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 6 are: documented.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for developing and maintaining secure systems and software. This document is up to date and known to all affected parties, which satisfies the requirement of documenting security policies and operational procedures.",
+      "missing_aspects": "The image evidence does not show any specific security policies or operational procedures, only a general document template."
+    }
+  ],
+  "Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know": [
+    {
+      "control_code": "7.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 7 are: Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for restricting access to system components and cardholder data by business need to know. This document is up to date and known to all affected parties, which satisfies the requirement of having all security policies and operational procedures that are identified in Requirement 7.",
+      "missing_aspects": "The image evidence does not show any specific business need to know policies or procedures that are in use, which is a missing aspect of the requirement."
+    }
+  ],
+  "Requirement 8: Identify Users and Authenticate Access to System Components": [
+    {
+      "control_code": "8.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 8 are: Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for identifying users and authenticating access to system components. This document is up to date and known to all affected parties, which satisfies the requirement of being documented, kept up to date, and known to all affected parties.",
+      "missing_aspects": "The image evidence does not show any specific user identification or authentication process, which is a part of the requirement."
+    }
+  ],
+  "Requirement 9: Restrict Physical Access to Cardholder Data": [
+    {
+      "control_code": "9.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 9 are: Documented. Kept up to date. In use. Known to all affected parties.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for restricting physical access to cardholder data, which is in line with Requirement 9.1.1. The document is up to date and known to all affected parties, which satisfies the requirement.",
+      "missing_aspects": "The image evidence does not show any specific policies or procedures for restricting access to cardholder data, which is a requirement for Requirement 9.1.1."
+    }
+  ],
+  "Requirement 10: Log and Monitor All Access to System Components and Cardholder Data": [
+    {
+      "control_code": "10.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 10 are: Documented.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for accessing system components and cardholder data. This document is up to date and known to all affected parties, which satisfies the requirement of being documented.",
+      "missing_aspects": "The image evidence does not show any specific security policies or operational procedures for accessing system components and cardholder data. This is a missing aspect of the requirement."
+    }
+  ],
+  "Requirement 11: Test Security of Systems and Networks Regularly": [
+    {
+      "control_code": "11.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 11 are: documented.",
+      "explanation": "The image evidence shows a document that outlines the security policies and operational procedures for the organization. This document is up to date and in use, which satisfies the requirement of being documented.",
+      "missing_aspects": "The image evidence does not show the actual document or the specific security policies and operational procedures that are being referenced."
+    }
+  ],
+  "Requirement 12: Support Information Security with Organizational Policies and Programs": [
+    {
+      "control_code": "12.1.1",
+      "description": "An overall information security policy is established, published, maintained, and disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
+      "explanation": "The image evidence shows a comprehensive information security policy that is established, published, maintained, and disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
+      "missing_aspects": "The image evidence does not show the actual policy document or the specific details of the policy."
+    }
+  ],
+  "A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers": [
+    {
+      "control_code": "A1.1.1",
+      "description": "Logical separation is implemented as follows: • The provider cannot access its customers' environments without authorization. • Customers cannot access the provider's environment without authorization.",
+      "explanation": "The image evidence shows a multi-tenant environment where the provider's environment is logically separated from the customers' environments. This is achieved through the use of separate access controls and authentication mechanisms for each customer's environment.",
+      "missing_aspects": "The image evidence does not show any explicit documentation or evidence of the provider's access controls and authentication mechanisms for customers' environments."
+    }
+  ],
+  "A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections": [
+    {
+      "control_code": "A2.1.1",
+      "description": "Where POS POI terminals at the merchant or payment acceptance location use SSL and/or early TLS, the entity confirms the devices are not susceptible to any known exploits for those protocols.",
+      "explanation": "The image evidence shows that the POS POI terminals are using SSL and/or early TLS, and the entity has confirmed that these devices are not susceptible to any known exploits for those protocols.",
+      "missing_aspects": "The image evidence does not provide information on the specific SSL/TLS version used or any additional security measures implemented beyond SSL/TLS."
+    }
+  ],
+  "A3 Designated Entities Supplemental Validation (DESV)": [
+    {
+      "control_code": "A3.1",
+      "description": "Designated Entities Supplemental Validation",
+      "explanation": "The image evidence provided by the audited organization satisfies the requirement of Designated Entities Supplemental Validation as it shows the validation process for DESV as per PCI DSS v4.0 Supplemental Attestation of Compliance for Report on Compliance - Designated Entities Supplemental Validation.",
+      "missing_aspects": "The image evidence does not show the validation process for DESV as per PCI DSS v4.0 Supplemental Attestation of Compliance - Designated Entities Supplemental Validation."
+    }
+  ],
+  "Appendix B Compensating Controls": [
+    {
+      "control_code": "6.2.1.1",
+      "description": "The organization must ensure that the security policies, procedures, and guidelines for the use of personal data are appropriate, effective, and regularly reviewed.",
+      "explanation": "The image evidence shows that the organization has implemented policies, procedures, and guidelines for the use of personal data, which meets the requirement of having appropriate, effective, and regularly reviewed security policies, procedures, and guidelines.",
+      "missing_aspects": "The image evidence does not show the review process for these policies, procedures, and guidelines."
+    }
+  ],
+  "Appendix C Compensating Controls Worksheet": [
+    {
+      "control_code": "6.1.1.1",
+      "description": "The organization must ensure that all cardholder data is protected against unauthorized access, use, disclosure, modification, or destruction.",
+      "explanation": "The image evidence shows that the organization has implemented measures to protect cardholder data, such as encryption and access controls, to meet the requirement of protecting cardholder data.",
+      "missing_aspects": "The image evidence does not show any specific measures to protect cardholder data from unauthorized access or modification."
+    },
+    {
+      "control_code": "6.1.1.2",
+      "description": "The organization must ensure that all cardholder data is protected against unauthorized access, use, disclosure, modification, or destruction.",
+      "explanation": "The image evidence shows that the organization has implemented measures to protect cardholder data, such as encryption and access controls, to meet the requirement of protecting cardholder data.",
+      "missing_aspects": "The image evidence does not show any specific measures to protect cardholder data from unauthorized access or modification."
+    }
+  ],
+  "Appendix D Customized Approach": [
+    {
+      "control_code": "001.00",
+      "description": "PCI DSS Requirement 12.3.2",
+      "explanation": "The image evidence shows a targeted risk analysis performed for each customized control, which satisfies the requirement of performing a targeted risk analysis for each customized control.",
+      "missing_aspects": "The image evidence does not show the specific testing procedures used for each customized control, which is required by the PCI DSS Requirement 12.3.2."
+    }
+  ],
+  "Appendix E Customized Approach Template": [
+    {
+      "control_code": "6.1.1",
+      "description": "Implement and maintain a policy that addresses the confidentiality, integrity, and availability of all cardholder data.",
+      "explanation": "The image evidence demonstrates that the audited organization has implemented a policy that ensures the confidentiality, integrity, and availability of cardholder data, as required by PCI DSS 6.1.1.",
+      "missing_aspects": "The image evidence does not provide evidence of the specific measures taken to ensure the confidentiality, integrity, and availability of cardholder data, such as encryption, access controls, and regular security audits."
+    },
+    {
+      "control_code": "6.1.2",
+      "description": "Implement and maintain procedures to protect cardholder data.",
+      "explanation": "The image evidence shows that the audited organization has implemented procedures to protect cardholder data, as required by PCI DSS 6.1.2.",
+      "missing_aspects": "The image evidence does not provide evidence of the specific procedures implemented to protect cardholder data, such as access controls, encryption, and incident response plans."
+    },
+    {
+      "control_code": "6.1.3",
+      "description": "Implement and maintain procedures to protect cardholder data.",
+      "explanation": "The image evidence demonstrates that the audited organization has implemented procedures to protect cardholder data, as required by PCI DSS 6.1.3.",
+      "missing_aspects": "The image evidence does not provide evidence of the specific procedures implemented to protect cardholder data, such as access controls, encryption, and incident response plans."
+    }
+  ]
+}
