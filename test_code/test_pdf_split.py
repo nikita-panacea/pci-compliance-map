@@ -119,3 +119,67 @@ if __name__ == "__main__":
     pdf_path = sys.argv[1]
     output_json = sys.argv[2]
     main(pdf_path, output_json)
+
+# import fitz  # PyMuPDF
+# import json
+# import re
+
+# # Define the table of contents with section titles and their starting pages
+# toc = [
+#     ("Requirement 1: Install and Maintain Network Security Controls", 31),
+#     ("Requirement 2: Apply Secure Configurations to All System Components", 62),
+#     ("Requirement 3: Protect Stored Account Data", 82),
+#     ("Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks", 129),
+#     ("Requirement 5: Protect All Systems and Networks from Malicious Software", 138),
+#     ("Requirement 6: Develop and Maintain Secure Systems and Software", 161),
+#     ("Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know", 196),
+#     ("Requirement 8: Identify Users and Authenticate Access to System Components", 216),
+#     ("Requirement 9: Restrict Physical Access to Cardholder Data", 265),
+#     ("Requirement 10: Log and Monitor All Access to System Components and Cardholder Data", 310),
+#     ("Requirement 11: Test Security of Systems and Networks Regularly", 354),
+#     ("Requirement 12: Support Information Security with Organizational Policies and Programs", 392),
+#     ("Appendix A Additional PCI DSS Requirements", 449),
+#     ("A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers", 449),
+#     ("A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections", 459),
+#     ("A3 Designated Entities Supplemental Validation (DESV)", 463),
+#     ("Appendix B Compensating Controls", 464),
+#     ("Appendix C Compensating Controls Worksheet", 466),
+#     ("Appendix D Customized Approach", 467),
+#     ("Appendix E Customized Approach Template", 469)
+# ]
+
+# def extract_text_by_sections(pdf_path, toc):
+#     # Open the PDF document
+#     doc = fitz.open(pdf_path)
+#     sections = {}
+    
+#     # Iterate over each section in the table of contents
+#     for i, (title, start_page) in enumerate(toc):
+#         start_index = start_page - 1  # PyMuPDF uses 0-based indexing
+#         end_index = toc[i + 1][1] - 2 if i + 1 < len(toc) else doc.page_count - 1
+        
+#         # Extract text from the specified page range
+#         section_text = ""
+#         for page_num in range(start_index, end_index + 1):
+#             page = doc.load_page(page_num)
+#             section_text += page.get_text()
+        
+#         # Clean the text by removing special characters
+#         section_text = re.sub(r'[^\x00-\x7F]+', ' ', section_text)
+#         section_text = section_text.replace('\\', '')
+        
+#         # Add the cleaned text to the sections dictionary
+#         sections[title] = section_text.strip()
+    
+#     return sections
+
+# def save_sections_to_json(sections, output_path):
+#     with open(output_path, 'w', encoding='utf-8') as f:
+#         json.dump(sections, f, ensure_ascii=False, indent=4)
+
+# # Usage
+# pdf_path = 'C:/Users/nikit/OneDrive/Desktop/Panacea_Infosec/pci-roc-map/PCI-DSS-ROC-Template.pdf'
+# output_json_path = 'output_sections.json'
+
+# sections = extract_text_by_sections(pdf_path, toc)
+# save_sections_to_json(sections, output_json_path)
