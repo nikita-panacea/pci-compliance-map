@@ -24,8 +24,9 @@ def image_to_base64(file_path: str):
 	return f"data:{mime_type};base64,{encoded_string}"
 
 prompt = "Describe the image in detail."
-image_file = "./Connfido Network Diagram.png"
+image_file = 'C:/Users/nikit/OneDrive/Desktop/Panacea_Infosec/pci-roc-map/card_tokenization_flow.jpg'#"C:/Users/nikit/OneDrive/Desktop/Panacea_Infosec/pci-roc-map/card_decryption_flow.jpg"
 image_url = encode_image_base64(image_file)
+
 messages = [
 	{
 		"role":"user",
@@ -44,5 +45,5 @@ messages_2 = [
 #llm = LLM(model=model_name, tokenizer_mode="mistral")
 chat_response = client.chat.complete(  
 	model=model,  
-	messages = messages_2)
+	messages = messages)
 print(chat_response.choices[0].message.content)

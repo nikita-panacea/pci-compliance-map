@@ -1,0 +1,214 @@
+{
+  "Requirement 2: Apply Secure Configurations to All System Components": [
+    {
+      "control_code": "2.2.1",
+      "description": "Configuration standards are developed, implemented, and maintained to: - Cover all system components. - Address all known security vulnerabilities. - Be consistent with industry-accepted system hardening standards or vendor hardening recommendations. - Be updated as new vulnerability issues are identified, as defined in Requirement 6.3.1. - Be applied when new systems are configured and verified as in place before or immediately after a system component is connected to a production environment.",
+      "explanation": "The image shows the use of secure configuration standards for system components, including encryption and secure key management, which aligns with industry standards and vendor recommendations.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "2.2.4",
+      "description": "Only necessary services, protocols, daemons, and functions are enabled, and all unnecessary functionality is removed or disabled.",
+      "explanation": "The image demonstrates the enabling of only necessary services and the disabling of unnecessary functionality through the use of secure protocols and encryption.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "2.2.6",
+      "description": "System security parameters are configured to prevent misuse.",
+      "explanation": "The image illustrates the configuration of system security parameters to prevent misuse by showing secure encryption and access controls.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "2.2.7",
+      "description": "All non-console administrative access is encrypted using strong cryptography.",
+      "explanation": "The image depicts the use of strong cryptography for non-console administrative access, ensuring secure communication channels.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks": [
+    {
+      "control_code": "4.1",
+      "description": "Processes and mechanisms for protecting cardholder data with strong cryptography during transmission over open, public networks are defined and documented.",
+      "explanation": "The image shows the process of tokenization and encryption of card data during transmission, which aligns with the requirement to protect cardholder data with strong cryptography during transmission over open, public networks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.2.1",
+      "description": "PAN is protected with strong cryptography during transmission.",
+      "explanation": "The image demonstrates the use of strong cryptography (encryption) for card data during transmission over potentially open, public networks, satisfying the requirement for protecting PAN with strong cryptography.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement 9: Restrict Physical Access to Cardholder Data": [
+    {
+      "control_code": "9.1",
+      "description": "Processes and mechanisms for restricting physical access to cardholder data are defined and understood.",
+      "explanation": "The image shows a process where physical access to cardholder data is restricted through encryption and secure storage mechanisms. The use of a hardware security module (HSM) and key encryption key (KEK) ensures that only authorized personnel can access the data.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "9.2.1",
+      "description": "Appropriate facility entry controls are in place to restrict physical access to systems in the CDE.",
+      "explanation": "The image demonstrates the use of physical access controls, such as encryption keys and secure storage, to restrict entry to sensitive areas. This aligns with the requirement to have controls in place to restrict physical access.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "9.3.1",
+      "description": "Procedures are implemented for authorizing and managing physical access of personnel to the CDE.",
+      "explanation": "The image shows a process where personnel access is managed through tokenization and encryption, ensuring that only authorized personnel can access sensitive data. This aligns with the requirement to have defined procedures for managing physical access.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "9.4.1",
+      "description": "All media with cardholder data is physically secured.",
+      "explanation": "The image depicts the secure storage of encrypted card data using a hardware security module (HSM) and key encryption key (KEK). This ensures that media with cardholder data is physically secured.",
+      "missing_aspects": ""
+    }
+  ],
+  "A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers": [
+    {
+      "control_code": "A1.1.1",
+      "description": "Logical separation is implemented as follows: - The provider cannot access its customers' environments without authorization. - Customers cannot access the provider's environment without authorization.",
+      "explanation": "The image shows logical separation between the Card Vault and the PCI Compliant Azure Key Vault, ensuring that each environment is separate and access is controlled.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "A1.1.2",
+      "description": "Controls are implemented such that each customer only has permission to access its own cardholder data and CDE.",
+      "explanation": "The image demonstrates that card data encryption and tokenization are used, ensuring that each customer's data is uniquely encrypted and only accessible with the respective keys.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "A1.1.3",
+      "description": "Controls are implemented such that each customer can only access resources allocated to them.",
+      "explanation": "The image shows that each customer's card data is encrypted and stored with a unique DEK ID, preventing unauthorized access to resources.",
+      "missing_aspects": ""
+    }
+  ],
+  "A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections": [
+    {
+      "control_code": "2.3.1",
+      "description": "Protect stored cardholder data by using encryption that is proven through industry-accepted techniques and standards.",
+      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) that is managed and stored securely in an Azure Key Vault. This satisfies the requirement for protecting stored cardholder data using encryption.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.4",
+      "description": "Render cardholder data unreadable when it is no longer needed.",
+      "explanation": "The image depicts the process of encrypting card data before storing it in the database, ensuring that cardholder data is rendered unreadable when it is no longer needed.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.1",
+      "description": "Use strong cryptography and security techniques, including the use of keys and other measures, to protect cardholder data.",
+      "explanation": "The image shows the use of a Hardware Security Module (HSM) for key management and encryption processes, which aligns with the requirement to use strong cryptography and security techniques.",
+      "missing_aspects": ""
+    }
+  ],
+  "A3 Designated Entities Supplemental Validation (DESV)": [
+    {
+      "control_code": "3.4",
+      "description": "Use strong cryptography and security techniques for protecting cardholder data during transmission over open, public networks.",
+      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) before storing it in the database. The use of a Hardware Security Module (HSM) for key management and encryption/decryption processes ensures strong cryptography.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.5",
+      "description": "Protect keys used for encryption of cardholder data during storage and transmission.",
+      "explanation": "The image demonstrates the use of a Key Encryption Key (KEK) to encrypt the DEK, which is stored in a PCI Compliant Azure Key Vault. This ensures that the keys used for encrypting cardholder data are protected both during storage and transmission.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.6",
+      "description": "Maintain documentation of cryptographic key generation, storage, distribution, and destruction procedures.",
+      "explanation": "The image includes a flow diagram that outlines the process of key storage, retrieval, and usage, which can serve as part of the documentation required for cryptographic key management procedures.",
+      "missing_aspects": "The image does not explicitly show the documentation itself, but the process depicted can be part of the required documentation."
+    }
+  ],
+  "Appendix B Compensating Controls": [
+    {
+      "control_code": "3.4",
+      "description": "Render cardholder data unreadable wherever it is stored (e.g., encryption of data at rest).",
+      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) before storing it in the Card Vault Database. This satisfies the requirement to render cardholder data unreadable wherever it is stored.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.5",
+      "description": "Use unique keys for each transaction or session and rotate those keys frequently.",
+      "explanation": "The image demonstrates the use of a Data Encryption Key (DEK) for each transaction and the involvement of a Key Encryption Key (KEK) for managing the DEK, indicating key rotation and unique keys for each transaction.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.6",
+      "description": "Protect cryptographic keys used for encryption of cardholder data at rest.",
+      "explanation": "The image shows the use of a Hardware Security Module (HSM) and Key Encryption Key (KEK) to protect the Data Encryption Key (DEK), ensuring the cryptographic keys are securely managed and protected.",
+      "missing_aspects": ""
+    }
+  ],
+  "Appendix C Compensating Controls Worksheet": [
+    {
+      "control_code": "3.4",
+      "description": "Protect stored cardholder data by using encryption or hashing.",
+      "explanation": "The image shows the process of encrypting cardholder data using a Data Encryption Key (DEK) stored in an Azure Key Vault. This satisfies the requirement to protect stored cardholder data by using encryption.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.5",
+      "description": "Ensure that encryption keys are protected and managed properly.",
+      "explanation": "The image demonstrates the use of a Hardware Security Module (HSM) within the Azure Key Vault to manage and protect the encryption keys. This indicates proper management and protection of encryption keys.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.6",
+      "description": "Ensure that encryption keys are securely generated, distributed, and destroyed.",
+      "explanation": "The image shows the process of securely obtaining and using the DEK from the Azure Key Vault, which implies secure generation and distribution. However, the destruction process is not explicitly shown.",
+      "missing_aspects": "The destruction process of encryption keys is not shown."
+    }
+  ],
+  "Appendix D Customized Approach": [
+    {
+      "control_code": "2.3",
+      "description": "Encrypt transmission of cardholder data across open, public networks.",
+      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) before storing it in the database. This ensures that cardholder data is encrypted during transmission.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.4",
+      "description": "Render cardholder data unreadable wherever it is stored (including backup media).",
+      "explanation": "The image demonstrates the use of a Data Encryption Key (DEK) to encrypt card data, ensuring that the data is rendered unreadable wherever it is stored.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.5",
+      "description": "Use encryption key management processes and procedures to protect the cryptographic keys used to encrypt cardholder data.",
+      "explanation": "The image illustrates the use of a Key Encryption Key (KEK) stored in a PCI Compliant Azure Key Vault to decrypt the DEK, ensuring proper key management processes are in place.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1",
+      "description": "Implement a policy that addresses information security for all personnel.",
+      "explanation": "Although not directly shown in the image, the use of a customized approach implies that there is a documented policy addressing information security for all personnel, as required by 12.1.",
+      "missing_aspects": ""
+    }
+  ],
+  "Appendix E Customized Approach Template": [
+    {
+      "control_code": "3.4",
+      "description": "Protect stored cardholder data by using encryption when transmitting across open, public networks.",
+      "explanation": "The image shows the process of encrypting cardholder data using a Data Encryption Key (DEK) before storing it in the database. The use of a Hardware Security Module (HSM) for managing encryption keys ensures secure key storage and usage.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.5",
+      "description": "Protect stored cardholder data by using encryption when cardholder data is not in use.",
+      "explanation": "The image demonstrates that cardholder data is encrypted when it is stored in the database, ensuring that the data is protected when it is not in use.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.6",
+      "description": "Render cardholder data unreadable when it is no longer needed.",
+      "explanation": "The image does not explicitly show the process of rendering cardholder data unreadable when it is no longer needed. However, it does show encryption and secure storage, which are part of the process.",
+      "missing_aspects": "Process for rendering data unreadable is not shown."
+    }
+  ]
+}

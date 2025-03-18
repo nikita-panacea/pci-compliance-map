@@ -10,7 +10,7 @@ from mimetypes import guess_type
 from openai import OpenAI
 from dotenv import load_dotenv
 import gradio as gr
-import soundfile 
+#import soundfile 
 
 load_dotenv()
 
@@ -28,7 +28,7 @@ def save_json_file(data, filename):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Path to processed PDF sections (JSON file)
-pdf_sections_file = "pci_requirements_sections.json" #"open-source-pipeline/processed_pci_chunks.json" #open-source-pipeline/
+pdf_sections_file = "test_code/pdf_split_sect.json" #"open-source-pipeline/processed_pci_chunks.json" #open-source-pipeline/
 
 #------------------
 # Image OCR 
@@ -83,7 +83,7 @@ class VisualAnalyzer:
 
 # Initialize components
 processor = OCRProcessor()
-analyzer = VisualAnalyzer()
+# analyzer = VisualAnalyzer()
 
 #------------------------------
 # Compliance Mapping Functions
@@ -301,8 +301,8 @@ def run_open_source_pipeline(image_path, progress=gr.Progress()):
 # Janus Pro 7B Pipeline
 #-------------------------
 from transformers import AutoModelForCausalLM
-from Janus.janus.models import MultiModalityCausalLM, VLChatProcessor
-from Janus.janus.utils.io import load_pil_images
+# from Janus.janus.models import MultiModalityCausalLM, VLChatProcessor
+# from Janus.janus.utils.io import load_pil_images
 import torch
 
 class Janus7BProcessor:
@@ -460,7 +460,7 @@ def run_janus_pipeline(image_path, progress=gr.Progress()):
 import requests
 import torch
 from PIL import Image
-import soundfile as sf
+#import soundfile as sf
 from transformers import AutoModelForCausalLM, AutoProcessor, GenerationConfig
 
 class Phi4Processor:
@@ -521,7 +521,7 @@ class Phi4Processor:
             return ""
 
 # Initialize Phi-4 processor
-phi4_processor = Phi4Processor()
+#phi4_processor = Phi4Processor()
 
 def map_chunk_to_control_phi4(section_title, section_text, image_path, image_ocr):
     """
@@ -648,7 +648,7 @@ def image_to_data_url(image_path: str) -> str:
         encoded = base64.b64encode(f.read()).decode("utf-8")
     return f"data:{mime_type};base64,{encoded}"
 
-def map_chunk_to_control(section_title, section_text, image_path, image_ocr):
+def map_gpt4_chunk_to_control(section_title, section_text, image_path, image_ocr):
     """
     For GPT-4 pipeline: send a prompt with the section and OCR text to GPT-4.
     Expect a JSON array output containing mapping objects (with the same keys).
@@ -747,7 +747,7 @@ def run_gpt4_pipeline(image_path, progress=gr.Progress()):
             progress((idx+1)/total_sections, 
                     desc=f"Processing section {idx+1}/{total_sections}...")
             
-            response = map_chunk_to_control(title, text, image_path, ocr_text)
+            response = map_gpt4_chunk_to_control(title, text, image_path, ocr_text)
             if response:
                 all_mappings[title] = response
                 # Update results incrementally
@@ -760,6 +760,138 @@ def run_gpt4_pipeline(image_path, progress=gr.Progress()):
         
     except Exception as e:
         yield f"Error: {str(e)}"
+
+#----------------------------------------
+# Pixtral Multimodal Pipeline Functions
+#-----------------------------------------
+from mistralai import Mistral
+mistral_api_key = 'WceN8y36a516WiLlxxjHcIUdKkEQhjFD'#os.getenv("MISTRAL_API_KEY")
+mistral_model = "pixtral-12b-2409"
+mistral_client = Mistral(api_key=mistral_api_key)
+
+def encode_image_base64(image_path): 
+	with open(image_path, "rb") as image_file:   
+		return base64.b64encode(image_file.read()).decode("utf-8")
+
+def map_pixtral_chunk_to_control(section_title, section_text, image_path, image_ocr):
+    """
+    For GPT-4 pipeline: send a prompt with the section and OCR text to GPT-4.
+    Expect a JSON array output containing mapping objects (with the same keys).
+    """
+    system_message = f"""
+    You are an expert in PCI-DSS compliance and network security. 
+    Analyze the following section from a PCI-DSS ROC compliance document and the provided detailed image analysis report.
+    The document section (including its heading) contains requirement controls, guidelines, and auditor instructions.
+    The image evidence has been provided by the audited organization as part of PCI DSS audit to prove that they fulfil a particular control
+    of PCI DSS framework. Our task is to find out corresponding to which control this evidence was provided.
+    """
+    prompt = f"""
+    Your task:
+    1. Read and understand the given section carefully.
+    2. Determine all specific requirement/control(s) from the section that are image evidence corresponds to.
+    3. For each one, provide the exact control/requirement code from the document section.
+    4. Provide a short excerpt from the section that describes that requirement.
+    5. Explain briefly why the image evidence satisfies this requirement.
+    6. Note if any aspects of the requirement are not fully satisfied.
+    Always return your answer as a JSON array of objects with exactly these keys:
+    "control_code": string,
+    "description": string,
+    "explanation": string,
+    "missing_aspects": string
+    Output only the JSON array with no extra text.
+    Do not change the output format.
+    Do not change the JSON key names.
+    Do not change the data type of JSON objects, always return a string.
+    For "missing_aspects", always return a string "",  do not return null or list[].
+
+    Section Title: {section_title}
+    Section Content:
+    {section_text}
+
+    Image OCR:
+    {image_ocr}
+    """
+    image_data_url = encode_image_base64(image_path)
+    messages = [
+	{
+		"role":"user",
+		"content":[{"type": "text", "text": system_message}, {"type": "text", "text": prompt}, {"type": "image_url", "image_url": f"data:image/png;base64,{image_data_url}"}]
+	}
+]
+    # messages = [
+    #     {"role": "system", "content": system_message},
+    #     {"role": "user", "content": [
+    #         {"type": "text", "text": prompt},
+    #         {"type": "image_url", "image_url": {"url": image_data_url}}
+    #     ]}
+    # ]
+    try:
+        pix_response = mistral_client.chat.complete(
+            model=mistral_model,
+            messages=messages,
+            max_tokens=500,
+            temperature=0.2
+        )
+        output = pix_response.choices[0].message.content.strip()
+        if not output:
+            print(f"[{section_title}] Pixtral mapping returned empty output.")
+            return []
+        json_match = re.search(r"\[.*\]", output, re.DOTALL)
+        if not json_match:
+            print(f"[{section_title}] Pixtral mapping did not return a JSON array.")
+            return []
+        json_str = json_match.group(0)
+        try:
+            mapping_list = json.loads(json_str)
+            if isinstance(mapping_list, list):
+                # Sanitize each mapping
+                valid_mappings = []
+                for m in mapping_list:
+                    try:
+                        cleaned = sanitize_mapping(m)
+                        if cleaned['control_code']:
+                            valid_mappings.append(cleaned)
+                    except Exception as e:
+                        print(f"Invalid Pixtral mapping format: {e}")
+                return valid_mappings
+            return []
+        except json.JSONDecodeError as e:
+            print(f"Pixtral JSON decode error: {e}")
+            return []
+    except Exception as e:
+        print(f"[{section_title}] Pixtral mapping error: {e}")
+        return []
+
+def run_pixtral_pipeline(image_path, progress=gr.Progress()):
+    try:
+        # OCR Processing
+        progress(0, desc="Extracting text from image...")
+        ocr_text = processor.process_image(image_path)
+        
+        # Load PDF sections
+        sections = load_json_file(pdf_sections_file)
+        total_sections = len(sections)
+        
+        all_mappings = {}
+        markdown_output = ""
+        for idx, (title, text) in enumerate(sections.items()):
+            progress((idx+1)/total_sections, 
+                    desc=f"Processing section {idx+1}/{total_sections}...")
+            
+            response = map_pixtral_chunk_to_control(title, text, image_path, ocr_text)
+            if response:
+                all_mappings[title] = response
+                # Update results incrementally
+                section_md = format_mappings_to_markdown({title: response})
+                markdown_output += section_md + "\n\n"
+                yield markdown_output  # Yield partial results
+                time.sleep(0.1)
+        
+        save_json_file(all_mappings, "pixtral_mappings.json")
+        
+    except Exception as e:
+        yield f"Error: {str(e)}"
+
 
 
 #-------------------------
@@ -802,6 +934,13 @@ with gr.Blocks(title="PCI-DSS Compliance Analyzer") as app:
                 phi4_btn = gr.Button("Run Phi-4 Pipeline", variant="secondary")
             with gr.Row():
                 phi4_output = gr.Markdown("### Phi-4 Results will appear here")
+        
+        # Pixtral Pipeline Tab
+        with gr.Tab("Pixtral Multimodal"):
+            with gr.Row():
+                pix_btn = gr.Button("Run Pixtral Pipeline", variant="secondary")
+            with gr.Row():
+                pix_output = gr.Markdown("### Pixtral Results will appear here")
 
     # Event Handlers
     oss_btn.click(
@@ -829,6 +968,13 @@ with gr.Blocks(title="PCI-DSS Compliance Analyzer") as app:
         fn=run_phi4_pipeline,
         inputs=image_input,
         outputs=phi4_output,
+        show_progress=True
+    )
+
+    pix_btn.click(
+        fn=run_pixtral_pipeline,
+        inputs=image_input,
+        outputs=pix_output,
         show_progress=True
     )
 

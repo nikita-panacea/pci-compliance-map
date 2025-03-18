@@ -20,15 +20,21 @@ def clean_text(text):
       –  -> -
       —  -> -
       ’  -> '
-      “ and ” -> "
+      “ and ” -> '
     """
     replacements = {
         "–": "-",
         "—": "-",
         "’": "'",
-        "“": '"',
-        "”": '"',
+        "“": "'",
+        "”": "'",
         "\\":"",
+        "☐": "",
+        "©": "(c)",
+        "™": "(tm)",
+        "®": "(r)",
+        "…": "...",
+        "•": "-",
     }
     for orig, repl in replacements.items():
         text = text.replace(orig, repl)
@@ -72,25 +78,25 @@ def main(pdf_path, output_json):
     
     # List of headings exactly as they appear in the Table of Contents.
     headings = [
-        "Build and Maintain a Secure Network and Systems",
+        # "Build and Maintain a Secure Network and Systems",
         "Requirement 1: Install and Maintain Network Security Controls",
         "Requirement 2: Apply Secure Configurations to All System Components",
-        "Protect Account Data",
+        # "Protect Account Data",
         "Requirement 3: Protect Stored Account Data",
         "Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks",
-        "Maintain a Vulnerability Management Program",
+        # "Maintain a Vulnerability Management Program",
         "Requirement 5: Protect All Systems and Networks from Malicious Software",
         "Requirement 6: Develop and Maintain Secure Systems and Software",
-        "Implement Strong Access Control Measures",
+        # "Implement Strong Access Control Measures",
         "Requirement 7: Restrict Access to System Components and Cardholder Data by Business Need to Know",
         "Requirement 8: Identify Users and Authenticate Access to System Components",
         "Requirement 9: Restrict Physical Access to Cardholder Data",
-        "Regularly Monitor and Test Networks",
+        # "Regularly Monitor and Test Networks",
         "Requirement 10: Log and Monitor All Access to System Components and Cardholder Data",
         "Requirement 11: Test Security of Systems and Networks Regularly",
-        "Maintain an Information Security Policy",
+        # "Maintain an Information Security Policy",
         "Requirement 12: Support Information Security with Organizational Policies and Programs",
-        "Appendix A Additional PCI DSS Requirements",
+        #"Appendix A Additional PCI DSS Requirements",
         "A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers",
         "A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections",
         "A3 Designated Entities Supplemental Validation (DESV)",
