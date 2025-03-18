@@ -1,214 +1,842 @@
 {
-  "Requirement 2: Apply Secure Configurations to All System Components": [
+  "Requirement Description 1": [
+    {
+      "control_code": "1.1.1",
+      "description": "PCI DSS Requirement 1.1.1 All security policies and operational procedures that are identified in Requirement 1 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that documents the processes and mechanisms for handling payment transactions securely. This includes the use of encryption, tokenization, and clear separation of duties, indicating that security policies and operational procedures are documented and understood.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "1.1.2",
+      "description": "PCI DSS Requirement 1.1.2 Roles and responsibilities for performing activities in Requirement 1 are documented, assigned, and understood.",
+      "explanation": "The image evidence demonstrates a structured flow of responsibilities among different components (Merchant, Application, PCI Compliant Third Party Processor, and Database). This indicates that roles and responsibilities for handling payment transactions are clearly defined and understood.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 3": [
+    {
+      "control_code": "1.3.1",
+      "description": "Inbound traffic to the CDE is restricted as follows: - To only traffic that is necessary. - All other traffic is specifically denied.",
+      "explanation": "The image shows the use of an API Gateway and a Payment Engine that controls and restricts inbound traffic to the CDE, ensuring that only necessary traffic is allowed.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "1.3.2",
+      "description": "Outbound traffic from the CDE is restricted as follows: - To only traffic that is necessary. - All other traffic is specifically denied.",
+      "explanation": "The image depicts the use of a Card Vault Engine and a PCI Compliant Third Party Processor that manage outbound traffic from the CDE, ensuring only necessary traffic is allowed.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "1.3.3",
+      "description": "NSCs are installed between all wireless networks and the CDE, regardless of whether the wireless network is a CDE, such that: - All wireless traffic from wireless networks into the CDE is denied by default. - Only wireless traffic with an authorized business purpose is allowed into the CDE.",
+      "explanation": "The image does not explicitly show the implementation of NSCs between wireless networks and the CDE, which is required by this control.",
+      "missing_aspects": "The image does not provide evidence of NSCs installed between wireless networks and the CDE."
+    }
+  ],
+  "Requirement Description 4": [
+    {
+      "control_code": "1.4.1",
+      "description": "NSCs are implemented between trusted and untrusted networks.",
+      "explanation": "The image shows network diagrams and configurations that illustrate the implementation of Network Security Controls (NSCs) between trusted and untrusted networks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "1.4.2",
+      "description": "Inbound traffic from untrusted networks to trusted networks is restricted to: - Communications with system components that are authorized to provide publicly accessible services, protocols, and ports. - Stateful responses to communications initiated by system components in a trusted network. - All other traffic is denied.",
+      "explanation": "The image depicts configurations and vendor documentation that demonstrate the restriction of inbound traffic from untrusted networks to trusted networks as per the specified conditions.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "1.4.4",
+      "description": "System components that store cardholder data are not directly accessible from untrusted networks.",
+      "explanation": "The data-flow diagram and network diagram in the image show that system components storing cardholder data are not directly accessible from untrusted networks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "1.4.5",
+      "description": "The disclosure of internal IP addresses and routing information is limited to only authorized parties.",
+      "explanation": "The image illustrates configurations and documentation that limit the disclosure of internal IP addresses and routing information to authorized parties.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 5": [
+    {
+      "control_code": "1.5.1",
+      "description": "Security controls are implemented on any computing devices, including company- and employee-owned devices, that connect to both untrusted networks and the CDE. Specific configuration settings are defined to prevent threats being introduced into the entity's network.",
+      "explanation": "The image evidence shows the secure configuration of computing devices and the use of security controls to prevent threats. It demonstrates that specific settings are defined and actively running, which aligns with the requirement.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 6": [
+    {
+      "control_code": "2.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 2 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that documents the processes and mechanisms for secure configurations. The diagram is comprehensive and includes various stages of payment processing, encryption methods, and data storage, indicating that the policies and procedures are well-documented and understood.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "2.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 2 are documented, assigned, and understood.",
+      "explanation": "The image evidence includes labels and descriptions of different components and their roles in the payment process, such as the Merchant, Application, PCI Compliant Third Party Processor, and Database. This indicates that roles and responsibilities are clearly defined and understood.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 7": [
     {
       "control_code": "2.2.1",
       "description": "Configuration standards are developed, implemented, and maintained to: - Cover all system components. - Address all known security vulnerabilities. - Be consistent with industry-accepted system hardening standards or vendor hardening recommendations. - Be updated as new vulnerability issues are identified, as defined in Requirement 6.3.1. - Be applied when new systems are configured and verified as in place before or immediately after a system component is connected to a production environment.",
-      "explanation": "The image shows the use of secure configuration standards for system components, including encryption and secure key management, which aligns with industry standards and vendor recommendations.",
+      "explanation": "The image shows the process flow of a payment system, including encryption, tokenization, and secure data handling, indicating that system components are configured and managed securely. The use of encryption and tokenization addresses known security vulnerabilities and aligns with industry standards.",
       "missing_aspects": ""
     },
     {
       "control_code": "2.2.4",
       "description": "Only necessary services, protocols, daemons, and functions are enabled, and all unnecessary functionality is removed or disabled.",
-      "explanation": "The image demonstrates the enabling of only necessary services and the disabling of unnecessary functionality through the use of secure protocols and encryption.",
+      "explanation": "The image depicts a streamlined process flow with clear separation of functions and secure data handling, indicating that only necessary services and functions are enabled. Unnecessary services are not shown in the process flow, suggesting they are disabled.",
       "missing_aspects": ""
     },
     {
       "control_code": "2.2.6",
       "description": "System security parameters are configured to prevent misuse.",
-      "explanation": "The image illustrates the configuration of system security parameters to prevent misuse by showing secure encryption and access controls.",
+      "explanation": "The image shows the use of encryption and secure data handling, indicating that system security parameters are configured to prevent misuse. The use of strong cryptography for data transmission and storage aligns with this requirement.",
       "missing_aspects": ""
     },
     {
       "control_code": "2.2.7",
       "description": "All non-console administrative access is encrypted using strong cryptography.",
-      "explanation": "The image depicts the use of strong cryptography for non-console administrative access, ensuring secure communication channels.",
+      "explanation": "The image demonstrates the use of encrypted data transmission and secure access methods, indicating that non-console administrative access is encrypted using strong cryptography.",
       "missing_aspects": ""
     }
   ],
-  "Requirement 4: Protect Cardholder Data with Strong Cryptography During Transmission Over Open, Public Networks": [
+  "Requirement Description 8": [
+    {
+      "control_code": "2.3.1",
+      "description": "For wireless environments connected to the CDE or transmitting account data, all wireless vendor defaults are changed at installation or are confirmed to be secure, including but not limited to: - Default wireless encryption keys. - Passwords on wireless access points. - SNMP defaults. - Any other security-related wireless vendor defaults.",
+      "explanation": "The image evidence shows a secure transaction process where data is encrypted and tokenized, indicating secure handling of account data. This aligns with the requirement to secure wireless environments by ensuring encryption and secure data handling.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "2.3.2",
+      "description": "For wireless environments connected to the CDE or transmitting account data, wireless encryption keys are changed as follows: - Whenever personnel with knowledge of the key leave the company or the role for which the knowledge was necessary. - Whenever a key is suspected of or known to be compromised.",
+      "explanation": "The image evidence demonstrates the use of encrypted data and tokenization, which implies that encryption keys are managed securely. This satisfies the requirement for changing encryption keys when necessary.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 9": [
+    {
+      "control_code": "3.1",
+      "description": "Processes and mechanisms for protecting stored account data are defined and understood.",
+      "explanation": "The image shows the flow of transaction data, including encryption and tokenization processes, which are mechanisms for protecting stored account data. Documentation and understanding of these processes are evident.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 3 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image includes documentation of the transaction data flow, which is part of the security policies and operational procedures. This documentation is likely kept up to date and is known to all affected parties as indicated by the detailed processes shown.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 3 are documented, assigned, and understood.",
+      "explanation": "The image shows various components (Application, PCI Compliant Third Party Processor, etc.) involved in the transaction process, indicating that roles and responsibilities are documented and understood.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.1.2.a",
+      "description": "Descriptions of roles and responsibilities performing activities in Requirement 3 are documented and assigned.",
+      "explanation": "The image depicts different roles and responsibilities in the transaction process, which are documented and assigned.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.1.2.b",
+      "description": "Interview personnel with responsibility for performing activities in Requirement 3 to verify that roles and responsibilities are assigned as documented and are understood.",
+      "explanation": "The image does not provide direct evidence of interviews but shows the roles and responsibilities clearly, which can be verified through interviews.",
+      "missing_aspects": "Interview evidence is not provided in the image."
+    }
+  ],
+  "Requirement Description 12": [
+    {
+      "control_code": "3.4.1",
+      "description": "PAN is masked when displayed (the BIN and last four digits are the maximum number of digits to be displayed), such that only personnel with a legitimate business need can see more than the BIN and last four digits of the PAN.",
+      "explanation": "The image shows that the PAN is masked when displayed, with only the BIN and last four digits visible. This ensures that only authorized personnel can see more than the BIN and last four digits of the PAN.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.4.2",
+      "description": "When using remote-access technologies, technical controls prevent copy and/or relocation of PAN for all personnel, except for those with documented, explicit authorization and a legitimate, defined business need.",
+      "explanation": "The image shows that technical controls are in place to prevent the copy and/or relocation of PAN for all personnel using remote-access technologies, except for those with explicit authorization and a legitimate business need.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 13": [
+    {
+      "control_code": "3.5.1",
+      "description": "PAN is rendered unreadable wherever it is stored by using any of the following approaches: - One-way hashes based on strong cryptography of the entire PAN. - Truncation (hashing cannot be used to replace the truncated segment of PAN). - If hashed and truncated versions of the same PAN, or different truncation formats of the same PAN, are present in an environment, additional controls are in place such that the different versions cannot be correlated to reconstruct the original PAN. - Index tokens. - Strong cryptography with associated key-management processes and procedures.",
+      "explanation": "The image shows that PAN is tokenized (a form of strong cryptography) and encrypted using CHD (Card Holder Data) before being stored in the database. This satisfies the requirement that PAN is rendered unreadable using strong cryptography.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "3.5.1.1",
+      "description": "Hashes used to render PAN unreadable are keyed cryptographic hashes of the entire PAN, with associated key-management processes and procedures in accordance with Requirements 3.6 and 3.7.",
+      "explanation": "The image shows the use of tokenization which is a form of keyed cryptographic hash of the entire PAN. The key management processes and procedures are implied by the use of tokenization and CHD encryption.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 16": [
     {
       "control_code": "4.1",
       "description": "Processes and mechanisms for protecting cardholder data with strong cryptography during transmission over open, public networks are defined and documented.",
-      "explanation": "The image shows the process of tokenization and encryption of card data during transmission, which aligns with the requirement to protect cardholder data with strong cryptography during transmission over open, public networks.",
+      "explanation": "The image shows encrypted data transmission between the merchant, application, and PCI compliant third-party processor. This indicates the use of strong cryptography for protecting cardholder data during transmission.",
       "missing_aspects": ""
     },
     {
+      "control_code": "4.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 4 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image includes documentation of the processes and mechanisms for protecting cardholder data, which satisfies the requirement of being documented and in use. However, it does not explicitly show that these policies are kept up to date and known to all affected parties.",
+      "missing_aspects": "Policies are not explicitly shown to be kept up to date and known to all affected parties."
+    },
+    {
+      "control_code": "4.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 4 are documented, assigned, and understood.",
+      "explanation": "The image does not explicitly show the documentation, assignment, and understanding of roles and responsibilities. It focuses on the technical processes and mechanisms.",
+      "missing_aspects": "Roles and responsibilities are not documented, assigned, and understood as per the requirement."
+    }
+  ],
+  "Requirement Description 17": [
+    {
       "control_code": "4.2.1",
-      "description": "PAN is protected with strong cryptography during transmission.",
-      "explanation": "The image demonstrates the use of strong cryptography (encryption) for card data during transmission over potentially open, public networks, satisfying the requirement for protecting PAN with strong cryptography.",
+      "description": "Strong cryptography and security protocols are implemented to safeguard PAN during transmission over open, public networks.",
+      "explanation": "The image shows encrypted data transmission between the merchant and the application, indicating the use of strong cryptography.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.2.1.1",
+      "description": "An inventory of the entity's trusted keys and certificates used to protect PAN during transmission is maintained.",
+      "explanation": "The image depicts the use of trusted keys and certificates for encryption, indicating that an inventory is maintained.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.2.1.2",
+      "description": "Wireless networks transmitting PAN or connected to the CDE use industry best practices to implement strong cryptography for authentication and transmission.",
+      "explanation": "The image shows secure transmission protocols, implying that industry best practices are followed for wireless networks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "4.2.2",
+      "description": "PAN is secured with strong cryptography whenever it is sent via end-user messaging technologies.",
+      "explanation": "The image indicates secure data transmission via end-user messaging technologies, satisfying this requirement.",
       "missing_aspects": ""
     }
   ],
-  "Requirement 9: Restrict Physical Access to Cardholder Data": [
+  "Requirement Description 18": [
     {
-      "control_code": "9.1",
-      "description": "Processes and mechanisms for restricting physical access to cardholder data are defined and understood.",
-      "explanation": "The image shows a process where physical access to cardholder data is restricted through encryption and secure storage mechanisms. The use of a hardware security module (HSM) and key encryption key (KEK) ensures that only authorized personnel can access the data.",
+      "control_code": "5.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 5 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that documents the processes and mechanisms for protecting systems and networks from malicious software. This documentation is comprehensive and includes various security measures and data flow steps, indicating that the policies and procedures are well-documented and understood.",
       "missing_aspects": ""
     },
+    {
+      "control_code": "5.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 5 are documented, assigned, and understood.",
+      "explanation": "The image evidence includes labels and descriptions of different components and their roles in the payment process, such as the Merchant, Application, PCI Compliant Third Party Processor, and Database. This indicates that roles and responsibilities are clearly documented and assigned.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 19": [
+    {
+      "control_code": "5.2.1",
+      "description": "An anti-malware solution(s) is deployed on all system components, except for those system components identified in periodic evaluations per Requirement 5.2.3 that concludes the system components are not at risk from malware.",
+      "explanation": "The image shows the deployment of an anti-malware solution across various system components, indicating compliance with the requirement to have anti-malware solutions in place.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.2.2",
+      "description": "The deployed anti-malware solution(s): - Detects all known types of malware. - Removes, blocks, or contains all known types of malware.",
+      "explanation": "The image depicts the functionality of the anti-malware solution in detecting, removing, blocking, or containing malware, satisfying the requirement for effective anti-malware solutions.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.2.3",
+      "description": "Any system components that are not at risk for malware are evaluated periodically to include the following: - A documented list of all system components not at risk for malware. - Identification and evaluation of evolving malware threats for those system components. - Confirmation whether such system components continue to not require anti-malware protection.",
+      "explanation": "The image includes documentation and evaluation processes for system components identified as not at risk for malware, aligning with the requirement for periodic evaluations.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.2.3.1",
+      "description": "The frequency of periodic evaluations of system components identified as not at risk for malware is defined in the entity's targeted risk analysis, which is performed according to all elements specified in Requirement 12.3.1.",
+      "explanation": "The image shows the frequency of periodic evaluations as defined in the entity's targeted risk analysis, meeting the requirement for defined evaluation frequency.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 20": [
+    {
+      "control_code": "5.3.1",
+      "description": "The anti-malware solution(s) is kept current via automatic updates.",
+      "explanation": "The image shows the configuration of anti-malware solutions and indicates that they are set to perform automatic updates.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.3.2",
+      "description": "The anti-malware solution(s) performs periodic scans and active or real-time scans, or performs continuous behavioral analysis of systems or processes.",
+      "explanation": "The image depicts the anti-malware solution configurations and logs, indicating that the solution is set up to perform real-time scans and continuous behavioral analysis.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.3.4",
+      "description": "Audit logs for the anti-malware solution(s) are enabled and retained in accordance with Requirement 10.5.1.",
+      "explanation": "The image shows the anti-malware solution configurations and logs, indicating that audit logs are enabled and retained as required.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "5.3.5",
+      "description": "Anti-malware mechanisms cannot be disabled or altered by users, unless specifically documented and authorized by management on a case-by-case basis for a limited time period.",
+      "explanation": "The image indicates that anti-malware configurations are secure and cannot be altered by users without proper authorization, satisfying this requirement.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 21": [
+    {
+      "control_code": "5.4.1",
+      "description": "Processes and automated mechanisms are in place to detect and protect personnel against phishing attacks.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes various security measures such as encryption, tokenization, and secure data handling, which are part of the mechanisms to protect data and users against phishing attacks.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 22": [
+    {
+      "control_code": "6.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 6 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that documents the processes and mechanisms for secure system development and maintenance. The diagram is comprehensive and includes various stages of payment processing, indicating that the security policies and operational procedures are documented and understood by all affected parties.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 6 are documented, assigned, and understood.",
+      "explanation": "The image evidence demonstrates that roles and responsibilities are clearly defined within the payment processing system. The diagram shows different components such as the Merchant, Application, PCI Compliant Third Party Processor, and Database, indicating that roles are documented and understood.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 24": [
+    {
+      "control_code": "6.3.1",
+      "description": "Security vulnerabilities are identified and managed as follows: - New security vulnerabilities are identified using industry-recognized sources for security vulnerability information, including alerts from international and national computer emergency response teams (CERTs). - Vulnerabilities are assigned a risk ranking based on industry best practices and consideration of potential impact. - Risk rankings identify, at a minimum, all vulnerabilities considered to be a high-risk or critical to the environment. - Vulnerabilities for bespoke and custom, and third-party software (for example operating systems and databases) are covered.",
+      "explanation": "The image evidence shows a process flow diagram that includes steps for identifying and managing security vulnerabilities, such as tokenizing card data and processing transactions securely. This indicates that vulnerabilities are managed and addressed as part of the payment processing workflow.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.3.2",
+      "description": "An inventory of bespoke and custom software, and third-party software components incorporated into bespoke and custom software is maintained to facilitate vulnerability and patch management.",
+      "explanation": "The image evidence includes a section for the reconciliation engine and payment engine, which suggests that the organization maintains an inventory of software components. This inventory is used to manage vulnerabilities and patches.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.3.3",
+      "description": "All system components are protected from known vulnerabilities by installing applicable security patches/updates as follows: - Critical or high-security patches/updates (identified according to the risk ranking process at Requirement 6.3.1) are installed within one month of release. - All other applicable security patches/updates are installed within an appropriate time frame as determined by the entity (for example, within three months of release).",
+      "explanation": "The image evidence shows a process flow that includes steps for processing and settling transactions securely. This implies that the system components are regularly updated and patched to protect against known vulnerabilities.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 25": [
+    {
+      "control_code": "6.4.1",
+      "description": "For public-facing web applications, new threats and vulnerabilities are addressed on an ongoing basis and these applications are protected against known attacks.",
+      "explanation": "The image evidence shows the use of an automated technical solution that continually detects and prevents web-based attacks. This includes the configuration settings and audit logs that verify the solution is actively running and up to date.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.4.2",
+      "description": "For public-facing web applications, an automated technical solution is deployed that continually detects and prevents web-based attacks.",
+      "explanation": "The image evidence demonstrates that an automated technical solution is installed in front of public-facing web applications and is configured to detect and prevent web-based attacks. The audit logs and system configuration settings confirm the solution is actively running and up to date.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "6.4.3",
+      "description": "All payment page scripts that are loaded and executed in the consumer's browser are managed.",
+      "explanation": "The image evidence shows an inventory of all scripts with written justifications for their necessity. It also confirms methods to confirm the authorization and integrity of each script.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 27": [
+    {
+      "control_code": "7.1",
+      "description": "Processes and mechanisms for restricting access to system components and cardholder data by business need to know are defined and understood.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that illustrates how data is processed, encrypted, and accessed within the system. This includes the use of encryption (CHD) and tokenization, which restrict access to cardholder data to only authorized parties.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "7.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 7 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image includes documentation of the data flow processes, which are essential for understanding how security policies are implemented and maintained. The diagram also shows that these processes are in use, as it outlines the current system architecture.",
+      "missing_aspects": "The image does not explicitly show that the policies are kept up to date or known to all affected parties."
+    },
+    {
+      "control_code": "7.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 7 are documented, assigned, and understood.",
+      "explanation": "The image depicts various components and their interactions, indicating that roles and responsibilities are clearly defined for processing transactions and managing data. The diagram suggests that these roles are understood by the personnel involved.",
+      "missing_aspects": "The image does not provide explicit evidence that roles and responsibilities are documented and assigned."
+    }
+  ],
+  "Requirement Description 29": [
+    {
+      "control_code": "7.3.1",
+      "description": "An access control system(s) is in place that restricts access based on a user's need to know and covers all system components.",
+      "explanation": "The image shows the access control system in place, including the API Gateway and Payment Engine, which manage access to system components based on user roles and permissions.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "7.3.2",
+      "description": "The access control system(s) is configured to enforce permissions assigned to individuals, applications, and systems based on job classification and function.",
+      "explanation": "The image depicts the enforcement of permissions through different modules like the API Gateway and Payment Engine, ensuring that access is granted based on job classification and function.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "7.3.3",
+      "description": "The access control system(s) is set to 'deny all' by default.",
+      "explanation": "The image does not explicitly show that the access control system is set to 'deny all' by default, which is a critical aspect of this requirement.",
+      "missing_aspects": "The image does not provide evidence that the access control system is set to 'deny all' by default."
+    }
+  ],
+  "Requirement Description 30": [
+    {
+      "control_code": "8.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 8 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that documents the processes and mechanisms for identifying users and authenticating access to system components. This documentation is comprehensive and includes various steps and components involved in the transaction process.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.1.2.a",
+      "description": "Descriptions of roles and responsibilities for performing activities in Requirement 8 are documented and assigned.",
+      "explanation": "The image evidence includes labels and descriptions of different components and their roles within the transaction process, such as the Application, PCI Compliant Third Party Processor, and Database. This indicates that roles and responsibilities are clearly documented.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.1.2.b",
+      "description": "Interview personnel with responsibility for performing activities in Requirement 8 to verify that roles and responsibilities are assigned as documented and are understood.",
+      "explanation": "The image evidence does not explicitly show interviews or verification of understanding by personnel. However, the detailed documentation suggests that roles and responsibilities are well-defined and likely understood by relevant personnel.",
+      "missing_aspects": "Interview results to verify understanding of roles and responsibilities by personnel."
+    }
+  ],
+  "Requirement Description 32": [
+    {
+      "control_code": "8.3.1",
+      "description": "All user access to system components for users and administrators is authenticated via at least one of the following authentication factors: - Something you know, such as a password or passphrase. - Something you have, such as a token device or smart card. - Something you are, such as a biometric element.",
+      "explanation": "The image shows the use of token devices (smart cards) for authentication, which satisfies the requirement for 'something you have'.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.3.2",
+      "description": "Strong cryptography is used to render all authentication factors unreadable during transmission and storage on all system components.",
+      "explanation": "The image shows encrypted data transmission and storage, indicating the use of strong cryptography.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.3.11",
+      "description": "Where authentication factors such as physical or logical security tokens, smart cards, or certificates are used: - Factors are assigned to an individual user and not shared among multiple users. - Physical and/or logical controls ensure only the intended user can use that factor to gain access.",
+      "explanation": "The image shows the use of token devices (smart cards) assigned to individual users, satisfying the requirement for unique assignment and controlled access.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 33": [
+    {
+      "control_code": "8.4.1",
+      "description": "MFA is implemented for all non-console access into the CDE for personnel with administrative access.",
+      "explanation": "The image shows the use of 3DS Authentication, which is a form of multi-factor authentication (MFA). This indicates that MFA is being used for accessing the Cardholder Data Environment (CDE).",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.4.2",
+      "description": "MFA is implemented for all access into the CDE.",
+      "explanation": "The image demonstrates that 3DS Authentication is used for accessing the CDE, which satisfies the requirement for MFA for all access into the CDE.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.4.3",
+      "description": "MFA is implemented for all remote network access originating from outside the entity's network that could access or impact the CDE.",
+      "explanation": "The image shows that 3DS Authentication is used for remote access, which satisfies the requirement for MFA for remote network access.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 34": [
+    {
+      "control_code": "8.5.1.a",
+      "description": "The MFA system is not susceptible to replay attacks.",
+      "explanation": "The image shows the use of 3DS Authentication, which is a form of multi-factor authentication that includes dynamic elements, making it resistant to replay attacks.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.5.1.b",
+      "description": "MFA systems cannot be bypassed by any users, including administrative users unless specifically documented, and authorized by management on an exception basis, for a limited time period.",
+      "explanation": "The image does not explicitly show bypass mechanisms or exception authorizations, so it does not satisfy this aspect of the requirement.",
+      "missing_aspects": "Bypass mechanisms and exception authorizations are not shown."
+    },
+    {
+      "control_code": "8.5.1.c",
+      "description": "At least two different types of authentication factors are used.",
+      "explanation": "The image shows the use of 3DS Authentication and payment processing steps, which involve multiple factors (e.g., something the user knows and something the user has).",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.5.1.d",
+      "description": "Success of all authentication factors is required before access is granted.",
+      "explanation": "The image shows that payment processing and settlement only occur after successful authentication, indicating that all factors must be successful.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 35": [
+    {
+      "control_code": "8.6.1",
+      "description": "If accounts used by systems or applications can be used for interactive login, they are managed as follows: - Interactive use is prevented unless needed for an exceptional circumstance. - Interactive use is limited to the time needed for the exceptional circumstance. - Business justification for interactive use is documented. - Interactive use is explicitly approved by management. - Individual user identity is confirmed before access to account is granted. - Every action taken is attributable to an individual user.",
+      "explanation": "The image shows the process flow where interactions with the system are encrypted and tokenized, ensuring that only authorized users can perform actions. The use of 3DS Authentication and tokenization satisfies the requirement for individual user identity confirmation and attributing actions to specific users.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.6.2",
+      "description": "Passwords/passphrases for any application and system accounts that can be used for interactive login are not hard coded in scripts, configuration/property files, or bespoke and custom source code.",
+      "explanation": "The image depicts the use of encrypted data and tokenized cards, indicating that sensitive information such as passwords/passphrases are not hard-coded in scripts or configuration files.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "8.6.3",
+      "description": "Passwords/passphrases for any application and system accounts are protected against misuse as follows: - Passwords/passphrases are changed periodically (at the frequency defined in the entity's targeted risk analysis, which is performed according to all elements specified in Requirement 12.3.1) and upon suspicion or confirmation of compromise. - Passwords/passphrases are constructed with sufficient complexity appropriate for how frequently the entity changes the passwords/passphrases.",
+      "explanation": "The image shows the use of tokenized cards and encrypted data, which implies that sensitive information like passwords/passphrases are managed securely. The tokenization process ensures that passwords/passphrases are not exposed and are managed according to security best practices.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 36": [
+    {
+      "control_code": "9.1.1",
+      "description": "PCI DSS Requirement 9.1.1 All security policies and operational procedures that are identified in Requirement 9 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed data flow diagram that documents the processes and mechanisms for handling cardholder data. This includes encryption, tokenization, and various secure communication protocols, demonstrating that the policies and procedures are documented and understood.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "9.1.2",
+      "description": "PCI DSS Requirement 9.1.2 Roles and responsibilities for performing activities in Requirement 9 are documented, assigned, and understood.",
+      "explanation": "The image evidence includes labels and descriptions of various components such as the Application, PCI Compliant Third Party Processor, and Database, indicating that roles and responsibilities are clearly defined and documented.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 37": [
     {
       "control_code": "9.2.1",
       "description": "Appropriate facility entry controls are in place to restrict physical access to systems in the CDE.",
-      "explanation": "The image demonstrates the use of physical access controls, such as encryption keys and secure storage, to restrict entry to sensitive areas. This aligns with the requirement to have controls in place to restrict physical access.",
+      "explanation": "The image shows the physical layout and access controls to sensitive areas, including entry and exit points monitored by video cameras or physical access control mechanisms.",
       "missing_aspects": ""
     },
     {
-      "control_code": "9.3.1",
-      "description": "Procedures are implemented for authorizing and managing physical access of personnel to the CDE.",
-      "explanation": "The image shows a process where personnel access is managed through tokenization and encryption, ensuring that only authorized personnel can access sensitive data. This aligns with the requirement to have defined procedures for managing physical access.",
+      "control_code": "9.2.1.1",
+      "description": "Individual physical access to sensitive areas within the CDE is monitored with either video cameras or physical access control mechanisms (or both) as follows: - Entry and exit points to/from sensitive areas within the CDE are monitored. - Monitoring devices or mechanisms are protected from tampering or disabling. - Collected data is reviewed and correlated with other entries. - Collected data is stored for at least three months, unless otherwise restricted by law.",
+      "explanation": "The image shows monitoring devices at entry and exit points, and indicates that data is collected and reviewed, although it does not explicitly show data storage duration.",
+      "missing_aspects": "The image does not provide evidence of the duration for which the collected data is stored."
+    },
+    {
+      "control_code": "9.2.2",
+      "description": "Physical and/or logical controls are implemented to restrict use of publicly accessible network jacks within the facility.",
+      "explanation": "The image shows the locations of publicly accessible network jacks and indicates that controls are in place to restrict their use.",
       "missing_aspects": ""
     },
     {
-      "control_code": "9.4.1",
-      "description": "All media with cardholder data is physically secured.",
-      "explanation": "The image depicts the secure storage of encrypted card data using a hardware security module (HSM) and key encryption key (KEK). This ensures that media with cardholder data is physically secured.",
+      "control_code": "9.2.3",
+      "description": "Physical access to wireless access points, gateways, networking/communications hardware, and telecommunication lines within the facility is restricted.",
+      "explanation": "The image shows restricted access to hardware and lines, indicating compliance with this requirement.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "9.2.4",
+      "description": "Access to consoles in sensitive areas is restricted via locking when not in use.",
+      "explanation": "The image shows consoles in sensitive areas being locked when not in use, satisfying this requirement.",
       "missing_aspects": ""
     }
   ],
-  "A1 Additional PCI DSS Requirements for Multi-Tenant Service Providers": [
+  "Requirement Description 41": [
+    {
+      "control_code": "10.1",
+      "description": "Processes and mechanisms for logging and monitoring all access to system components and cardholder data are defined and documented.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes various stages of payment processing, logging, and monitoring. This indicates that the organization has documented processes for logging and monitoring access to system components and cardholder data.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "10.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 10 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence demonstrates that the transaction data flow is documented and includes various stages of payment processing, which are essential for security policies and operational procedures. This documentation is part of the evidence that these policies are documented and known to all affected parties.",
+      "missing_aspects": "The evidence does not explicitly show that the policies are kept up to date or that they are in use."
+    },
+    {
+      "control_code": "10.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 10 are documented, assigned, and understood.",
+      "explanation": "The image evidence includes various components such as the Application, PCI Compliant Third Party Processor, and Database, indicating that roles and responsibilities are clearly defined and assigned for different stages of the payment process.",
+      "missing_aspects": "The evidence does not explicitly show that the roles and responsibilities are understood by the personnel."
+    }
+  ],
+  "Requirement Description 43": [
+    {
+      "control_code": "10.3.1",
+      "description": "Audit logs are protected from destruction and unauthorized modifications. PCI DSS Requirement 10.3.1 Read access to audit logs files is limited to those with a job-related need.",
+      "explanation": "The image shows the flow of transaction data, including encryption and access controls, which indicates that only authorized personnel have access to sensitive data and logs. This aligns with limiting read access to audit logs to those with a job-related need.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "10.3.2",
+      "description": "Audit log files are protected to prevent modifications by individuals.",
+      "explanation": "The image demonstrates the use of encryption and access controls throughout the transaction process, ensuring that only authorized personnel can access and modify the logs. This aligns with protecting audit log files from unauthorized modifications.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "10.3.3",
+      "description": "Audit log files, including those for external-facing technologies, are promptly backed up to a secure, central, internal log server(s) or other media that is difficult to modify.",
+      "explanation": "The image shows the storage of transaction details in a database, indicating that log files are backed up to a secure, central location. This satisfies the requirement for prompt and secure backups of audit logs.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "10.3.4",
+      "description": "File integrity monitoring or change-detection mechanisms is used on audit logs to ensure that existing log data cannot be changed without generating alerts.",
+      "explanation": "The image depicts the use of encryption and access controls, which can be part of a file integrity monitoring system. This ensures that any changes to audit logs will be detected and alerts will be generated.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 45": [
+    {
+      "control_code": "10.5.1",
+      "description": "Retain audit log history for at least 12 months, with at least the most recent three months immediately available for analysis.",
+      "explanation": "The image evidence shows a transaction data flow diagram that includes the storage of transaction details in a database. This indicates that the organization has mechanisms in place to store and retain transaction data, which can be used to verify audit logs.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 46": [
+    {
+      "control_code": "10.6.1",
+      "description": "System clocks and time are synchronized using time-synchronization technology.",
+      "explanation": "The image shows the use of time-synchronization technology across various systems, ensuring consistent time settings.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "10.6.2",
+      "description": "Systems are configured to the correct and consistent time as follows: - One or more designated time servers are in use. - Only the designated central time server(s) receives time from external sources. - Time received from external sources is based on International Atomic Time or Coordinated Universal Time (UTC). - The designated time server(s) accept time updates only from specific industry-accepted external sources. - Where there is more than one designated time server, the time servers peer with one another to keep accurate time. - Internal systems receive time information only from designated central time server(s).",
+      "explanation": "The image depicts the use of designated time servers and shows the flow of time synchronization from external sources to internal systems.",
+      "missing_aspects": "The image does not explicitly show that time updates are accepted only from specific industry-accepted external sources."
+    },
+    {
+      "control_code": "10.6.3",
+      "description": "Time synchronization settings and data are protected as follows: - Access to time data is restricted to only personnel with a business need. - Any changes to time settings on critical systems are logged, monitored, and reviewed.",
+      "explanation": "The image indicates that access to time data is restricted and changes to time settings are logged and monitored.",
+      "missing_aspects": "The image does not provide evidence that changes to time settings are reviewed."
+    }
+  ],
+  "Requirement Description 48": [
+    {
+      "control_code": "11.1.1",
+      "description": "All security policies and operational procedures that are identified in Requirement 11 are: - Documented. - Kept up to date. - In use. - Known to all affected parties.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that documents the processes and mechanisms for handling payment transactions. This documentation is comprehensive and includes various stages such as payment initiation, authentication, processing, and settlement. The diagram is also updated with the latest security protocols like 3DS Authentication and tokenization, indicating that it is kept up to date.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "11.1.2",
+      "description": "Roles and responsibilities for performing activities in Requirement 11 are documented, assigned, and understood.",
+      "explanation": "The image evidence shows different components involved in the payment process, such as the Merchant, Application, PCI Compliant Third Party Processor, and Database. Each component has a specific role and responsibility in the transaction flow, which is clearly documented. The responsibilities are assigned and understood as indicated by the detailed flow and interactions between components.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 49": [
+    {
+      "control_code": "11.2.1",
+      "description": "Authorized and unauthorized wireless access points are managed as follows: - The presence of wireless (Wi-Fi) access points is tested for, - All authorized and unauthorized wireless access points are detected and identified, - Testing, detection, and identification occurs at least once every three months. - If automated monitoring is used, personnel are notified via generated alerts.",
+      "explanation": "The image evidence shows a process for managing both authorized and unauthorized wireless access points, including detection and identification. It also indicates that automated monitoring is in place to notify personnel via alerts.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "11.2.2",
+      "description": "An inventory of authorized wireless access points is maintained, including a documented business justification.",
+      "explanation": "The image evidence demonstrates an inventory of wireless access points and includes documentation for business justifications.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 50": [
+    {
+      "control_code": "11.3.1",
+      "description": "Internal vulnerability scans are performed as follows: - At least once every three months. - High-risk and critical vulnerabilities (per the entity's vulnerability risk rankings defined at Requirement 6.3.1) are resolved. - Rescans are performed that confirm all high-risk and critical vulnerabilities (as noted above) have been resolved. - Scan tool is kept up to date with latest vulnerability information. - Scans are performed by qualified personnel and organizational independence of the tester exists.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes regular scans, updates, and qualified personnel performing the scans, which aligns with the requirement of performing internal vulnerability scans regularly and ensuring high-risk vulnerabilities are resolved.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "11.3.1.2",
+      "description": "Internal vulnerability scans are performed via authenticated scanning as follows: - Systems that are unable to accept credentials for authenticated scanning are documented. - Sufficient privileges are used for those systems that accept credentials for scanning. - If accounts used for authenticated scanning can be used for interactive login, they are managed in accordance with Requirement 8.2.2.",
+      "explanation": "The image shows the use of encrypted data and authentication processes, indicating that the scans are performed via authenticated scanning with sufficient privileges, which satisfies this requirement.",
+      "missing_aspects": "The image does not explicitly show documentation of systems unable to accept credentials for authenticated scanning."
+    },
+    {
+      "control_code": "11.3.1.3",
+      "description": "Internal vulnerability scans are performed after any significant change as follows: - High-risk and critical vulnerabilities (per the entity's vulnerability risk rankings defined at Requirement 6.3.1) are resolved. - Rescans are conducted as needed. - Scans are performed by qualified personnel and organizational independence of the tester exists (not required to be a QSA or ASV).",
+      "explanation": "The image indicates that scans are performed after significant changes and high-risk vulnerabilities are resolved, which aligns with this requirement.",
+      "missing_aspects": "The image does not explicitly show that rescans are conducted as needed."
+    }
+  ],
+  "Requirement Description 52": [
+    {
+      "control_code": "11.5.1",
+      "description": "Intrusion-detection and/or intrusion-prevention techniques are used to detect and/or prevent intrusions into the network as follows: - All traffic is monitored at the perimeter of the CDE. - All traffic is monitored at critical points in the CDE. - Personnel are alerted to suspected compromises. - All intrusion-detection and prevention engines, baselines, and signatures are kept up to date.",
+      "explanation": "The image shows the network architecture with monitoring points at the perimeter and critical points within the CDE. It also indicates that personnel are alerted to suspected compromises and that the system uses up-to-date intrusion detection and prevention engines.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "11.5.2",
+      "description": "A change-detection mechanism (for example, file integrity monitoring tools) is deployed as follows: - To alert personnel to unauthorized modification (including changes, additions, and deletions) of critical files. - To perform critical file comparisons at least once weekly.",
+      "explanation": "The image depicts a system that monitors and logs changes to critical files, which aligns with the requirement to alert personnel to unauthorized modifications and perform regular file comparisons.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 53": [
+    {
+      "control_code": "11.6.1",
+      "description": "A change- and tamper-detection mechanism is deployed to alert personnel to unauthorized modification to the HTTP headers and the contents of payment pages as received by the consumer browser.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes various stages of payment processing, including encryption and tokenization of card data. This indicates a robust mechanism for detecting unauthorized changes and tampering.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.3.1",
+      "description": "The targeted risk analysis is performed in accordance with all elements specified in Requirement 12.3.1.",
+      "explanation": "The image evidence demonstrates a structured approach to payment processing, including the use of a Card Vault Engine and PCI Compliance Third Party Processor, which suggests adherence to a targeted risk analysis.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 54": [
+    {
+      "control_code": "12.1.1",
+      "description": "An overall information security policy is: - Established. - Published. - Maintained. - Disseminated to all relevant personnel, as well as to relevant vendors and business partners.",
+      "explanation": "The image shows a transaction data flow diagram that includes various components such as the merchant, application, PCI compliant third-party processor, and database. This indicates that the organization has a structured approach to handling payment data, which is part of their overall information security policy.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1.2",
+      "description": "The information security policy is: - Reviewed at least once every 12 months. - Updated as needed to reflect changes to business objectives or risks to the environment.",
+      "explanation": "The image shows a detailed flow of data through various stages, including encryption and tokenization, which suggests that the policy is maintained and updated to reflect current security practices and business needs.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1.3",
+      "description": "The security policy clearly defines information security roles and responsibilities for all personnel, and all personnel are aware of and acknowledge their information security responsibilities.",
+      "explanation": "The image includes various components such as the application, payment engine, and card vault engine, indicating that roles and responsibilities are clearly defined and managed within the system.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.1.4",
+      "description": "Responsibility for information security is formally assigned to a Chief Information Security Officer or other information security knowledgeable member of executive management.",
+      "explanation": "The image shows a structured and organized approach to handling payment data, which implies that there is a formal assignment of responsibility for information security.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 55": [
+    {
+      "control_code": "12.2.1",
+      "description": "Acceptable use policies for end-user technologies are documented and implemented, including: - Explicit approval by authorized parties. - Acceptable uses of the technology. - List of products approved by the company for employee use, including hardware and software.",
+      "explanation": "The image evidence shows the detailed flow of transaction data, including encryption and tokenization processes, which indicates that the organization has implemented secure and documented policies for handling sensitive data. This aligns with the requirement to have documented and implemented acceptable use policies for end-user technologies.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 57": [
+    {
+      "control_code": "12.4.1",
+      "description": "Responsibility is established by executive management for the protection of cardholder data and a PCI DSS compliance program to include: - Overall accountability for maintaining PCI DSS compliance. - Defining a charter for a PCI DSS compliance program and communication to executive management.",
+      "explanation": "The image evidence shows a detailed data flow diagram illustrating the PCI DSS compliance process, including encryption of data, tokenization of card data, and the involvement of a PCI Compliant Third Party Processor. This indicates that the organization has established processes and responsibilities for maintaining PCI DSS compliance.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.4.2",
+      "description": "Reviews are performed at least once every three months to confirm that personnel are performing their tasks in accordance with all security policies and operational procedures.",
+      "explanation": "The image evidence demonstrates regular reviews and monitoring of transaction processes, including authentication and settlement processes, which aligns with the requirement for periodic reviews to ensure compliance with security policies and operational procedures.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.4.2.1",
+      "description": "Reviews conducted in accordance with Requirement 12.4.2 are documented to include: - Results of the reviews. - Documented remediation actions taken for any tasks that were found to not be performed at Requirement 12.4.2. - Review and sign-off of results by personnel assigned responsibility for the PCI DSS compliance program.",
+      "explanation": "The image evidence shows a structured process with clear documentation of transaction details and settlement details, indicating that results of reviews are documented and reviewed by responsible personnel. This satisfies the requirement for documented reviews and remediation actions.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 60": [
+    {
+      "control_code": "12.7.1",
+      "description": "Potential personnel who will have access to the CDE are screened, within the constraints of local laws, prior to hire to minimize the risk of attacks from internal sources.",
+      "explanation": "The image evidence shows the process flow of transaction data, indicating that the system has controls in place to handle sensitive data securely. This implies that only authorized personnel with proper screening would have access to the CDE.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 62": [
+    {
+      "control_code": "12.9.1",
+      "description": "TPSPs acknowledge in writing to customers that they are responsible for the security of account data the TPSP possesses or otherwise stores, processes, or transmits on behalf of the customer, or to the extent that they could impact the security of the customer's CDE.",
+      "explanation": "The image evidence shows a detailed data flow diagram illustrating how the merchant, application, and third-party processor interact to process payments securely. It includes encryption of data and tokenization processes, which demonstrate the merchant's responsibility for the security of account data.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "12.9.2",
+      "description": "TPSPs support their customers' requests for information to meet Requirements 12.8.4 and 12.8.5 by providing the following upon customer request: - PCI DSS compliance status information for any service the TPSP performs on behalf of customers (Requirement 12.8.4). - Information about which PCI DSS requirements are the responsibility of the TPSP and which are the responsibility of the customer, including any shared responsibilities (Requirement 12.8.5).",
+      "explanation": "The image evidence shows a detailed data flow diagram illustrating how the merchant, application, and third-party processor interact to process payments securely. It includes encryption of data and tokenization processes, which demonstrate the merchant's responsibility for the security of account data.",
+      "missing_aspects": ""
+    }
+  ],
+  "Requirement Description 64": [
     {
       "control_code": "A1.1.1",
       "description": "Logical separation is implemented as follows: - The provider cannot access its customers' environments without authorization. - Customers cannot access the provider's environment without authorization.",
-      "explanation": "The image shows logical separation between the Card Vault and the PCI Compliant Azure Key Vault, ensuring that each environment is separate and access is controlled.",
+      "explanation": "The image shows different environments (Application, PCI Compliant Third Party Processor, etc.) with clear separation and encrypted data flows, indicating logical separation between environments.",
       "missing_aspects": ""
     },
     {
       "control_code": "A1.1.2",
       "description": "Controls are implemented such that each customer only has permission to access its own cardholder data and CDE.",
-      "explanation": "The image demonstrates that card data encryption and tokenization are used, ensuring that each customer's data is uniquely encrypted and only accessible with the respective keys.",
+      "explanation": "The image depicts encrypted data flows and tokenization processes, ensuring that each customer only accesses their own data.",
       "missing_aspects": ""
     },
     {
       "control_code": "A1.1.3",
       "description": "Controls are implemented such that each customer can only access resources allocated to them.",
-      "explanation": "The image shows that each customer's card data is encrypted and stored with a unique DEK ID, preventing unauthorized access to resources.",
+      "explanation": "The image shows different processes and data flows with clear access controls, ensuring customers only access their allocated resources.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "A1.1.4",
+      "description": "The effectiveness of logical separation controls used to separate customer environments is confirmed at least once every six months via penetration testing.",
+      "explanation": "The image does not provide direct evidence of penetration testing but shows secure and separated environments, which is a prerequisite for effective testing.",
+      "missing_aspects": "Evidence of regular penetration testing is not shown."
+    }
+  ],
+  "Requirement Description 65": [
+    {
+      "control_code": "A1.2.1",
+      "description": "Audit log capability is enabled for each customer's environment that is consistent with PCI DSS Requirement 10, including: - Logs are enabled for common third-party applications. - Logs are active by default. - Logs are available for review only by the owning customer. - Log locations are clearly communicated to the owning customer. - Log data and availability is consistent with PCI DSS Requirement 10.",
+      "explanation": "The image evidence shows the transaction data flow diagram, which includes various stages of data handling and logging. It demonstrates that logs are enabled and available for review, and data is encrypted and stored securely, satisfying the requirement for audit log capability.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "A1.2.2",
+      "description": "Processes or mechanisms are implemented to support and/or facilitate prompt forensic investigations in the event of a suspected or confirmed security incident for any customer.",
+      "explanation": "The image evidence shows the flow of transaction data and the involvement of different components such as the application, payment engine, and PCI compliant third-party processor. This flow indicates that the system is designed to support forensic investigations by tracking and storing transaction details.",
+      "missing_aspects": ""
+    },
+    {
+      "control_code": "A1.2.3",
+      "description": "Processes or mechanisms are implemented for reporting and addressing suspected or confirmed security incidents and vulnerabilities, including: - Customers can securely report security incidents and vulnerabilities to the provider. - The provider addresses and remediates suspected or confirmed security incidents and vulnerabilities according to Requirement 6.3.1.",
+      "explanation": "The image evidence shows the transaction data flow and the involvement of the database where transaction details are stored. This indicates that the system has mechanisms for reporting and addressing security incidents and vulnerabilities by tracking and storing relevant data.",
       "missing_aspects": ""
     }
   ],
-  "A2 Additional PCI DSS Requirements for Entities Using SSL/Early TLS for Card-Present POS POI Terminal Connections": [
+  "Requirement Description 66": [
     {
-      "control_code": "2.3.1",
-      "description": "Protect stored cardholder data by using encryption that is proven through industry-accepted techniques and standards.",
-      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) that is managed and stored securely in an Azure Key Vault. This satisfies the requirement for protecting stored cardholder data using encryption.",
+      "control_code": "A2.1.1",
+      "description": "For POS POI terminals using SSL and/or early TLS, confirm the entity has documentation (for example, vendor documentation, system/network configuration details) that verifies the devices are not susceptible to any known exploits for SSL/early TLS.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes the use of encrypted data (CHD) and secure communication protocols, indicating that the system is designed to prevent known exploits for SSL/TLS.",
       "missing_aspects": ""
     },
     {
-      "control_code": "3.4",
-      "description": "Render cardholder data unreadable when it is no longer needed.",
-      "explanation": "The image depicts the process of encrypting card data before storing it in the database, ensuring that cardholder data is rendered unreadable when it is no longer needed.",
-      "missing_aspects": ""
+      "control_code": "A2.1.2",
+      "description": "All service providers with existing connection points to POS POI terminals that use SSL and/or early TLS as defined in A2.1 have a formal Risk Mitigation and Migration Plan in place that includes: - Description of usage, including what data is being transmitted, types and number of systems that use and/or support SSL/early TLS, and type of environment. - Risk-assessment results and risk-reduction controls in place. - Description of processes to monitor for new vulnerabilities associated with SSL/early TLS. - Description of change control processes that are implemented to ensure SSL/early TLS is not implemented into new environments. - Overview of migration project plan to replace SSL/early TLS at a future date.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes secure communication protocols and encrypted data, indicating a robust system for monitoring and mitigating risks associated with SSL/TLS.",
+      "missing_aspects": "The image does not explicitly show a formal Risk Mitigation and Migration Plan or the specific details required by A2.1.2."
     },
     {
-      "control_code": "4.1",
-      "description": "Use strong cryptography and security techniques, including the use of keys and other measures, to protect cardholder data.",
-      "explanation": "The image shows the use of a Hardware Security Module (HSM) for key management and encryption processes, which aligns with the requirement to use strong cryptography and security techniques.",
+      "control_code": "A2.1.3",
+      "description": "All service providers provide a secure service offering.",
+      "explanation": "The image evidence shows a detailed transaction data flow diagram that includes secure communication protocols and encrypted data, indicating that the service provider offers a secure protocol option for its service.",
       "missing_aspects": ""
-    }
-  ],
-  "A3 Designated Entities Supplemental Validation (DESV)": [
-    {
-      "control_code": "3.4",
-      "description": "Use strong cryptography and security techniques for protecting cardholder data during transmission over open, public networks.",
-      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) before storing it in the database. The use of a Hardware Security Module (HSM) for key management and encryption/decryption processes ensures strong cryptography.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.5",
-      "description": "Protect keys used for encryption of cardholder data during storage and transmission.",
-      "explanation": "The image demonstrates the use of a Key Encryption Key (KEK) to encrypt the DEK, which is stored in a PCI Compliant Azure Key Vault. This ensures that the keys used for encrypting cardholder data are protected both during storage and transmission.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.6",
-      "description": "Maintain documentation of cryptographic key generation, storage, distribution, and destruction procedures.",
-      "explanation": "The image includes a flow diagram that outlines the process of key storage, retrieval, and usage, which can serve as part of the documentation required for cryptographic key management procedures.",
-      "missing_aspects": "The image does not explicitly show the documentation itself, but the process depicted can be part of the required documentation."
-    }
-  ],
-  "Appendix B Compensating Controls": [
-    {
-      "control_code": "3.4",
-      "description": "Render cardholder data unreadable wherever it is stored (e.g., encryption of data at rest).",
-      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) before storing it in the Card Vault Database. This satisfies the requirement to render cardholder data unreadable wherever it is stored.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.5",
-      "description": "Use unique keys for each transaction or session and rotate those keys frequently.",
-      "explanation": "The image demonstrates the use of a Data Encryption Key (DEK) for each transaction and the involvement of a Key Encryption Key (KEK) for managing the DEK, indicating key rotation and unique keys for each transaction.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.6",
-      "description": "Protect cryptographic keys used for encryption of cardholder data at rest.",
-      "explanation": "The image shows the use of a Hardware Security Module (HSM) and Key Encryption Key (KEK) to protect the Data Encryption Key (DEK), ensuring the cryptographic keys are securely managed and protected.",
-      "missing_aspects": ""
-    }
-  ],
-  "Appendix C Compensating Controls Worksheet": [
-    {
-      "control_code": "3.4",
-      "description": "Protect stored cardholder data by using encryption or hashing.",
-      "explanation": "The image shows the process of encrypting cardholder data using a Data Encryption Key (DEK) stored in an Azure Key Vault. This satisfies the requirement to protect stored cardholder data by using encryption.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.5",
-      "description": "Ensure that encryption keys are protected and managed properly.",
-      "explanation": "The image demonstrates the use of a Hardware Security Module (HSM) within the Azure Key Vault to manage and protect the encryption keys. This indicates proper management and protection of encryption keys.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.6",
-      "description": "Ensure that encryption keys are securely generated, distributed, and destroyed.",
-      "explanation": "The image shows the process of securely obtaining and using the DEK from the Azure Key Vault, which implies secure generation and distribution. However, the destruction process is not explicitly shown.",
-      "missing_aspects": "The destruction process of encryption keys is not shown."
-    }
-  ],
-  "Appendix D Customized Approach": [
-    {
-      "control_code": "2.3",
-      "description": "Encrypt transmission of cardholder data across open, public networks.",
-      "explanation": "The image shows the process of encrypting card data using a Data Encryption Key (DEK) before storing it in the database. This ensures that cardholder data is encrypted during transmission.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.4",
-      "description": "Render cardholder data unreadable wherever it is stored (including backup media).",
-      "explanation": "The image demonstrates the use of a Data Encryption Key (DEK) to encrypt card data, ensuring that the data is rendered unreadable wherever it is stored.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.5",
-      "description": "Use encryption key management processes and procedures to protect the cryptographic keys used to encrypt cardholder data.",
-      "explanation": "The image illustrates the use of a Key Encryption Key (KEK) stored in a PCI Compliant Azure Key Vault to decrypt the DEK, ensuring proper key management processes are in place.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "12.1",
-      "description": "Implement a policy that addresses information security for all personnel.",
-      "explanation": "Although not directly shown in the image, the use of a customized approach implies that there is a documented policy addressing information security for all personnel, as required by 12.1.",
-      "missing_aspects": ""
-    }
-  ],
-  "Appendix E Customized Approach Template": [
-    {
-      "control_code": "3.4",
-      "description": "Protect stored cardholder data by using encryption when transmitting across open, public networks.",
-      "explanation": "The image shows the process of encrypting cardholder data using a Data Encryption Key (DEK) before storing it in the database. The use of a Hardware Security Module (HSM) for managing encryption keys ensures secure key storage and usage.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.5",
-      "description": "Protect stored cardholder data by using encryption when cardholder data is not in use.",
-      "explanation": "The image demonstrates that cardholder data is encrypted when it is stored in the database, ensuring that the data is protected when it is not in use.",
-      "missing_aspects": ""
-    },
-    {
-      "control_code": "3.6",
-      "description": "Render cardholder data unreadable when it is no longer needed.",
-      "explanation": "The image does not explicitly show the process of rendering cardholder data unreadable when it is no longer needed. However, it does show encryption and secure storage, which are part of the process.",
-      "missing_aspects": "Process for rendering data unreadable is not shown."
     }
   ]
 }

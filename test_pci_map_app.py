@@ -28,7 +28,7 @@ def save_json_file(data, filename):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 # Path to processed PDF sections (JSON file)
-pdf_sections_file = "test_code/pdf_split_sect.json" #"open-source-pipeline/processed_pci_chunks.json" #open-source-pipeline/
+pdf_sections_file = "test_code/req_sections.json" #"test_code/pdf_split_sect.json" 
 
 #------------------
 # Image OCR 
